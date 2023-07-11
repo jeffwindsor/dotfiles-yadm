@@ -77,10 +77,18 @@ if command -v bat &>/dev/null; then
 fi
 
 if command -v yadm &>/dev/null; then
-  alias y='yadm'
-  alias ya='yadm add'
-  alias ys='yadm status'
-  alias yph='yadm push'
+  function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
+  function yadm-commit-push(){ yadm-commit $1 && yadm push }
+
+  alias ya="yadm add"
+  alias ycm="yadm-commit"
+  alias yl="yadm-log-graph"
+  alias yll="yadm log"
+  alias yph="yadm push"
+  alias ypl="yadm pull"
+  alias yr="yadm remote -vv"
+  alias ys="yadm status -sb --ignore-submodules"
+  alias yup="yadm-commit-push"
 
   alias nxstow="yadm add $HOME/.config/installs/nixos/*.nix"
 fi
