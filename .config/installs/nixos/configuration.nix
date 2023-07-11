@@ -37,7 +37,8 @@
     jetbrains-mono
 
     # dotfile management
-    chezmoi
+    #chezmoi
+    yadm
 
     # editors
     helix
