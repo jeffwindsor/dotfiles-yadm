@@ -78,9 +78,10 @@ fi
 
 if command -v yadm &>/dev/null; then
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
-  function yadm-commit-push(){ yadm-commit $1 && yadm push }
+  function yadm-add-commit-push(){ yadm ls-files --modified | xargs yadm add && yadm-commit $1 && yadm push }
 
   alias ya="yadm add"
+  alias yaa="yadm ls-files --modified | xargs yadm add"
   alias ycm="yadm-commit"
   alias yl="yadm-log-graph"
   alias yll="yadm log"
@@ -88,7 +89,7 @@ if command -v yadm &>/dev/null; then
   alias ypl="yadm pull"
   alias yr="yadm remote -vv"
   alias ys="yadm status -sb --ignore-submodules"
-  alias yup="yadm-commit-push"
+  alias yup="yadm-add-commit-push"
 
   alias nxstow="yadm add $HOME/.config/installs/nixos/*.nix"
 fi
