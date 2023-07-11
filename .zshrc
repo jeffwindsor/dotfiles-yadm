@@ -80,6 +80,7 @@ if command -v yadm &>/dev/null; then
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
   function yadm-add-commit-push(){ yadm ls-files --modified | xargs yadm add && yadm-commit $1 && yadm push }
 
+  alias y="yadm"
   alias ya="yadm add"
   alias yaa="yadm ls-files --modified | xargs yadm add"
   alias ycm="yadm-commit"
