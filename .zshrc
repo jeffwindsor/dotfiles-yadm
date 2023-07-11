@@ -76,24 +76,33 @@ if command -v bat &>/dev/null; then
     alias cat='bat'
 fi
 
-if command -v chezmoi &>/dev/null; then
-  #alias c2t='chezmoi chattr +template'
-  alias c='chezmoi'
-  alias ca='chezmoi add'
-  alias ce='chezmoi edit'
-  alias cph='chezmoi git push'
-  alias cs='chezmoi status'
+if command -v yadm &>/dev/null; then
+  alias y='yadm'
+  alias ya='yadm add'
+  alias ys='yadm status'
+  alias yph='yadm push'
 
-  alias nxstow="chezmoi add $HOME/.config/installs/nixos/*.nix"
-
-  # chezmoi has a config for editor to use, defaults to $EDITOR
-  # clist='chezmoi list -i files -p absolute'
-  # cpick='fzf --preview="bat --color=always --style=numbers {}"'
-  # cedit='xargs chezmoi edit --apply'
-  # alias configsc="$clist | $cpick | $cedit"
-  # alias dotsc="$clist | $cpick | $cedit"
-  # alias insc="$clist | rg installs | $cpick | $cedit"
+  alias nxstow="yadm add $HOME/.config/installs/nixos/*.nix"
 fi
+
+# if command -v chezmoi &>/dev/null; then
+#   #alias c2t='chezmoi chattr +template'
+#   alias c='chezmoi'
+#   alias ca='chezmoi add'
+#   alias ce='chezmoi edit'
+#   alias cph='chezmoi git push'
+#   alias cs='chezmoi status'
+#
+#   alias nxstow="chezmoi add $HOME/.config/installs/nixos/*.nix"
+#
+#   # chezmoi has a config for editor to use, defaults to $EDITOR
+#   # clist='chezmoi list -i files -p absolute'
+#   # cpick='fzf --preview="bat --color=always --style=numbers {}"'
+#   # cedit='xargs chezmoi edit --apply'
+#   # alias configsc="$clist | $cpick | $cedit"
+#   # alias dotsc="$clist | $cpick | $cedit"
+#   # alias insc="$clist | rg installs | $cpick | $cedit"
+# fi
 
 if command -v exa &>/dev/null; then
   alias l='exa -F --group-directories-first'
