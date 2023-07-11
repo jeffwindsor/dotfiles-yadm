@@ -1,0 +1,17 @@
+window:
+  padding:
+      x: 4
+      y: 4
+  opacity: 0.98
+  #decorations: none
+
+cursor: 
+  style: Block
+
+font:
+  normal:
+    family: JetBrains Mono
+  size: 12
+
+key_bindings:
+  - { key: Q, mods: Command, action: Quit }

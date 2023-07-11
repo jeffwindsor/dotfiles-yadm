@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+cd "$(dirname "${0}")" || exit
+clear
+###############################################################################
+ssh-keygen -t ed25519 -C "jeff.windsor@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+echo "========================================================================="
+echo "Add ssh public key to Github"
+cat $HOME/.ssh/*.pub
+echo "Hit Any key when completed"
+read -r
+echo "\n==> Pulling and applying dotfiles"
+chezmoi init --apply "https://github.com/jeffwindsor/dotfiles-chezmoi"
+
+echo "\n==> Cloning Personal Github Repos"
+git clone git@github.com:jeffwindsor/financials.git "$HOME"/Source/github.com/jeffwindsor/financials
+git clone git@github.com:jeffwindsor/startpage.git "$HOME"/Source/github.com/jeffwindsor/startpage
