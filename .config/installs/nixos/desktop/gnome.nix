@@ -1,48 +1,5 @@
 { config, pkgs, ... }:{
 
-  environment.systemPackages = with pkgs; [
-
-    # shows old-school icons in tray (some programs need this, like mega sync)
-    gnomeExtensions.appindicator
-
-    # add some modern blurrrr to the de
-    gnomeExtensions.blur-my-shell
-
-    # stay awake
-    gnomeExtensions.caffeine
-
-    # taskbar quotes
-    gnomeExtensions.executor
-    fortune
-
-    # tiling window manager
-    gnomeExtensions.forge
-
-    # tweaks to gnome visuals
-    gnomeExtensions.just-perfection
-
-    # weather in the taskbar
-    gnomeExtensions.openweather
-
-    # display of workspaces (like i3)
-    gnomeExtensions.space-bar
-
-    # display system informatio in the taskbar
-    #gnomeExtensions.system-monitor
-
-    # auto switch wallpapers
-    gnomeExtensions.wallpaper-switcher
-
-    # improved extension manager
-    gnome-extension-manager
-
-    # firmware application
-    gnome-firmware
-
-    # terminal to clipboard manager
-    xclip
-  ];
-
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
@@ -50,4 +7,39 @@
     layout = "us";
     xkbVariant = "";
   };
+
+  environment.systemPackages = with pkgs; [
+    fortune
+    gnome-extension-manager           # improved extension manager
+    gnome-firmware                    # firmware application
+    gnomeExtensions.appindicator      # shows old-school icons in tray (some programs need this, like mega sync)
+    gnomeExtensions.blur-my-shell     # add some modern blurrrr to the de
+    gnomeExtensions.caffeine          # stay awake
+    gnomeExtensions.executor          # taskbar quotes
+    gnomeExtensions.forge             # tiling window manager
+    gnomeExtensions.just-perfection   # tweaks to gnome visuals
+    gnomeExtensions.openweather       # weather in the taskbar
+    gnomeExtensions.space-bar         # display of workspaces (like i3)
+    #gnomeExtensions.system-monitor    # display system informatio in the taskbar
+    gnomeExtensions.wallpaper-switcher # auto switch wallpapers
+    xclip                             # terminal to clipboard manager
+  ];
+
+  # uneeded applications with the normal gnome
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    gnome.cheese      # webcam tool
+    gnome.gnome-music
+    gnome.epiphany    # web browser
+    gnome.geary       # email reader
+    gnome.tali        # poker game
+    gnome.iagno       # go game
+    gnome.hitori      # sudoku game
+    gnome.atomix      # puzzle game
+    gnome.yelp        # Help view
+    gnome.gnome-contacts
+    gnome.gnome-initial-setup
+  ]);
+
 }
