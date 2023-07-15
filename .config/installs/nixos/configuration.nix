@@ -1,13 +1,15 @@
 { config, pkgs, ... }:{
 
   imports = [
-    ./desktop/gnome.nix
-    ./component/zsh.nix
-    ./component/nixos.nix
-    ./service/laptop.nix
-    ./service/ntfs.nix
-    ./service/audio.nix
-    ./service/printing.nix
+    ./module/gnome.nix
+    ./module/nixos.nix
+    ./module/zsh.nix
+
+    ./module/audio.nix
+    ./module/laptop.nix
+    ./module/ntfs.nix
+    ./module/printing.nix
+
     ./hardware-configuration.nix
   ];
 
@@ -27,11 +29,15 @@
 
     # terminals
     alacritty
+    wezterm
+    st
+    xterm
 
     # web browsers
     chromium
     firefox
     google-chrome
+    librewolf
 
     # fonts
     jetbrains-mono
@@ -71,7 +77,7 @@
     newsflash     # rss
     obsidian      # markdown editor
     spotify       # music service
-    transmission-gtk
+    transmission-gtk  # bit torrent
     vlc           # media player
 
   ];
