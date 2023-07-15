@@ -44,6 +44,7 @@ alias hubs="exec-on-git-repos cd $SRC/github.com/"
 alias srcs="exec-on-git-repos cd $SRC"
 alias theme="$XDG_CONFIG_HOME/alacritty/change_theme"
 
+alias f='freshfetch'
 alias zs="$EDITOR -c \":args $HOME/.zshrc $HOME/.zshenv $HOME/.bashrc\""
 
 if command -v bat &>/dev/null; then
