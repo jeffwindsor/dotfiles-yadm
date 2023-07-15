@@ -24,18 +24,15 @@
     extraGroups   = [ "networkmanager" "wheel" ];
   };
 
+  #flatpak
+  services.flatpak.enable = true;
+
+
   # system wide packages, can put packages per user just no need yet
   environment.systemPackages = with pkgs; [
 
     # terminals
     alacritty
-    xterm
-
-    # web browsers
-    chromium
-    firefox
-    google-chrome
-    librewolf
 
     # fonts
     jetbrains-mono
@@ -65,17 +62,22 @@
     xplr          # tui file explorer
     zellij        # tmux
 
-    # applications
-    audacity      # sound engineering
-    gimp          # image manipulation
-    gnucash       # double entry accounting
-    libreoffice   # office suite
-    megasync      # cloud storage
-    newsflash     # rss
-    obsidian      # markdown editor
-    spotify       # music service
-    transmission-gtk  # bit torrent
-    vlc           # media player
+    # applications (trying flatpaks)
+    # audacity      # sound engineering
+    # gimp          # image manipulation
+    # gnucash       # double entry accounting
+    # libreoffice   # office suite
+    # megasync      # cloud storage
+    # newsflash     # rss
+    # obsidian      # markdown editor
+    # spotify       # music service
+    # transmission-gtk  # bit torrent
+    # vlc           # media player
+    # brave
+    # firefox
+    # librewolf
+    # google-chrome
+    # chromium
 
   ];
 

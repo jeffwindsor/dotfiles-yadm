@@ -30,7 +30,7 @@
     totem                       # gnome videos
     yelp                        # Help view
 
-  ];
+  ]);
 
   # system packages
   environment.systemPackages = (with pkgs; [
