@@ -10,14 +10,14 @@
 
     # garbage collection on the regular << https://nixos.wiki/wiki/Storage_optimization#Automation
     gc = {
-      automatic = true;
+    automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
   };
 
   nixpkgs.config.allowUnfree = true;    # allow more packages
-  
+
   system.autoUpgrade.enable = true;     # auto update nixos and nix packages
 
   # internationalization to be safe

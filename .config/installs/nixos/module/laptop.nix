@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     fwupd   # firmware update service
     tlp     # laptop power mgmt service
+ 
   ];
 
   # wifi

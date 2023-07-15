@@ -24,13 +24,11 @@
     extraGroups   = [ "networkmanager" "wheel" ];
   };
 
-  # system wide packages
+  # system wide packages, can put packages per user just no need yet
   environment.systemPackages = with pkgs; [
 
     # terminals
     alacritty
-    wezterm
-    st
     xterm
 
     # web browsers
@@ -43,7 +41,6 @@
     jetbrains-mono
 
     # dotfile management
-    #chezmoi
     yadm
 
     # editors
