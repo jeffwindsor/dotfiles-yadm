@@ -119,7 +119,7 @@ dconf write "${custom}3/name" "'Suspend'"
 
 
 dconf write "${custom}4/binding" "'${mod}o'"
-dconf write "${custom}4/command" "'obsidian'"
+dconf write "${custom}4/command" "'flatpak run md.obsidian.Obsidian'"
 dconf write "${custom}4/name" "'Obsidian'"
 
 dconf write "${custom}5/binding" "'${mod}e'"
@@ -128,12 +128,12 @@ dconf write "${custom}5/name" "'Extensions'"
 
 dconf write "/org/gnome/shell/extensions/forge/keybindings/con-split-layout-toggle" "@as []"
 dconf write "${custom}6/binding" "'${mod}g'"
-dconf write "${custom}6/command" "'gnucash'"
+dconf write "${custom}6/command" "'flatpak run org.gnucash.GnuCash'"
 dconf write "${custom}6/name" "'GNU Cash'"
 
 dconf write "/org/gnome/shell/keybindings/toggle-overview" "@as []"
 dconf write "${custom}7/binding" "'${mod}s'"
-dconf write "${custom}7/command" "'spotify'"
+dconf write "${custom}7/command" "'flatpak run com.spotify.Client'"
 dconf write "${custom}7/name" "'Spotify'"
 
 dconf write "${custom}8/binding" "'${mod}t'"

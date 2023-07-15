@@ -1,9 +1,13 @@
+#!/usr/bin/env bash
 
 # add flathub repository (only if it does not exist)
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # helper install function
-function install() { flatpak install -y "$1" }
+function install() {
+  echo "==> $@"
+  flatpak install -y "$1"
+}
 
 # applications
 # install "net.sourceforge.Klavaro"        # typing
