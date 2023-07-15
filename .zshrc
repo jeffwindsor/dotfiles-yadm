@@ -27,7 +27,6 @@ function ghc(){ git clone git@github.com:$1 $SRC/github.com/$1 }
 
 
 # Aliases
-#   https://zsh.sourceforge.io/Intro/intro_8.html#SEC8
 alias ....='cd ../../../'
 alias ...='cd ../../'
 alias ..='cd ..'
@@ -43,8 +42,6 @@ alias src="cd $SRC"
 alias hubs="exec-on-git-repos cd $SRC/github.com/"
 alias srcs="exec-on-git-repos cd $SRC"
 alias theme="$XDG_CONFIG_HOME/alacritty/change_theme"
-
-alias f='freshfetch'
 alias zs="$EDITOR -c \":args $HOME/.zshrc $HOME/.zshenv $HOME/.bashrc\""
 
 if command -v bat &>/dev/null; then
@@ -84,6 +81,10 @@ else
   alias la='ls -a'
   alias ll='ls -l'
   alias lla='ls -la'
+fi
+
+if command -v freshfetch &>/dev/null; then
+  alias f='freshfetch'
 fi
 
 if [ -n "${commands[fzf-share]}" ]; then
@@ -126,14 +127,14 @@ if command -v lazygit &>/dev/null; then
 fi
 
 if command -v nvim &>/dev/null; then
-  # open folder in nvim with telescope
-  tscope="nvim -c \":Telescope find_files"
+  # yadm list -a | sd '^' "$HOME/"
 
   alias v='nvim'
-  alias fins="$tscope cwd=$HOME/portable/financials\""
-  alias configs="$tscope cwd=$XDG_CONFIG_HOME\""
-  alias dots="$tscope find_command=chezmoi,list,-i,files,-p,absolute\""
-  alias ins="$tscope cwd=$INSTALLS\""
+  alias fins="nvim -c \":Telescope find_files cwd=$HOME/portable/financials\""
+  alias configs="nvim -c \":Telescope find_files cwd=$XDG_CONFIG_HOME\""
+  alias dots="nvim -c \":Telescope find_files find_command=yadm,list,-a\""
+  alias dots2="nvim -c \":Telescope find_files find_command=yadm,list,-a,|,sd,'^','~/'\""
+  alias ins="nvim -c \":Telescope find_files cwd=$INSTALLS\""
 fi
 
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
