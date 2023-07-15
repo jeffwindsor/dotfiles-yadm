@@ -7,24 +7,6 @@
 # Shell Functions
 #   https://zsh.sourceforge.io/Intro/intro_4.html
 
-# git commit with a default comment of 'Refactor'
-function git-commit(){ git commit -m ${1:-'Refactor'} }
-function git-add-commit(){ git add --all && git-commit $1 }
-function git-add-commit-push(){ git-add-commit $1 && git push }
-# pretty git log using format set in .zshenv: GIT_LOG_PRETTY_FORMAT. Max count defaults to 10
-function git-log-graph(){ git log --graph --pretty=format:${GIT_LOG_PRETTY_FORMAT} --abbrev-commit --max-count=${1:-10} }
-# find all directories ending in .git (including hidden and ignored listings)
-function git-find-dirs(){ fd '^.git$' $1 -HItd --max-depth 4 | sed 's/.git\/$//' }
-# apply git command to current directory contents
-function git-all(){ ls | xargs -I{} git -C {} $1 }
-# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
-function exec-on-git-repos() {
-  local result=$(git-find-dirs $2 | fzf --reverse)
-  [ ! -z "$result" ] && $1 $result
-}
-# git clone from git hub to my source directory
-function ghc(){ git clone git@github.com:$1 $SRC/github.com/$1 }
-
 
 # Aliases
 alias ....='cd ../../../'
@@ -49,17 +31,18 @@ if command -v bat &>/dev/null; then
 fi
 
 if command -v yadm &>/dev/null; then
-  function yadm-add-modified(){ yadm ls-files --modified | xargs yadm add }
+  # function yadm-list() { yadm list -a | sd '^' "$HOME/" }
+  # function yadm-add-modified(){ yadm-list | xargs yadm add }
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
-  function yadm-add-modified-commit-push(){ yadm-add-modified && yadm-commit $1 && yadm push }
-  
+  # function yadm-add-modified-commit-push(){ yadm-add-modified && yadm-commit $1 && yadm push }
+  function yadm-log-graph(){ yadm log --graph --pretty=format:${GIT_LOG_PRETTY_FORMAT} --abbrev-commit --max-count=${1:-10} }
   # `d` for dotifles
   alias d="yadm"
   alias da="yadm add"
   alias ds="yadm status -sb --ignore-submodules"
-  alias dup="yadm-add-modified-commit-push"
+  # alias dup="yadm-add-modified-commit-push"
 
-  alias daa="yadm-add-modified"
+  # alias daa="yadm-add-modified"
   alias dcm="yadm-commit"
   alias dl="yadm-log-graph"
   alias dll="yadm log"
@@ -94,6 +77,25 @@ if [ -n "${commands[fzf-share]}" ]; then
 fi
 
 if command -v git &>/dev/null; then
+
+  # git commit with a default comment of 'Refactor'
+  function git-commit(){ git commit -m ${1:-'Refactor'} }
+  function git-add-commit(){ git add --all && git-commit $1 }
+  function git-add-commit-push(){ git-add-commit $1 && git push }
+  # pretty git log using format set in .zshenv: GIT_LOG_PRETTY_FORMAT. Max count defaults to 10
+  function git-log-graph(){ git log --graph --pretty=format:${GIT_LOG_PRETTY_FORMAT} --abbrev-commit --max-count=${1:-10} }
+  # find all directories ending in .git (including hidden and ignored listings)
+  function git-find-dirs(){ fd '^.git$' $1 -HItd --max-depth 4 | sed 's/.git\/$//' }
+  # apply git command to current directory contents
+  function git-all(){ ls | xargs -I{} git -C {} $1 }
+  # prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
+  function exec-on-git-repos() {
+    local result=$(git-find-dirs $2 | fzf --reverse)
+    [ ! -z "$result" ] && $1 $result
+  }
+  # git clone from git hub to my source directory
+  function ghc(){ git clone git@github.com:$1 $SRC/github.com/$1 }
+
   alias git-to-main="git branch -m master main && git push -u origin main"
   alias ga="git add"
   alias gaa="git add --all"
