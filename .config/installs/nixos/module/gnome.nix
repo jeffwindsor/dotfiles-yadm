@@ -1,5 +1,6 @@
 { config, pkgs, ... }:{
 
+  # enable gdm and gnome
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
