@@ -52,19 +52,20 @@ if command -v yadm &>/dev/null; then
   function yadm-add-modified(){ yadm ls-files --modified | xargs yadm add }
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
   function yadm-add-modified-commit-push(){ yadm-add-modified && yadm-commit $1 && yadm push }
+  
+  # `d` for dotifles
+  alias d="yadm"
+  alias da="yadm add"
+  alias ds="yadm status -sb --ignore-submodules"
+  alias dup="yadm-add-modified-commit-push"
 
-  alias y="yadm"
-  alias ya="yadm add"
-  alias ys="yadm status -sb --ignore-submodules"
-  alias yup="yadm-add-modified-commit-push"
-
-  alias yaa="yadm-add-modified"
-  alias ycm="yadm-commit"
-  alias yl="yadm-log-graph"
-  alias yll="yadm log"
-  alias yph="yadm push"
-  alias ypl="yadm pull"
-  alias yr="yadm remote -vv"
+  alias daa="yadm-add-modified"
+  alias dcm="yadm-commit"
+  alias dl="yadm-log-graph"
+  alias dll="yadm log"
+  alias dph="yadm push"
+  alias dpl="yadm pull"
+  alias dr="yadm remote -vv"
 
   alias change="$EDITOR -c \":args $HOME/.config/installs/nixos/**/*.nix\""
   alias stow="yadm add $HOME/.config/installs/nixos/**/*.nix"
