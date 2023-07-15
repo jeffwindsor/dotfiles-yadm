@@ -68,7 +68,6 @@ alias md="cd $HOME/portable/exocortex/markdown"
 alias src="cd $SRC"
 
 alias hubs="exec-on-git-repos cd $SRC/github.com/"
-alias nxchange="$EDITOR -c \":args $HOME/.config/installs/nixos/**/*.nix\""
 alias srcs="exec-on-git-repos cd $SRC"
 alias theme="$XDG_CONFIG_HOME/alacritty/change_theme"
 
@@ -77,42 +76,26 @@ if command -v bat &>/dev/null; then
 fi
 
 if command -v yadm &>/dev/null; then
+  function yadm-add-modified(){ yadm ls-files --modified | xargs yadm add }
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
-  function yadm-add-commit-push(){ yadm ls-files --modified | xargs yadm add && yadm-commit $1 && yadm push }
+  function yadm-add-modified-commit-push(){ yadm-add-modified && yadm-commit $1 && yadm push }
 
-  alias y="yadmd"
+  alias y="yadm"
   alias ya="yadm add"
-  alias yaa="yadm ls-files --modified | xargs yadm add"
+  alias ys="yadm status -sb --ignore-submodules"
+  alias yup="yadm-add-modified-commit-push"
+
+  alias yaa="yadm-add-modified"
   alias ycm="yadm-commit"
   alias yl="yadm-log-graph"
   alias yll="yadm log"
   alias yph="yadm push"
   alias ypl="yadm pull"
   alias yr="yadm remote -vv"
-  alias ys="yadm status -sb --ignore-submodules"
-  alias yup="yadm-add-commit-push"
 
-  alias nxstow="yadm add $HOME/.config/installs/nixos/**/*.nix"
+  alias change="$EDITOR -c \":args $HOME/.config/installs/nixos/**/*.nix\""
+  alias stow="yadm add $HOME/.config/installs/nixos/**/*.nix"
 fi
-
-# if command -v chezmoi &>/dev/null; then
-#   #alias c2t='chezmoi chattr +template'
-#   alias c='chezmoi'
-#   alias ca='chezmoi add'
-#   alias ce='chezmoi edit'
-#   alias cph='chezmoi git push'
-#   alias cs='chezmoi status'
-#
-#   alias nxstow="chezmoi add $HOME/.config/installs/nixos/*.nix"
-#
-#   # chezmoi has a config for editor to use, defaults to $EDITOR
-#   # clist='chezmoi list -i files -p absolute'
-#   # cpick='fzf --preview="bat --color=always --style=numbers {}"'
-#   # cedit='xargs chezmoi edit --apply'
-#   # alias configsc="$clist | $cpick | $cedit"
-#   # alias dotsc="$clist | $cpick | $cedit"
-#   # alias insc="$clist | rg installs | $cpick | $cedit"
-# fi
 
 if command -v exa &>/dev/null; then
   alias l='exa -F --group-directories-first'
@@ -240,7 +223,7 @@ elif command dnf &>/dev/null; then
   alias dit="sudo dnf --enablerepo=updates-testing,updates-testing-modular --best install"
   alias dls="dnf history --userinstalled"
   alias up="sudo dnf upgrade"
-  alias change="$EDITOR $HOME/.config/installs/fedora"
+  # alias change="$EDITOR $HOME/.config/installs/fedora"
 
   # fedora inits
   [ -d /usr/share/zsh-autosuggestions ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -248,11 +231,11 @@ elif command dnf &>/dev/null; then
 
 # NIXOS
 elif [ -d "/etc/nixos" ]; then
-  alias nxclean="nix-env --delete-generations +2 && nix-collect-garbage"
-  alias nxlist="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
-  alias nxoptimize="nix optimise-store"
-  alias nxrebuild="sudo cp -r $HOME/.config/installs/nixos/* /etc/nixos/ && sudo nixos-rebuild switch"
-  alias nxup="sudo nixos-rebuild switch --upgrade"
+  alias clean="nix-env --delete-generations +2 && nix-collect-garbage"
+  alias list="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
+  alias optimize="nix optimise-store"
+  alias rebuild="sudo cp -r $HOME/.config/installs/nixos/* /etc/nixos/ && sudo nixos-rebuild switch"
+  alias up="sudo nixos-rebuild switch --upgrade"
 
   # zsh plugins are set up in configuraiton.nix
 fi
