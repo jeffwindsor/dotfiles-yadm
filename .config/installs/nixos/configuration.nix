@@ -21,27 +21,19 @@
   # == System Packages ===========================================================================
   services.flatpak.enable = true;       # enable flatpaks
   environment.systemPackages = with pkgs; [
-    alacritty       # terminals
-    bat             # cat
-    exa             # ls
-    fd              # find
-    freshfetch      # neofetch replacement
+    alacritty       # terminal improvement
     fwupd           # firmware update service
-    fzf             # fuzzy finder
     gcc             # c compiler
+    tlp             # laptop power mgmt service
+    xclip           # terminal to clipboard manager (used by terminal and clipboard)
+
+    fortune         # saying that make my day
     git             # source control
     gitui           # source control tui
-    helix           # editors
+    helix           # editor (kakoune like)
     jetbrains-mono  # fonts
-    neovim          # editors
-    ripgrep         # grep
-    sd              # sed
-    starship        # prompt
-    tealdeer        # tldr
-    tlp             # laptop power mgmt service
-    xplr            # tui file explorer
+    neovim          # editor (vim like)
     yadm            # dotfile management
-    zellij          # tmux
 
   ];
 

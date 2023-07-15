@@ -9,7 +9,7 @@
     xkbVariant = "";
   };
 
-  # remove un-wanted applications from the gnome desktop manager
+  # == System Packages added by gnome enable I do not want ========================================
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos                # default photo app
     gnome-tour                  # gnome first install tour
@@ -33,16 +33,16 @@
 
   ]);
 
-  # system packages
+  # == System Packages I want as part of the gnome enable ========================================
   environment.systemPackages = (with pkgs; [
-    fortune
     gnome-extension-manager     # improved extension manager
     gnome-firmware              # firmware application
-    xclip                       # terminal to clipboard manager
 
+  # == System Packages - Gnome ===================================================================
   ]) ++ (with pkgs.gnome; [
     gnome-terminal              # simple backup terminal
 
+  # == System Packages - Gnome Extensions ========================================================
   ]) ++ (with pkgs.gnomeExtensions; [
     auto-move-windows
     appindicator                # shows old-school icons in tray (some programs need this, like mega sync)
