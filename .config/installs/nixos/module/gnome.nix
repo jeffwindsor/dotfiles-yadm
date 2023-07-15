@@ -1,6 +1,8 @@
 { config, pkgs, ... }:{
 
-  # enable gdm and gnome
+  # ===============================================================================================
+  # Enable GDM and GNOME DESKTOP
+  # ===============================================================================================
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
@@ -9,12 +11,15 @@
     xkbVariant = "";
   };
 
-  # == System Packages added by gnome enable I do not want ========================================
+  # ===============================================================================================
+  #  Exclude Packages (From Default Gnome Packages)
+  # ===============================================================================================
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos                # default photo app
     gnome-tour                  # gnome first install tour
     xterm                       # good terminal, just not what I like
 
+  # == Gnome Namespace ===================================================================
   ]) ++ (with pkgs.gnome; [
     atomix                      # puzzle game
     cheese                      # webcam tool
@@ -33,18 +38,21 @@
 
   ]);
 
-  # == System Packages I want as part of the gnome enable ========================================
+  # ===============================================================================================
+  #  Add Packages (To Personalize Gnome)
+  # ===============================================================================================
   environment.systemPackages = (with pkgs; [
     gnome-extension-manager     # improved extension manager
     gnome-firmware              # firmware application
 
-  # == System Packages - Gnome ===================================================================
+  # == Gnome Namespace ===================================================================
   ]) ++ (with pkgs.gnome; [
     gnome-terminal              # simple backup terminal
+    seahorse                    # manage encryption keys and passwords in the GnomeKeyring
 
-  # == System Packages - Gnome Extensions ========================================================
+  # == Gnome Extensions Namepspace ========================================================
   ]) ++ (with pkgs.gnomeExtensions; [
-    auto-move-windows
+    auto-move-windows           # allow the forever assignment of application to a specific desktop
     appindicator                # shows old-school icons in tray (some programs need this, like mega sync)
     blur-my-shell               # add some modern blurrrr to the de
     caffeine                    # stay awake

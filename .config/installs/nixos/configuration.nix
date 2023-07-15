@@ -1,11 +1,32 @@
 { config, pkgs, ... }:{
 
   imports = [
-    ./module/gnome.nix
-    ./module/zsh.nix
-    ./hardware-configuration.nix
+    ./module/gnome.nix                          # personal module for gnome desktop
+    ./module/zsh.nix                            # personal module for zsh
+    ./hardware-configuration.nix                # hardware setup
   ];
-https://search.nixos.org/options?channel=23.05&from=0&size=1000&sort=alpha_asc&type=packages&query=services.
+
+  # ===============================================================================================
+  #  System Packages || https://search.nixos.org/packages
+  # ===============================================================================================
+  environment.systemPackages = with pkgs; [
+    alacritty                                   # terminal improvement
+    fwupd                                       # firmware update service
+    jetbrains-mono                              # font
+    gcc                                         # c compiler
+    git                                         # source control
+    tlp                                         # laptop power mgmt service
+    xclip                                       # terminal to clipboard manager (used by terminal and clipboard)
+    podman                                      # container (non-root) service
+    distrobox                                   # wrapper for podman that links home to containers for easy test and dev envs
+    podman-desktop                              # podman management ui
+  ];
+  services.flatpak.enable = true;               # allow for user installed packages via flatpak
+
+  # ===============================================================================================
+  #  NixOs Options || https://search.nixos.org/options
+  # ===============================================================================================
+
   # == System =====================================================================================
   networking.hostName = "frame";
   time.timeZone       = "America/Los_Angeles";
@@ -16,31 +37,13 @@ https://search.nixos.org/options?channel=23.05&from=0&size=1000&sort=alpha_asc&t
     isNormalUser  = true;
     description   = "The Middle Way";
     extraGroups   = [ "networkmanager" "wheel" ];
-  };
-
-  # == System Packages ===========================================================================
-  services.flatpak.enable = true;
-  environment.systemPackages = with pkgs; [
-    alacritty       # terminal improvement
-    fwupd           # firmware update service
-    gcc             # c compiler
-    tlp             # laptop power mgmt service
-    xclip           # terminal to clipboard manager (used by terminal and clipboard)
-
-    fortune         # saying that make my day
-    git             # source control
-    gitui           # source control tui
-    helix           # editor (kakoune like)
-    jetbrains-mono  # fonts
-    neovim          # editor (vim like)
-    yadm            # dotfile management
-
-  ];
-
-  # ==
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+    packages      = with pkgs; [
+      fortune                                 # saying that make my day
+      gitui                                   # source control tui
+      helix                                   # editor (kakoune like)
+      neovim                                  # editor (vim like)
+      yadm                                    # dotfile management
+    ];
   };
 
   # == Audio Services =============================================================================
@@ -52,6 +55,12 @@ https://search.nixos.org/options?channel=23.05&from=0&size=1000&sort=alpha_asc&t
   };
   hardware.pulseaudio.enable = false;         # turn off default pulse audio to use pipewire
   security.rtkit.enable = true;               # secure real-time scheduling for user processes (recommended)
+
+  # == Boot =======================================================================================
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   # == File Services ==============================================================================
   boot.supportedFilesystems = [ "ntfs" ];     # NTFS for some of my USB Drives
