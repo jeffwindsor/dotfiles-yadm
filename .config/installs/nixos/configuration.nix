@@ -5,7 +5,7 @@
     ./module/zsh.nix
     ./hardware-configuration.nix
   ];
-
+https://search.nixos.org/options?channel=23.05&from=0&size=1000&sort=alpha_asc&type=packages&query=services.
   # == System =====================================================================================
   networking.hostName = "frame";
   time.timeZone       = "America/Los_Angeles";
@@ -19,7 +19,7 @@
   };
 
   # == System Packages ===========================================================================
-  services.flatpak.enable = true;       # enable flatpaks
+  services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     alacritty       # terminal improvement
     fwupd           # firmware update service
@@ -44,29 +44,28 @@
   };
 
   # == Audio Services =============================================================================
-  security.rtkit.enable = true;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    enable = true;                            # https://pipewire.org/
+    alsa.enable = true;                       # Advanced Linux Sound Architecture
+    alsa.support32Bit = true;                 #     with 32 bit application support
+    pulse.enable = true;                      # pulse audio emulation
   };
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;         # turn off default pulse audio to use pipewire
+  security.rtkit.enable = true;               # secure real-time scheduling for user processes (recommended)
 
   # == File Services ==============================================================================
   boot.supportedFilesystems = [ "ntfs" ];     # NTFS for some of my USB Drives
 
   # == Network Services ===========================================================================
-  networking.networkmanager.enable = true;    # Wifi manager
+  networking.networkmanager.enable = true;    # Wifi Manager
 
   # == Printing Services ===========================================================================
   services.printing.enable = true;
+  # Wifi / IPP capable printing << https://nixos.wiki/wiki/Printing#IPP_everywhere_capable_printer
   services.avahi = {
-    # IPP capable printing << https://nixos.wiki/wiki/Printing#IPP_everywhere_capable_printer
     enable = true;
     nssmdns = true;
-    # for a WiFi printer
-    openFirewall = true;
+    openFirewall = true;                      # for a WiFi printer
   };
 
   # == Upgrades and Optimization ===================================================================
@@ -74,7 +73,7 @@
   nixpkgs.config.allowUnfree = true;                    # allow more packages
   nix.settings.auto-optimise-store = true;              # optimize links
   nix.gc = {
-    automatic = true;                                 # https://nixos.wiki/wiki/Storage_optimization#Automation
+    automatic = true;                                   # garbage collection << https://nixos.wiki/wiki/Storage_optimization#Automation
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
