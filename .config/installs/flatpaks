@@ -23,7 +23,7 @@ install "com.gitlab.newsflash"            # rss reader
 install "com.spotify.Client"              # music
 install "com.transmissionbt.Transmission" # bit torrent
 install "md.obsidian.Obsidian"            # markdown editor
-install "nz.mega.MEGAsync"                # cloud storage
+# install "nz.mega.MEGAsync"                # cloud storage
 install "org.audacityteam.Audacity"       # sound engineering
 install "org.gimp.GIMP"                   # image manipulation
 install "org.gnucash.GnuCash"             # double entry accounting

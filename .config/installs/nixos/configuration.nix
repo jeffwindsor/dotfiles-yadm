@@ -11,15 +11,16 @@
   # ===============================================================================================
   environment.systemPackages = with pkgs; [
     alacritty                                   # terminal improvement
+    distrobox                                   # wrapper for podman that links home to containers for easy test and dev envs
     fwupd                                       # firmware update service
-    jetbrains-mono                              # font
     gcc                                         # c compiler
     git                                         # source control
+    jetbrains-mono                              # font
+    megasync                                    # cloud storage
+    podman                                      # container (non-root) service
+    podman-desktop                              # podman management ui
     tlp                                         # laptop power mgmt service
     xclip                                       # terminal to clipboard manager (used by terminal and clipboard)
-    podman                                      # container (non-root) service
-    distrobox                                   # wrapper for podman that links home to containers for easy test and dev envs
-    podman-desktop                              # podman management ui
   ];
   services.flatpak.enable = true;               # allow for user installed packages via flatpak
 
