@@ -58,8 +58,8 @@
 
   # == Boot =======================================================================================
   boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;               # EFI boot manager
+    efi.canTouchEfiVariables = true;          # installation can modify EFI boot variables
   };
 
   # == File Services ==============================================================================
