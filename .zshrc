@@ -30,6 +30,7 @@ if command -v bat &>/dev/null; then
     alias cat='bat'
 fi
 
+# dotfile management
 if command -v yadm &>/dev/null; then
   # function yadm-list() { yadm list -a | sd '^' "$HOME/" }
   # function yadm-add-modified(){ yadm-list | xargs yadm add }
@@ -56,6 +57,13 @@ if command -v yadm &>/dev/null; then
   alias stow="yadm add $HOME/.config/installs/nixos/**/*.nix"
 fi
 
+# grep
+if command -v rg &>/dev/null; then
+  alias grep='rg'
+  alias ar='alias | rg'
+fi
+
+# list
 if command -v exa &>/dev/null; then
   alias l='exa -F --group-directories-first'
   alias la='exa -F --group-directories-first --git --all'
@@ -73,11 +81,13 @@ if command -v freshfetch &>/dev/null; then
   alias f='freshfetch'
 fi
 
+# fuzzy finding
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
 
+# source control
 if command -v git &>/dev/null; then
 
   # git commit with a default comment of 'Refactor'
@@ -117,20 +127,18 @@ if command -v git &>/dev/null; then
   alias gup="git-add-commit-push"
   alias gsync="git checkout master && git pull --rebase && git checkout - && git rebase master"
 fi
-
 if command -v gitui &>/dev/null; then
   alias gu=gitui
 fi
-
-if command -v hx &>/dev/null; then
-  alias h='hx'
-  alias exo='hx ~/portable/exocortex'
-fi
-
 if command -v lazygit &>/dev/null; then
   alias lg=lazygit
 fi
 
+# editors
+if command -v hx &>/dev/null; then
+  alias h='hx'
+  alias exo='hx ~/portable/exocortex'
+fi
 if command -v nvim &>/dev/null; then
   # yadm list -a | sd '^' "$HOME/"
 
@@ -142,15 +150,13 @@ if command -v nvim &>/dev/null; then
   alias ins="nvim -c \":Telescope find_files cwd=$INSTALLS\""
 fi
 
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
+# version manager
 if command -v rtx &>/dev/null; then
   eval "$(rtx activate zsh)"
   alias ri="rtx install"
   alias rl="rtx list"
   alias ru="rtx use"
 fi
-
-# fast node manager - replace nvm
 if command -v fnm &>/dev/null; then
   eval "$(fnm env --use-on-cd)"
 fi
