@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-cd "$(dirname "${0}")" || exit
-
-clear
 
 ###############################################################################
 # gnome
@@ -144,7 +141,9 @@ dconf write "${custom}8/name" "'Terminal'"
 # extensions
 ###############################################################################
 # enable preferred extensions
-dconf write "/org/gnome/shell/enabled-extensions" "['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'space-bar@luchrioh', 'openweather-extension@jenslody.de', 'just-perfection-desktop@just-perfection', 'forge@jmmaranan.com', 'executor@raujonas.github.io', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'appindicatorsupport@rgcjonas.gmail.com', 'WallpaperSwitcher@Rishu']"
+dconf write "/org/gnome/shell/disabled-extensions" "['auto-move-windows@gnome-shell-extensions.gcampax.github.com']"
+dconf write "/org/gnome/shell/enabled-extensions" "['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'space-bar@luchrioh', 'openweather-extension@jenslody.de', 'just-perfection-desktop@just-perfection', 'forge@jmmaranan.com', 'executor@raujonas.github.io', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'WallpaperSwitcher@Rishu', 'clipman@popov895.ukr.net', 'appindicatorsupport@rgcjonas.gmail.com']"
+
 # set extension preferences
 # | AppIndicator      |  615
 # | Blur My Shell     | 3193
@@ -157,6 +156,7 @@ dconf write "/org/gnome/shell/extensions/executor/right-active" "false"
 # | Forge             | 4481
 dconf write "/org/gnome/shell/extensions/forge/frequency/tiling-mode-enabled" "true"
 dconf write "/org/gnome/shell/extensions/forge/frequency/window-gap-size-increment" "1"
+dconf write "/org/gnome/shell/extensions/executor/left-commands-json" "'{\"commands\":[{\"isActive\":true,\"command\":\"fortune $HOME/.config/fortune/quotes\",\"interval\":600,\"uuid\":\"e029a6a2-3ba2-424b-bcc3-bf74d39fe75a\"}]}'"
 # | Just Perfection   | 3843
 dconf write "/org/gnome/shell/extensions/just-perfection/accessibility-menu" "false"
 dconf write "/org/gnome/shell/extensions/just-perfection/activities-button" "false"
