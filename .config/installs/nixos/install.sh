@@ -3,7 +3,7 @@
 cd "$(dirname "${0}")" || exit
 clear
 
-# create initial ssh key if one does not exist
+# create a ssh key if one does not exist
 if [[ ! -f $HOME/.ssh/id_ed25519 ]]; then
   echo "==> Creating SSH Key"
   ssh-keygen -t ed25519 -C "jeff.windsor@gmail.com"
@@ -11,25 +11,24 @@ if [[ ! -f $HOME/.ssh/id_ed25519 ]]; then
   ssh-add ~/.ssh/id_ed25519
 fi
 
-# pause to have user add key to github
 echo "==> Manually Add SSH key below to Github"
 cat $HOME/.ssh/*.pub
 echo "Hit Any key to continue"
 read -r
 
-# get dotfiles
+echo "==> Cloning dotfiles"
 nix-shell -p yadm --run "yadm clone git@github.com:jeffwindsor/dotfiles.git"
 
-# copy latest config from dotfiles to etc
+echo "==> Apply NixOs configuration"
 sudo cp -r $HOME/.config/installs/nixos/*.nix /etc/nixos/
-
-# rebuild nixos
 sudo nixos-rebuild switch --upgrade
 
-# post setup
+echo "==> Post: Gnome Configuration"
 source $HOME/.config/installs/shared/gnome.sh
+echo "==> Post: Clone Repos"
 source $HOME/.config/installs/shared/github.sh
-source $HOME/.config/installs/shared/flatpak.sh
+echo "==> Post: Flatpaks"
+source $HOME/.config/installs/shared/flatpaks.sh
 
 # reboot to capture all changes
 systemctl reboot

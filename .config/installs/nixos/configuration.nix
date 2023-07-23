@@ -16,9 +16,7 @@
     gcc                                         # c compiler
     git                                         # source control
     jetbrains-mono                              # font
-    megasync                                    # cloud storage
     podman                                      # container (non-root) service
-    podman-desktop                              # podman management ui
     tlp                                         # laptop power mgmt service
     xclip                                       # terminal to clipboard manager (used by terminal and clipboard)
   ];
@@ -42,6 +40,7 @@
       fortune                                 # saying that make my day
       gitui                                   # source control tui
       helix                                   # editor (kakoune like)
+      megasync                                    # cloud storage
       neovim                                  # editor (vim like)
       yadm                                    # dotfile management
     ];
