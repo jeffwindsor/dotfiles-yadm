@@ -12,25 +12,29 @@ function install() {
 #== Web Browsers ==================================================================================
 install "com.google.Chrome"               # web browser
 install "org.chromium.Chromium"           # web browser
-install "io.gitlab.librewolf-community"   # web browser
 install "org.mozilla.firefox"             # web browser
+install "io.gitlab.librewolf-community"   # web browser
+
+#== System Tools ==================================================================================
+install "com.gitlab.davem.ClamTk"         # virus
+install "com.github.tchx84.Flatseal"      # flatpak sec manager
+install "io.podman_desktop.PodmanDesktop" # manage pods
 
 #== Applications ==================================================================================
-# install "net.sourceforge.Klavaro"        # typing
-install "com.github.tchx84.Flatseal"      # flatpak sec manager
-install "com.gitlab.davem.ClamTk"         # virus
-install "com.gitlab.newsflash"            # rss reader
-install "com.spotify.Client"              # music
-install "com.transmissionbt.Transmission" # bit torrent
-install "md.obsidian.Obsidian"            # markdown editor
-# install "nz.mega.MEGAsync"                # cloud storage
 install "org.audacityteam.Audacity"       # sound engineering
 install "org.gimp.GIMP"                   # image manipulation
 install "org.gnucash.GnuCash"             # double entry accounting
 install "org.libreoffice.LibreOffice"     # office suite
+install "com.gitlab.newsflash"            # rss reader
+install "md.obsidian.Obsidian"            # markdown editor
+install "com.spotify.Client"              # music
+install "com.transmissionbt.Transmission" # bit torrent
 install "org.videolan.VLC"                # video player
 
+
+# install "nz.mega.MEGAsync"                   # cloud storage
+# install "net.sourceforge.Klavaro"            # typing
 # install "org.zealdocs.Zeal"                  # dev docs
 # install "io.github.endless_sky.endless_sky"  # game
 # install "com.discordapp.Discord"             # chat app
-# install "com.valvesoftware.Steam"
+# install "com.valvesoftware.Steam"            # games
