@@ -58,7 +58,6 @@
     caffeine                    # stay awake
     clipman                     # clipboard manager for taskbar
     executor                    # command output to taskbar: very powerful but I only use it for fortune quotes
-    forge                       # tiling window manager
     just-perfection             # tweaks to gnome visuals
     launch-new-instance         # when launching apps create a new instance, helps with closing only current window not all windows
     openweather                 # weather in the taskbar

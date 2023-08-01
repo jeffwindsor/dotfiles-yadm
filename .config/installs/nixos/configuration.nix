@@ -40,9 +40,11 @@
       fortune                                 # saying that make my day
       gitui                                   # source control tui
       helix                                   # editor (kakoune like)
-      megasync                                    # cloud storage
+      megasync                                # cloud storage
       neovim                                  # editor (vim like)
       yadm                                    # dotfile management
+      gnomeExtensions.forge                   # tiling window manager
+
     ];
   };
 
