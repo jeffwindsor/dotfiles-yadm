@@ -43,5 +43,5 @@ zsh_indicator = "🧟"
 
 [time]
 disabled=false
-format = '[$time](dimmed blue) '
+format = '[$time](blue) '
 

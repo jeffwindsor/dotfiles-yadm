@@ -12,6 +12,9 @@ export SRC=$HOME/Source
 export DOTFILES=$HOME/.config/
 export INSTALLS=$HOME/.config/installs
 
+# homebrew
+export PATH="/usr/local/sbin:$PATH"
+
 # cj
 if [[ $(uname) == "Darwin" ]]; then
     export AWS_DEFAULT_REGION=us-west-1

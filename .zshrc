@@ -27,7 +27,7 @@ alias theme="$XDG_CONFIG_HOME/alacritty/change_theme"
 alias zs="$EDITOR -c \":args $HOME/.zshrc $HOME/.zshenv $HOME/.bashrc\""
 
 if command -v bat &>/dev/null; then
-    alias cat='bat'
+    alias cat='bat --style=plain'
 fi
 
 # dotfile management
@@ -142,21 +142,25 @@ fi
 if command -v nvim &>/dev/null; then
   # yadm list -a | sd '^' "$HOME/"
 
+  function yadm-list() {
+    yadm list -a | sed -r '/^\s*$/d' | sd '^' "$HOME/"
+  }
+
   alias v='nvim'
   alias fins="nvim -c \":Telescope find_files cwd=$HOME/portable/financials\""
   alias configs="nvim -c \":Telescope find_files cwd=$XDG_CONFIG_HOME\""
-  alias dots="nvim -c \":Telescope find_files find_command=yadm,list,-a\""
-  alias dots2="nvim -c \":Telescope find_files find_command=yadm,list,-a,|,sd,'^','~/'\""
+  alias dots="nvim -c \":Telescope find_files find_command=yadm-list\""
+  alias dots2="nvim -c \":Telescope find_files find_command='yadm','list','-a'\""
   alias ins="nvim -c \":Telescope find_files cwd=$INSTALLS\""
 fi
 
 # version manager
-if command -v rtx &>/dev/null; then
-  eval "$(rtx activate zsh)"
-  alias ri="rtx install"
-  alias rl="rtx list"
-  alias ru="rtx use"
-fi
+# if command -v rtx &>/dev/null; then
+#   eval "$(rtx activate zsh)"
+#   alias ri="rtx install"
+#   alias rl="rtx list"
+#   alias ru="rtx use"
+# fi
 if command -v fnm &>/dev/null; then
   eval "$(fnm env --use-on-cd)"
 fi
