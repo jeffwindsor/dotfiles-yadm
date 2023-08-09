@@ -223,7 +223,7 @@ elif command dnf &>/dev/null; then
 elif [ -d "/etc/nixos" ]; then
   alias clean="nix-env --delete-generations +2 && nix-collect-garbage"
   alias list="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
-  alias optimize="nix optimise-store"
+  alias optimize="nix store optimise"
   alias rebuild="sudo cp -r $HOME/.config/installs/nixos/* /etc/nixos/ && sudo nixos-rebuild switch"
   alias up="sudo nixos-rebuild switch --upgrade"
 
