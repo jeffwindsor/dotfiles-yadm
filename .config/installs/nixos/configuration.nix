@@ -16,7 +16,6 @@
     gcc                                         # c compiler
     git                                         # source control
     jetbrains-mono                              # font
-    openvpn                                     # vpn tunneling
     podman                                      # container (non-root) service
     tlp                                         # laptop power mgmt service
     xclip                                       # terminal to clipboard manager (used by terminal and clipboard)
