@@ -161,7 +161,11 @@ dconf write "/org/gnome/shell/extensions/executor/left-commands-json" "'{\"comma
 dconf write "/org/gnome/shell/extensions/just-perfection/accessibility-menu" "false"
 dconf write "/org/gnome/shell/extensions/just-perfection/activities-button" "false"
 dconf write "/org/gnome/shell/extensions/just-perfection/app-menu-label" "false"
+#   show desktop on login, not the overview
 dconf write "/org/gnome/shell/extensions/just-perfection/startup-status" "0"
+#   show top panel only on the overview 
+dconf write "/org/gnome/shell/extensions/just-perfection/panel" "false"
+dconf write "/org/gnome/shell/extensions/just-perfection/panel-in-overview" "true"
 # | Open Weather      |  750
 dconf write "/org/gnome/shell/extensions/openweather/actual-city" "2"
 dconf write "/org/gnome/shell/extensions/openweather/city" "'30.2711286,-97.7436995>Austin, Travis County, Texas, United States>0 && 39.7392364,-104.984862>Denver, Colorado, United States>0 && 34.2783355,-119.293174>Ventura, Ventura County, CAL Fire Southern Region, California, United States>0'"
