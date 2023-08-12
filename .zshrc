@@ -33,19 +33,18 @@ fi
 # dotfile management
 if command -v yadm &>/dev/null; then
   # function yadm-list() { yadm list -a | sd '^' "$HOME/" }
-  # function yadm-add-modified(){ yadm-list | xargs yadm add }
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
   function yadm-commit-push(){ yadm commit -m ${1:-'Refactor'} && yadm push}
-  # function yadm-add-modified-commit-push(){ yadm-add-modified && yadm-commit $1 && yadm push }
+  function yadm-add-modified-commit-push(){ yadm add -u && yadm-commit $1 && yadm push }
   function yadm-log-graph(){ yadm log --graph --pretty=format:${GIT_LOG_PRETTY_FORMAT} --abbrev-commit --max-count=${1:-10} }
+
   # `d` for dotifles
   alias d="yadm"
   alias da="yadm add"
   alias ds="yadm status -sb --ignore-submodules"
-  # alias dup="yadm-add-modified-commit-push"
-  alias dup="yadm-commit-push"
+  alias dup="yadm-add-modified-commit-push"
 
-  # alias daa="yadm-add-modified"
+  alias daa="yadm add -u"       #stage modified and deletions
   alias dcm="yadm-commit"
   alias dl="yadm-log-graph"
   alias dll="yadm log"
