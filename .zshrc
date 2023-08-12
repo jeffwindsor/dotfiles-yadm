@@ -32,7 +32,11 @@ fi
 
 # dotfile management
 if command -v yadm &>/dev/null; then
-  # function yadm-list() { yadm list -a | sd '^' "$HOME/" }
+  function yadm-list() { yadm list -a | sd '^' "$HOME/" }
+  # function yadm-list() {
+  #   yadm list -a | sed -r '/^\s*$/d' | sd '^' "$HOME/"
+  # }
+
   function yadm-commit(){ yadm commit -m ${1:-'Refactor'} }
   function yadm-commit-push(){ yadm commit -m ${1:-'Refactor'} && yadm push}
   function yadm-add-modified-commit-push(){ yadm add -u && yadm-commit $1 && yadm push }
@@ -141,15 +145,10 @@ fi
 if command -v nvim &>/dev/null; then
   # yadm list -a | sd '^' "$HOME/"
 
-  function yadm-list() {
-    yadm list -a | sed -r '/^\s*$/d' | sd '^' "$HOME/"
-  }
-
   alias v='nvim'
   alias fins="nvim -c \":Telescope find_files cwd=$HOME/portable/financials\""
   alias configs="nvim -c \":Telescope find_files cwd=$XDG_CONFIG_HOME\""
-  alias dots="nvim -c \":Telescope find_files find_command=yadm-list\""
-  alias dots2="nvim -c \":Telescope find_files find_command='yadm','list','-a'\""
+  alias dots="nvim -c \":Telescope find_files find_command=$HOME/.config/yadm-list.sh\""
   alias ins="nvim -c \":Telescope find_files cwd=$INSTALLS\""
 fi
 
