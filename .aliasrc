@@ -108,13 +108,14 @@ if command -v git &>/dev/null; then
   }
   # apply git command to current directory contents
   function git-all(){
-    echo "git "$1" on sub-directories"
+    echo "git $1 on sub-directories"
     find . -maxdepth 1 -type d -exec git -C {} "$1" \;
     # ls | xargs -I{} echo git -C {} $1
   }
   # prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
   function exec-on-git-repos() {
-    local result=$(git-find-dirs "$2" | fzf --reverse)
+    local result
+    result=$(git-find-dirs "$2" | fzf --reverse)
     [ -n "$result" ] && "$1" "$result"
   }
   # git clone from git hub to my source directory
