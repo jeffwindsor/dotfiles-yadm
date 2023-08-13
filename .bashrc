@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+source .envrc
+source .aliasrc
 
 # If not running interactively, don't do anything
 case $- in
@@ -21,19 +23,6 @@ HISTFILESIZE=2000
 # export XDG_CONFIG_HOME=$HOME/.config
 # export XDG_DATA_HOME=$HOME/.local/share
 # export XDG_STATE_HOME=$HOME/.local/state
-
-# Aliases
-alias l='ls'        # normal ls
-alias la='ls -a'    # show all (includes hidden)
-alias ll='ls -l'    # long format
-alias lla='ls -la'  # both
-
-# ==================================================================================
-# Autoloads
-# ==================================================================================
-
-# rust / cargo environment (if installed)
-[[ -d "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 # initialize starship prompt (if installed)
 if command -v starship &>/dev/null; then
