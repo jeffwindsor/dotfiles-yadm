@@ -2,6 +2,12 @@
 source .envrc
 source .aliasrc
 
+# fuzzy finding
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.sh"
+  source "$(fzf-share)/completion.sh"
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

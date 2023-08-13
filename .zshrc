@@ -1,6 +1,27 @@
 #!/usr/bin/env zsh
 source .aliasrc
 
+# fuzzy finding
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
+if [[ $(uname) == "Darwin" ]]; then
+
+  # macos zsh add on inits
+  [ -d /usr/local/share/zsh-syntax-highlighting ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  [ -d /usr/local/share/zsh-autosuggestions ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+elif command dnf &>/dev/null; then
+
+  # fedora inits
+  [ -d /usr/share/zsh-autosuggestions ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [ -d /usr/share/zsh-syntax-highlighting ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+fi
+
 # starship prompt
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
