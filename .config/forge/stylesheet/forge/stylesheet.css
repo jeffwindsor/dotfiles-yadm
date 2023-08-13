@@ -30,7 +30,7 @@
 
 .window-tiled-border {
   border-width: 3px;
-  border-color: rgb(201,208,92);
+  border-color: rgb(236,94,94);
   border-style: solid;
   border-radius: 14px;
 }
@@ -63,7 +63,7 @@
 
 .window-tabbed-border {
   border-width: 3px;
-  border-color: rgb(179,222,239);
+  border-color: rgb(17,199,224);
   border-style: solid;
   border-radius: 14px;
 }
@@ -74,7 +74,7 @@
 
 .window-tabbed-tab {
   background-color: rgba(54, 47, 45, 1);
-  border-color: rgba(179,222,239,0.6);
+  border-color: rgba(17,199,224,0.6);
   border-width: 1px;
   border-radius: 8px;
   color: white;
@@ -83,7 +83,7 @@
 }
 
 .window-tabbed-tab-active {
-  background-color: rgb(179,222,239);
+  background-color: rgb(17,199,224);
   color: black;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
@@ -109,10 +109,10 @@
 
 .window-tilepreview-tiled {
   border-width: 1px;
-  border-color: rgba(201,208,92,0.3);
+  border-color: rgba(236,94,94,0.3);
   border-style: solid;
   border-radius: 14px;
-  background-color: rgba(201,208,92,0.2);
+  background-color: rgba(236,94,94,0.2);
 }
 
 .window-tilepreview-stacked {
@@ -125,8 +125,8 @@
 
 .window-tilepreview-tabbed {
   border-width: 1px;
-  border-color: rgba(179,222,239,0.3);
+  border-color: rgba(17,199,224,0.3);
   border-style: solid;
   border-radius: 14px;
-  background-color: rgba(179,222,239,0.2);
+  background-color: rgba(17,199,224,0.2);
 }
