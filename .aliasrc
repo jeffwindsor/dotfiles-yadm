@@ -227,6 +227,7 @@ elif [ -d "/etc/nixos" ]; then
   alias list="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
   alias optimize="nix store optimise"
   alias rebuild="sudo cp -r \$HOME/.config/installs/nixos/* /etc/nixos/ && sudo nixos-rebuild switch"
+  alias generate-config="sudo nixos-generate-config"
   alias up="sudo nixos-rebuild switch --upgrade"
 
   # NOTE: zsh plugins are set up in configuration.nix
