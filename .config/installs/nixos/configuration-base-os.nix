@@ -11,11 +11,12 @@
   # System Packages || https://search.nixos.org/packages
   environment.systemPackages = with pkgs; [
     freshfetch                  # neofetch replacement
+    # tailscale                   # mesh VPN built on WireGuard
+    # wireguard-tools             # secure network tunnel
   ];
   services.flatpak.enable = true;               # allow for user installed packages via flatpak
 
-  # NixOs Options || https://search.nixos.org/options
-  # Audio Services
+  # Audio Services || https://search.nixos.org/options
   services.pipewire = {
     enable = true;                            # https://pipewire.org/
     alsa.enable = true;                       # Advanced Linux Sound Architecture
@@ -25,19 +26,19 @@
   hardware.pulseaudio.enable = false;         # turn off default pulse audio to use pipewire
   security.rtkit.enable = true;               # secure real-time scheduling for user processes (recommended)
 
-  # Boot
+  # Boot || https://search.nixos.org/options
   boot.loader = {
     systemd-boot.enable = true;               # EFI boot manager
     efi.canTouchEfiVariables = true;          # installation can modify EFI boot variables
   };
 
-  # File Services
+  # File Services || https://search.nixos.org/options
   boot.supportedFilesystems = [ "ntfs" ];     # NTFS for some of my USB Drives
 
-  # Network Services
+  # Network Services || https://search.nixos.org/options
   networking.networkmanager.enable = true;    # Wifi Manager
 
-  # Printing Services
+  # Printing Services || https://search.nixos.org/options
   services.printing.enable = true;
   # Wifi / IPP capable printing << https://nixos.wiki/wiki/Printing#IPP_everywhere_capable_printer
   services.avahi = {
@@ -46,7 +47,7 @@
     openFirewall = true;                      # for a WiFi printer
   };
 
-  # Upgrades and Optimization
+  # Upgrades and Optimization || https://search.nixos.org/options
   system.autoUpgrade.enable = true;                     # auto upgrade nixos and nix packages
   nixpkgs.config.allowUnfree = true;                    # allow more packages
   nix.settings.auto-optimise-store = true;              # optimize links
