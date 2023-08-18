@@ -1,54 +1,57 @@
 { config, pkgs, ... }:{
 
   imports = [
-    ./module/gnome.nix                          # personal module for gnome desktop
-    ./module/zsh.nix                            # personal module for zsh
-    ./hardware-configuration.nix                # hardware setup
+    ./gnome.nix                          # personal module for gnome desktop
+    ./zsh.nix                            # personal module for zsh
+    ./hardware-configuration.nix         # hardware setup
   ];
 
-  # ===============================================================================================
   #  System Packages || https://search.nixos.org/packages
-  # ===============================================================================================
   environment.systemPackages = with pkgs; [
+
+    # personal
+    fortune                                     # saying that make my day
+    megasync                                    # cloud storage
+    yadm                                        # dotfile management
+
+    # development
     alacritty                                   # terminal improvement
-    distrobox                                   # wrapper for podman that links home to containers for easy test and dev envs
-    fwupd                                       # firmware update service
     gcc                                         # c compiler
     git                                         # source control
-    jetbrains-mono                              # font
+    helix                                       # editor (kakoune like)
+    lazygit                                     # tui git client
+    neovim                                      # editor (vim like)
+
+    # containers
+    devbox                                      # instant, easy, predictable shells and containers.
+    distrobox                                   # wrapper for podman that links home to containers for easy test and dev envs
     podman                                      # container (non-root) service
+
+    # laptop support
+    fwupd                                       # firmware update service
     tlp                                         # laptop power mgmt service
-    xclip                                       # terminal to clipboard manager (used by terminal and clipboard)
+
+    # fonts
+    jetbrains-mono                              # font
+    fira-code
+
   ];
   services.flatpak.enable = true;               # allow for user installed packages via flatpak
 
-  # ===============================================================================================
   #  NixOs Options || https://search.nixos.org/options
-  # ===============================================================================================
-
-  # == System =====================================================================================
   networking.hostName = "frame";
   time.timeZone       = "America/Los_Angeles";
   system.stateVersion = "23.05";
 
-  # == Users ======================================================================================
+  # == Users
   users.users.mid = {
     isNormalUser  = true;
     description   = "The Middle Way";
     extraGroups   = [ "networkmanager" "wheel" ];
-    packages      = with pkgs; [
-      fortune                                 # saying that make my day
-      gitui                                   # source control tui
-      helix                                   # editor (kakoune like)
-      megasync                                # cloud storage
-      neovim                                  # editor (vim like)
-      yadm                                    # dotfile management
-      gnomeExtensions.forge                   # tiling window manager
-
-    ];
+    packages      = with pkgs; [];
   };
 
-  # == Audio Services =============================================================================
+  # == Audio Services
   services.pipewire = {
     enable = true;                            # https://pipewire.org/
     alsa.enable = true;                       # Advanced Linux Sound Architecture
@@ -58,19 +61,19 @@
   hardware.pulseaudio.enable = false;         # turn off default pulse audio to use pipewire
   security.rtkit.enable = true;               # secure real-time scheduling for user processes (recommended)
 
-  # == Boot =======================================================================================
+  # == Boot
   boot.loader = {
     systemd-boot.enable = true;               # EFI boot manager
     efi.canTouchEfiVariables = true;          # installation can modify EFI boot variables
   };
 
-  # == File Services ==============================================================================
+  # == File Services
   boot.supportedFilesystems = [ "ntfs" ];     # NTFS for some of my USB Drives
 
-  # == Network Services ===========================================================================
+  # == Network Services
   networking.networkmanager.enable = true;    # Wifi Manager
 
-  # == Printing Services ===========================================================================
+  # == Printing Services
   services.printing.enable = true;
   # Wifi / IPP capable printing << https://nixos.wiki/wiki/Printing#IPP_everywhere_capable_printer
   services.avahi = {
@@ -79,7 +82,7 @@
     openFirewall = true;                      # for a WiFi printer
   };
 
-  # == Upgrades and Optimization ===================================================================
+  # == Upgrades and Optimization
   system.autoUpgrade.enable = true;                     # auto upgrade nixos and nix packages
   nixpkgs.config.allowUnfree = true;                    # allow more packages
   nix.settings.auto-optimise-store = true;              # optimize links
@@ -89,7 +92,7 @@
     options = "--delete-older-than 7d";
   };
 
-  # == Experimentals ===============================================================================
+  # == Experimentals
   nix.settings.experimental-features = ["nix-command" "flakes"]; # allow flakes
 
 }
