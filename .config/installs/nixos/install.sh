@@ -17,7 +17,13 @@ echo "Hit Any key to continue"
 read -r
 
 echo "==> Cloning dotfiles"
-nix-shell -p yadm --run "yadm clone git@github.com:jeffwindsor/dotfiles.git"
+nix-shell -p yadm --run "yadm clone git@github.com:jeffwindsor/dotfiles.git && yadm reset --hard"
+
+echo "Validate Dotfiles"
+nix-shell -p yadm --run "yadm status"
+echo "Hit Any key to continue"
+read -r
+
 
 echo "==> Apply NixOs configuration"
 sudo cp -r $HOME/.config/installs/nixos/*.nix /etc/nixos/
