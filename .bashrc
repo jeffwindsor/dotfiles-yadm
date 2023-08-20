@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-source .envrc
-source .aliasrc
+source $HOME/.envrc
+source $HOME/.aliasrc
 
 # fuzzy finding
 if [ -n "${commands[fzf-share]}" ]; then
