@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-source .aliasrc
+source $HOME/.aliasrc
 
 # fuzzy finding
 if [ -n "${commands[fzf-share]}" ]; then
