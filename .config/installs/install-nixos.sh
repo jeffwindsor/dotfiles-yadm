@@ -30,13 +30,13 @@ sudo cp -r $HOME/.config/installs/nixos/*.nix /etc/nixos/
 sudo nixos-rebuild switch --upgrade
 
 echo "==> Apply Gnome Configuration"
-source $HOME/.config/installs/shared/gnome.sh
+source $HOME/.config/installs/configure-gnome.sh
 
 echo "==> Clone Source Repos"
-source $HOME/.config/installs/shared/github.sh
+source $HOME/.config/installs/clone-source-repos.sh
 
 echo "==> Install Flatpaks"
-source $HOME/.config/installs/shared/flatpaks.sh
+source $HOME/.config/installs/install-flatpaks.sh
 
 
 # reboot to capture all changes
