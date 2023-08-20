@@ -46,7 +46,11 @@
 
     # fonts
     jetbrains-mono
-    fira-code
+    lexend                                    # A variable font family designed to aid in reading proficiency
+    nerdfonts
+    # noto-fonts
+    # noto-fonts-emoji
+    # roboto
 
   ];
   services.flatpak.enable = true;             # allow for user installed packages via flatpak
