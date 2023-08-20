@@ -1,9 +1,9 @@
 { config, pkgs, ... }:{
 
   imports = [
-    ./gnome.nix                          # personal module for gnome desktop
-    ./zsh.nix                            # personal module for zsh
-    ./hardware-configuration.nix         # hardware setup
+    ./gnome.nix
+    ./development.nix
+    ./hardware-configuration.nix
   ];
 
   #  System Packages || https://search.nixos.org/packages
@@ -14,26 +14,9 @@
     megasync                                    # cloud storage
     yadm                                        # dotfile management
 
-    # development
-    alacritty                                   # terminal improvement
-    gcc                                         # c compiler
-    git                                         # source control
-    helix                                       # editor (kakoune like)
-    lazygit                                     # tui git client
-    neovim                                      # editor (vim like)
-
-    # containers
-    devbox                                      # instant, easy, predictable shells and containers.
-    distrobox                                   # wrapper for podman that links home to containers for easy test and dev envs
-    podman                                      # container (non-root) service
-
     # laptop support
     fwupd                                       # firmware update service
     tlp                                         # laptop power mgmt service
-
-    # fonts
-    jetbrains-mono                              # font
-    fira-code
 
   ];
   services.flatpak.enable = true;               # allow for user installed packages via flatpak

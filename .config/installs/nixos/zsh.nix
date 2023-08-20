@@ -6,18 +6,6 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
 
-    bat             # cat replacement
-    exa             # ls replacement
-    fd              # find replacement
-    freshfetch      # neofetch replacement
-    fzf             # fuzzy finder
-    ripgrep         # grep replacement
-    sd              # sed replacement
-    starship        # prompt
-    tealdeer        # tldr replacement
-    xplr            # tui file explorer
-    zellij          # tmux replacement
-
   ];
 
   # == Shell ======================================================================================

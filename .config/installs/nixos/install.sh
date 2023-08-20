@@ -3,6 +3,7 @@
 cd "$(dirname "${0}")" || exit
 clear
 
+
 # create a ssh key if one does not exist
 if [[ ! -f $HOME/.ssh/id_ed25519 ]]; then
   echo "==> Creating SSH Key"
@@ -10,31 +11,33 @@ if [[ ! -f $HOME/.ssh/id_ed25519 ]]; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_ed25519
 fi
-
-echo "==> Manually Add SSH key below to Github"
+echo ""
 cat $HOME/.ssh/*.pub
-echo "Hit Any key to continue"
+echo "==> Add SSH key above to Github [Hit Any key to continue]"
 read -r
+
 
 echo "==> Cloning dotfiles"
-nix-shell -p yadm --run "yadm clone git@github.com:jeffwindsor/dotfiles.git && yadm reset --hard"
-
-echo "Validate Dotfiles"
+nix-shell -p yadm --run "yadm clone git@github.com:jeffwindsor/dotfiles.git"
+nix-shell -p yadm --run "yadm reset --hard"
 nix-shell -p yadm --run "yadm status"
-echo "Hit Any key to continue"
+echo "==> Validate Dotfiles [Hit Any key to continue]"
 read -r
 
 
-echo "==> Apply NixOs configuration"
+echo "==> Applying NixOs configuration"
 sudo cp -r $HOME/.config/installs/nixos/*.nix /etc/nixos/
 sudo nixos-rebuild switch --upgrade
 
-echo "==> Post: Gnome Configuration"
+echo "==> Apply Gnome Configuration"
 source $HOME/.config/installs/shared/gnome.sh
-echo "==> Post: Clone Repos"
+
+echo "==> Clone Source Repos"
 source $HOME/.config/installs/shared/github.sh
-echo "==> Post: Flatpaks"
+
+echo "==> Install Flatpaks"
 source $HOME/.config/installs/shared/flatpaks.sh
+
 
 # reboot to capture all changes
 systemctl reboot
