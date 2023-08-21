@@ -10,15 +10,17 @@ function install() {
 }
 
 #== Web Browsers ==================================================================================
-install "com.google.Chrome"               # web browser
+#install "com.google.Chrome"               # web browser
 install "org.chromium.Chromium"           # web browser
 install "org.mozilla.firefox"             # web browser
 install "io.gitlab.librewolf-community"   # web browser
+install "com.brave.Browser"               # web browser
 
 #== System Tools ==================================================================================
 install "com.gitlab.davem.ClamTk"         # virus
 install "com.github.tchx84.Flatseal"      # flatpak sec manager
 install "io.podman_desktop.PodmanDesktop" # manage pods
+install "com.system76.Popsicle"           # flash multiple USB
 
 #== Applications ==================================================================================
 install "org.audacityteam.Audacity"       # sound engineering
