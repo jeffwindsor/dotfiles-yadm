@@ -160,7 +160,8 @@ if command -v nvim &>/dev/null; then
   alias v='nvim'
   alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
   alias configs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
-  alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""
+  # alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""
+  alias dots="yadm list --all | fzf | xargs nvim"
   alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
 fi
 
