@@ -54,7 +54,7 @@ wk.register({
     -- b = { ':Broot<CR>', 'via file browser'},
     b = { ':Lf<CR>', 'via file browser'},
     l = { ':Lf<CR>', 'LF'},
-    c = { ':Telescope find_files cwd=$XDG_CONFIG_HOME','in config directory'},
+    c = { ':Telescope find_files cwd=$XDG_CONFIG_HOME<CR>','in config directory'},
     -- d = { ':Telescope find_files find_command=yadm,list,-a<CR>','in config directory'},
     f = { ':Telescope find_files<CR>','in current directory'},
     g = { ':Telescope find_files cwd=$SRC<CR>','in git repos'},
