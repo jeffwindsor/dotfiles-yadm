@@ -141,8 +141,8 @@ dconf write "${custom}8/name" "'Terminal'"
 # extensions
 ###############################################################################
 # enable preferred extensions
-dconf write "/org/gnome/shell/disabled-extensions" "['auto-move-windows@gnome-shell-extensions.gcampax.github.com']"
-dconf write "/org/gnome/shell/enabled-extensions" "['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'space-bar@luchrioh', 'openweather-extension@jenslody.de', 'just-perfection-desktop@just-perfection', 'forge@jmmaranan.com', 'executor@raujonas.github.io', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'WallpaperSwitcher@Rishu', 'clipman@popov895.ukr.net', 'appindicatorsupport@rgcjonas.gmail.com']"
+dconf write "/org/gnome/shell/disabled-extensions" "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'space-bar@luchrioh', 'executor@raujonas.github.io', 'clipman@popov895.ukr.net']"
+dconf write "/org/gnome/shell/enabled-extensions" "['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'just-perfection-desktop@just-perfection', 'forge@jmmaranan.com', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'WallpaperSwitcher@Rishu', 'appindicatorsupport@rgcjonas.gmail.com']"
 
 # set extension preferences
 # | AppIndicator      |  615

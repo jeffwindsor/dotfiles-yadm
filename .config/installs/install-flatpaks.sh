@@ -32,7 +32,7 @@ install "md.obsidian.Obsidian"            # markdown editor
 install "com.spotify.Client"              # music
 install "com.transmissionbt.Transmission" # bit torrent
 install "org.videolan.VLC"                # video player
-
+install "com.rafaelmardojai.Blanket"      # Listen to different sounds
 
 # install "nz.mega.MEGAsync"                   # cloud storage
 # install "net.sourceforge.Klavaro"            # typing

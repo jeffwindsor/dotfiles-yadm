@@ -44,10 +44,11 @@ then
 
   # `d` for dotifles
   alias d="yadm"
-  alias da="yadm add"
-  alias ds="yadm status -sb --ignore-submodules"
-  alias dup="yadm-add-modified-commit-push"
+  alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
+  alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/**/*.nix\""
+  alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
 
+  alias da="yadm add"
   alias daa="yadm add -u"       #stage modified and deletions
   alias dcm="yadm-commit"
   alias dl="yadm-log-graph"
@@ -55,9 +56,8 @@ then
   alias dph="yadm push"
   alias dpl="yadm pull"
   alias dr="yadm remote -vv"
-
-  alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/**/*.nix\""
-  alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
+  alias ds="yadm status -sb --ignore-submodules"
+  alias dup="yadm-add-modified-commit-push"
 
 fi
 
@@ -224,13 +224,15 @@ elif command dnf &>/dev/null; then
 
 # NIXOS
 elif [ -d "/etc/nixos" ]; then
+  # generate a hardware config : sudo nixos-generate-config
   alias clean="nix-env --delete-generations +7 && nix-collect-garbage"
   alias list="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
   alias optimize="nix store optimise"
   alias rebuild="sudo cp -r \$HOME/.config/installs/nixos/* /etc/nixos/ && sudo nixos-rebuild switch"
-  alias generate-config="sudo nixos-generate-config"
+  alias shell="nix-shell --command zsh"
   alias up="sudo nixos-rebuild switch --upgrade"
 
+  # function to create a new default file for nix-shell command
   function nix-init-shell(){
     cat > shell.nix << EOL
 { pkgs ? import <nixpkgs> {} }:

@@ -59,6 +59,7 @@
     gnomeExtensions.openweather         # weather in the taskbar
     gnomeExtensions.space-bar           # display of workspace indicators (like i3)
     gnomeExtensions.wallpaper-switcher  # auto switch wallpapers
+    gnomeExtensions.pano                # Next-gen Clipboard manager for Gnome Shell
 
   ]);
 
