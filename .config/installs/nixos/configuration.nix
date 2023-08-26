@@ -2,6 +2,7 @@
 
   imports = [
     ./gnome.nix
+    ./qtile.nix
     ./framework-laptop.nix
     ./hardware-configuration.nix
   ];
