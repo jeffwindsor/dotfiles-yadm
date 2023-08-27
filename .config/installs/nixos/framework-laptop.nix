@@ -68,6 +68,9 @@
   #   https://search.nixos.org/packages
   # ==========================================
   environment.systemPackages = with pkgs; [
+    # printers
+    cups-brother-hll2350dw
+
     # laptop support
     fwupd                                     # firmware update service
     tlp                                       # laptop power mgmt service
