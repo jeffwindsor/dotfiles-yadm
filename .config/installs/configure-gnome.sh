@@ -141,8 +141,8 @@ dconf write "${custom}8/name" "'Terminal'"
 # extensions
 ###############################################################################
 # enable preferred extensions
-dconf write "/org/gnome/shell/disabled-extensions" "['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'space-bar@luchrioh', 'executor@raujonas.github.io', 'clipman@popov895.ukr.net']"
-dconf write "/org/gnome/shell/enabled-extensions" "['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'just-perfection-desktop@just-perfection', 'forge@jmmaranan.com', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'WallpaperSwitcher@Rishu', 'appindicatorsupport@rgcjonas.gmail.com']"
+dconf write "/org/gnome/shell/enabled-extensions" "['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'forge@jmmaranan.com', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'WallpaperSwitcher@Rishu', 'appindicatorsupport@rgcjonas.gmail.com', 'just-perfection-desktop@just-perfection', 'pano@elhan.io']"
+dconf write "/org/gnome/shell/disabled-extensions" "['space-bar@luchrioh', 'executor@raujonas.github.io', 'clipman@popov895.ukr.net', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com']"
 
 # set extension preferences
 # | AppIndicator      |  615
@@ -163,7 +163,7 @@ dconf write "/org/gnome/shell/extensions/just-perfection/activities-button" "fal
 dconf write "/org/gnome/shell/extensions/just-perfection/app-menu-label" "false"
 #   show desktop on login, not the overview
 dconf write "/org/gnome/shell/extensions/just-perfection/startup-status" "0"
-#   show top panel only on the overview 
+#   show top panel only on the overview
 dconf write "/org/gnome/shell/extensions/just-perfection/panel" "false"
 dconf write "/org/gnome/shell/extensions/just-perfection/panel-in-overview" "true"
 # | Open Weather      |  750
