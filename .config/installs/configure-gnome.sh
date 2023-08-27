@@ -115,7 +115,7 @@ dconf write "${custom}3/name" "'Suspend'"
 #dconf write "${custom}4/name" "'OS-Tree'"
 
 
-dconf write "${custom}4/binding" "'${mod}space'"
+dconf write "${custom}4/binding" "'${mod}o'"
 dconf write "${custom}4/command" "'flatpak run md.obsidian.Obsidian'"
 dconf write "${custom}4/name" "'Obsidian'"
 
