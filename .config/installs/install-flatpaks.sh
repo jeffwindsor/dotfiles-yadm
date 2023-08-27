@@ -10,11 +10,10 @@ function install() {
 }
 
 #== Web Browsers ==================================================================================
-#install "com.google.Chrome"               # web browser
-install "org.chromium.Chromium"           # web browser
-install "org.mozilla.firefox"             # web browser
-install "io.gitlab.librewolf-community"   # web browser
-install "com.brave.Browser"               # web browser
+# install "org.chromium.Chromium"           # web browser
+# install "org.mozilla.firefox"             # web browser
+# install "io.gitlab.librewolf-community"   # web browser
+# install "com.brave.Browser"               # web browser
 
 #== System Tools ==================================================================================
 install "com.gitlab.davem.ClamTk"         # virus

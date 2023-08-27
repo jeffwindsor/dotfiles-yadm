@@ -8,7 +8,7 @@
   ];
 
   # ==========================================
-  #  NixOs Options
+  # NixOs Options
   #   https://search.nixos.org/options
   # ==========================================
   users.users.mid = {
@@ -28,6 +28,12 @@
     # applications
     alacritty                                 # terminal improvement
     megasync                                  # cloud storage
+
+    #browsers
+    firefox
+    chromium
+    librewolf
+    brave
 
     # containers
     devbox                                    # instant, easy, predictable shells and containers.
