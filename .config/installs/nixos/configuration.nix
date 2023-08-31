@@ -2,7 +2,7 @@
 
   imports = [
     ./gnome.nix
-    ./qtile.nix
+    ./zsh.nix
     ./framework-laptop.nix
     ./hardware-configuration.nix
   ];
@@ -25,45 +25,35 @@
   services.flatpak.enable = true;             # allow for user installed packages via flatpak
   environment.systemPackages = with pkgs; [
 
-    # applications
+    ## applications
     alacritty                                 # terminal improvement
     megasync                                  # cloud storage
 
-    #browsers
+    ## browsers
     firefox
     chromium
     librewolf
     brave
 
-    # containers
-    devbox                                    # instant, easy, predictable shells and containers.
-    distrobox                                 # wrapper for podman that links home to containers for easy test and dev envs
-    podman                                    # container (non-root) service
-
-    # command line tools
-    gcc                                       # c compiler
-    git                                       # source control
-    lazygit                                   # tui git client
-    helix                                     # editor (kakoune like)
-    neovim                                    # editor (vim like)
-    fortune                                   # saying that make my day
-    yadm                                      # dotfile management
-    bat                                       # cat replacement
-    exa                                       # ls replacement
+    ## command line tools
     fd                                        # find replacement
+    fortune                                   # saying that make my day
     freshfetch                                # neofetch replacement
     fzf                                       # fuzzy finder
+    gcc                                       # c compiler
+    git                                       # source control
+    helix                                     # editor (kakoune like)
+    lazygit                                   # tui git client
+    neovim                                    # editor (vim like)
+    nushell                                   # modern shell written in Rust
     ripgrep                                   # grep replacement
     sd                                        # sed replacement
     starship                                  # prompt
     tealdeer                                  # tldr replacement
     xplr                                      # tui file explorer
+    yadm                                      # dotfile management
+    xh                                        # curl replacement
     zellij                                    # tmux replacement
-
-    # shells
-    zsh
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 
     # fonts
     jetbrains-mono

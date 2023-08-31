@@ -1,9 +1,5 @@
 { config, pkgs, ... }:{
 
-  # ==========================================
-  #  NixOs Options
-  #   https://search.nixos.org/options
-  # ==========================================
   networking.hostName = "frame";
   time.timeZone       = "America/Los_Angeles";
   system.stateVersion = "23.05";
@@ -36,6 +32,16 @@
   # Network Services =========================
   networking.networkmanager.enable = true;    # Wifi Manager
 
+  # Packages =================================
+  environment.systemPackages = with pkgs; [
+    # printers
+    cups-brother-hll2350dw
+
+    # laptop support
+    fwupd                                     # firmware update service
+    tlp                                       # laptop power mgmt service
+  ];
+
   # Printing Services ========================
   services.printing.enable = true;
   services.avahi = {
@@ -53,27 +59,5 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-
-  # ZSH =====================================
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  };
-  environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
-
-  # ==========================================
-  # Packages
-  #   https://search.nixos.org/packages
-  # ==========================================
-  environment.systemPackages = with pkgs; [
-    # printers
-    cups-brother-hll2350dw
-
-    # laptop support
-    fwupd                                     # firmware update service
-    tlp                                       # laptop power mgmt service
-  ];
 
 }
