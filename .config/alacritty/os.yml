@@ -10,7 +10,8 @@ cursor:
 
 font:
   normal:
-    family: JetBrains Mono
+    # family: JetBrains Mono
+    family: JetBrainsMono Nerd Font
   size: 12
 
 key_bindings:
