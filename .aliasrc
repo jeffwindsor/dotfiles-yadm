@@ -100,7 +100,7 @@ if command -v git &>/dev/null; then
   }
   # pretty git log using format set in .zshenv: GIT_LOG_PRETTY_FORMAT. Max count defaults to 10
   function git-log-graph(){
-    git log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
+    git log --graph --tags --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
   }
   # find all directories ending in .git (including hidden and ignored listings)
   function git-find-dirs(){
