@@ -85,6 +85,7 @@ require('lazy').setup({
   {'jacoborus/tender.vim'},
   {'cocopon/iceberg.vim'},
   {'romainl/Apprentice'},
+  {'ellisonleao/gruvbox.nvim'},
 })
 
 require('plugins.auto-save')
