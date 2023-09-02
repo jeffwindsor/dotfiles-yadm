@@ -45,7 +45,7 @@ then
   # `d` for dotifles
   alias d="yadm"
   alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
-  alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/**/*.nix\""
+  alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
   alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
 
   alias da="yadm add"
