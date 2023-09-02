@@ -66,6 +66,7 @@
   ];
   services.flatpak.enable = true;             # allow for user installed packages via flatpak
 
+
   # Audio Services ===========================
   services.pipewire = {
     enable = true;                            # https://pipewire.org/
@@ -76,30 +77,39 @@
   hardware.pulseaudio.enable = false;         # turn off default pulse audio to use pipewire
   security.rtkit.enable = true;               # secure real-time scheduling for user processes (recommended)
 
+
   # Boot =====================================
   boot.loader = {
     systemd-boot.enable = true;               # EFI boot manager
     efi.canTouchEfiVariables = true;          # installation can modify EFI boot variables
   };
 
-  # Experimentals ============================
+
+# Experimentals ============================
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # File Services ============================
+
+# File Services ============================
   boot.supportedFilesystems = [ "ntfs" ];     # NTFS for some of my USB Drives
 
-  # Network Services =========================
+
+# Network Services =========================
   networking.networkmanager.enable = true;    # Wifi Manager
 
-  # Printing Services ========================
-  services.printing.enable = true;
+
+# Printing Services ========================
+  services.printing = {
+    enable = true;
+    drivers = [ cups-brother-hll2350dw ];
+  };
   services.avahi = {
     enable = true;
     nssmdns = true;
     openFirewall = true;                      # for a WiFi printer
   };
 
-  # Upgrades and Optimization ================
+
+# Upgrades and Optimization ================
   system.autoUpgrade.enable = true;           # auto upgrade nixos and nix packages
   nixpkgs.config.allowUnfree = true;          # allow more packages
   nix.settings.auto-optimise-store = true;    # optimize links
