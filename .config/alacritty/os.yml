@@ -10,8 +10,12 @@ cursor:
 
 font:
   normal:
+    # family: FiraCode Nerd Font Mono
+    # family: Hack Nerd Font Mono
+    # family: Inconsolata Nerd Font Mono
     # family: JetBrains Mono
     family: JetBrainsMono Nerd Font
+    # family: Source Code Pro
   size: 12
 
 key_bindings:
