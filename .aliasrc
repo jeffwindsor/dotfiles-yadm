@@ -152,7 +152,13 @@ fi
 # editors
 if command -v hx &>/dev/null; then
   alias h='hx'
-  alias exo='hx ~/portable/exocortex'
+  alias hexo='hx ~/portable/exocortex'
+  alias hfins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
+  alias hconfigs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
+  # alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""
+  alias hdots="yadm list --all | fzf | xargs nvim"
+  alias hins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
+  
 fi
 if command -v nvim &>/dev/null; then
   # yadm list -a | sd '^' "$HOME/"
@@ -228,7 +234,7 @@ elif [ -d "/etc/nixos" ]; then
   alias clean="nix-env --delete-generations +7 && nix-collect-garbage"
   alias list="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
   alias optimize="nix store optimise"
-  alias rebuild="sudo cp -r \$HOME/.config/installs/nixos/* /etc/nixos/ && sudo nixos-rebuild switch"
+  alias rebuild="sudo cp -r \$HOME/.config/installs/nixos/*.nix /etc/nixos/ && sudo nixos-rebuild switch"
   alias shell="nix-shell --command zsh"
   alias up="sudo nixos-rebuild switch --upgrade"
 
