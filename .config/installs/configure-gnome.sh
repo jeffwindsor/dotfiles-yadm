@@ -51,19 +51,27 @@ dconf write "/org/gnome/settings-daemon/plugins/media-keys/screenreader" "@as []
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/screensaver" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/con-split-layout-toggle" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/con-stacked-layout-toggle" "@as []"
-dconf write "/org/gnome/shell/extensions/forge/keybindings/con-tabbed-layout-toogle" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/con-tabbed-layout-toggle" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/con-tabbed-showtab-decoration-toggle" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/prefs-open" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-bottom-decrease" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-bottom-increase" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-left-decrease" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-left-increase" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-right-increase" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-top-decrease" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-resize-top-increase" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-snap-center" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-snap-one-third-left" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-snap-one-third-right" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-snap-two-third-left" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-snap-two-third-right" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-down" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-last-active" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-left" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-right" "@as []"
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-up" "@as []"
-dconf write "/org/gnome/shell/extensions/forge/keybindings/window-toggle-float-always" "@as []"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-toggle-always-float" "@as []"
 dconf write "/org/gnome/shell/keybindings/focus-active-notification" "@as []"
 dconf write "/org/gnome/shell/keybindings/switch-to-application-1" "@as []"
 dconf write "/org/gnome/shell/keybindings/switch-to-application-10" "@as []"
@@ -102,7 +110,7 @@ dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['${mods
 dconf write "${custom}5/binding" "'${mods1}e'"
 dconf write "${custom}5/command" "'extension-manager'"
 dconf write "${custom}5/name" "'Extensions'"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['${mods1}f']"
+dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['${mods1}f']"                    # LAUNCH FINDER
 dconf write "${custom}6/binding" "'${mods1}g'"
 dconf write "${custom}6/command" "'flatpak run org.gnucash.GnuCash'"
 dconf write "${custom}6/name" "'GNU Cash'"
@@ -142,11 +150,11 @@ dconf write "/org/gnome/desktop/wm/keybindings/move-to-workspace-10" "['${mods2}
 # a,b,c,d,e
 dconf write "/org/gnome/shell/extensions/forge/keybindings/window-toggle-float" "['${mods2}f']"
 #g
-dconf write "/org/gnome/shell/extensions/forge/keybindings/window-move-left" "['${mods2}h']"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-left" "['${mods2}h']"
 # i
-dconf write "/org/gnome/shell/extensions/forge/keybindings/window-move-down" "['${mods2}j']"
-dconf write "/org/gnome/shell/extensions/forge/keybindings/window-move-up" "['${mods2}k']"
-dconf write "/org/gnome/shell/extensions/forge/keybindings/window-move-right" "['${mods2}l']"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-down" "['${mods2}j']"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-up" "['${mods2}k']"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/window-swap-right" "['${mods2}l']"
 # m,n,o
 dconf write "${custom}1/binding" "'${mods2}p'"
 dconf write "${custom}1/command" "'systemctl poweroff'"
@@ -166,8 +174,8 @@ dconf write "/org/gnome/settings-daemon/plugins/media-keys/control-center" "['${
 #     Toogle Tiling
 dconf write "/org/gnome/shell/extensions/forge/keybindings/workspace-active-tile-toggle" "['${mods2}Delete']"
 #     Tiling Window Spawn Direction
-dconf write "/org/gnome/shell/extensions/forge/keybindings/con-split-layout-horizontal" "['${mods2}Right']"
-dconf write "/org/gnome/shell/extensions/forge/keybindings/con-split-layout-vertical" "['${mods2}Down']"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/con-split-horizontal" "['${mods2}Right']"
+dconf write "/org/gnome/shell/extensions/forge/keybindings/con-split-vertical" "['${mods2}Down']"
 
 
 # MOD CHORD 3 =================================================================
