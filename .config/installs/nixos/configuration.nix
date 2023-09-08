@@ -100,7 +100,7 @@
 # Printing Services ========================
   services.printing = {
     enable = true;
-    drivers = [ cups-brother-hll2350dw ];
+    drivers = [ pkgs.cups-brother-hll2350dw ];
   };
   services.avahi = {
     enable = true;
