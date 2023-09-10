@@ -4,7 +4,6 @@
 
   imports = [
     ./gnome.nix
-    ./zsh.nix
     ./hardware-configuration.nix
   ];
 
@@ -16,49 +15,53 @@
     isNormalUser  = true;
     description   = "The Middle Way";
     extraGroups   = [ "networkmanager" "wheel" ];
+    shell         = pkgs.zsh;
     packages      = with pkgs; [];
   };
 
   environment.systemPackages = with pkgs; [
     # applications
     alacritty                                 # terminal improvement
+    brave                                     # experimental: browser
+    chromium                                  # browser backup
+    firefox                                   # browser main
+    helix                                     # experimental: editor (kakoune like)
+    librewolf                                 # experimental: browser
     megasync                                  # cloud storage
+    neovim                                    # editor (vim like)
 
-    # browsers
-    firefox
-    chromium
-    librewolf
-    brave
-
-    # command line tools
+    # tools
+    bat                                       # cat replacement
+    exa                                       # ls replacement
+    fd                                        # experimental: find replacement
     fortune                                   # saying that make my day
+    freshfetch                                # experimental: neofetch replacement
     fzf                                       # fuzzy finder
     gcc                                       # c compiler
     git                                       # source control
-    neovim                                    # editor (vim like)
+    lazygit                                   # experimental: tui git client
     ripgrep                                   # grep replacement
+    sd                                        # experimental: sed replacement
     starship                                  # prompt
     tealdeer                                  # tldr replacement
+    xh                                        # experimental: curl replacement
+    xplr                                      # experimental: tui file explorer
     yadm                                      # dotfile management
+    zellij                                    # experimental: tmux replacement
 
-    # experimental
-    fd                                        # find replacement
-    freshfetch                                # neofetch replacement
-    helix                                     # editor (kakoune like)
-    lazygit                                   # tui git client
-    nushell                                   # modern shell written in Rust
-    sd                                        # sed replacement
-    xh                                        # curl replacement
-    xplr                                      # tui file explorer
-    zellij                                    # tmux replacement
+    # shells
+    nushell                                   # experimental: modern shell written in Rust
+    zsh                                       # main shell
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 
     # fonts
-    jetbrains-mono
+    jetbrains-mono                            # main font
     lexend
     nerdfonts
 
     # printers
-    cups-brother-hll2350dw
+    cups-brother-hll2350dw                    # home and office printer (2023)
 
     # services
     fwupd                                     # firmware update service
@@ -85,19 +88,19 @@
   };
 
 
-# Experimentals ============================
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Experimentals ============================
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
-# File Services ============================
+  # File Services ============================
   boot.supportedFilesystems = [ "ntfs" ];     # NTFS for some of my USB Drives
 
 
-# Network Services =========================
+  # Network Services =========================
   networking.networkmanager.enable = true;    # Wifi Manager
 
 
-# Printing Services ========================
+  # Printing Services ========================
   services.printing = {
     enable = true;
     drivers = [ pkgs.cups-brother-hll2350dw ];
@@ -105,11 +108,11 @@
   services.avahi = {
     enable = true;
     nssmdns = true;
-    openFirewall = true;                      # for a WiFi printer
+    openFirewall = true;                      # Wifi printing
   };
 
 
-# Upgrades and Optimization ================
+  # Upgrades and Optimization ================
   system.autoUpgrade.enable = true;           # auto upgrade nixos and nix packages
   nixpkgs.config.allowUnfree = true;          # allow more packages
   nix.settings.auto-optimise-store = true;    # optimize links
@@ -118,5 +121,13 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  # ZSH =====================================
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
+  environment.shells = with pkgs; [ zsh ];
 
 }
