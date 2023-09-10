@@ -73,7 +73,8 @@ if command -v exa &>/dev/null; then
   alias la='exa -F --group-directories-first --git --all'
   alias ll='exa -lF --group-directories-first'
   alias lla='exa -lF --group-directories-first --git --all'
-  alias tree='exa -lF --tree --git --all'
+  alias tree='exa --tree --git'
+  alias treea='exa -lF --tree --git --all'
 else
   alias l='ls'
   alias la='ls -a'
