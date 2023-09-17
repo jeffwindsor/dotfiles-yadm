@@ -25,31 +25,11 @@
     ];
 
     systemPackages = with pkgs; [
-      # browsers
-      firefox                                 # main
-      chromium                                # backup
-      brave                                   # backup
-
-
       # applications
-      #alacritty                               # terminal improvement
       megasync                                # cloud storage
       neovim                                  # editor (vim like)
 
       # cli tools
-      #bat                                     # cat replacement
-      exa                                     # ls replacement
-      fortune                                 # saying that make my day
-      #fzf                                     # fuzzy finder
-      gcc                                     # c compiler, required for nvim+treesitter
-      #git                                     # source control
-      ripgrep                                 # grep replacement
-      #starship                                # prompt
-      #tealdeer                                # tldr replacement
-      yadm                                    # dotfile management
-      # zsh                                     # main shell
-      # zsh-autosuggestions
-      # zsh-syntax-highlighting
 
       # fonts
       jetbrains-mono                          # main font
@@ -62,18 +42,6 @@
       tlp                                     # laptop power mgmt service
 
       # experimental use : maybe keep
-      #lazygit                                 # tui git client
-      sd                                      # sed replacement
-      fd                                      # find replacement
-      freshfetch                              # neofetch replacement
-      helix                                   # editor (kakoune like)
-      xh                                      # curl replacement
-      xplr                                    # tui file explorer
-      zellij                                  # tmux replacement
-      nushell                                 # modern shell written in Rust
-      qutebrowser                             # browser (vim like)
-      #nytx                                    # browser (keyboard only)
-      #librewolf                               # browser (stripped down firefox)
 
     ];
 
