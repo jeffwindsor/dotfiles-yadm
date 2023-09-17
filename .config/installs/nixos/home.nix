@@ -12,6 +12,8 @@
       fd                                      # find replacement
       fortune                                 # saying that make my day
       freshfetch                              # neofetch replacement
+      neovim                                  # editor (vim like)
+      megasync                                # cloud storage
       gcc                                     # c compiler, required for nvim+treesitter
       ripgrep                                 # grep replacement
       yadm                                    # dotfile management
