@@ -1,6 +1,7 @@
 { config, pkgs, ... }:{                       # https://search.nixos.org/options
 
   imports = [
+    <home-manager/nixos>
     ./gnome.nix                               # add personalized gnome de
     ./hardware-configuration.nix              # generated hardware config
   ];
@@ -15,6 +16,8 @@
   };
 
   environment = {
+    pathsToLink = [ "/share/zsh" ];
+
     shells = with pkgs; [
       bash
       nushell
@@ -22,40 +25,31 @@
     ];
 
     systemPackages = with pkgs; [
+      # browsers
+      firefox                                 # main
+      chromium                                # backup
+      brave                                   # backup
+
+
       # applications
-      alacritty                               # terminal improvement
-      brave                                   # maybe keep: browser
-      chromium                                # browser (backup)
-      firefox                                 # browser (main)
-      helix                                   # maybe keep: editor (kakoune like)
-      librewolf                               # maybe keep: browser
+      #alacritty                               # terminal improvement
       megasync                                # cloud storage
       neovim                                  # editor (vim like)
 
-      # tools
-      bat                                     # cat replacement
+      # cli tools
+      #bat                                     # cat replacement
       exa                                     # ls replacement
-      fd                                      # maybe keep: find replacement
       fortune                                 # saying that make my day
-      freshfetch                              # maybe keep: neofetch replacement
-      fzf                                     # fuzzy finder
-      gcc                                     # c compiler
-      git                                     # source control
-      lazygit                                 # maybe keep: tui git client
+      #fzf                                     # fuzzy finder
+      gcc                                     # c compiler, required for nvim+treesitter
+      #git                                     # source control
       ripgrep                                 # grep replacement
-      sd                                      # maybe keep: sed replacement
-      starship                                # prompt
-      tealdeer                                # tldr replacement
-      xh                                      # maybe keep: curl replacement
-      xplr                                    # maybe keep: tui file explorer
+      #starship                                # prompt
+      #tealdeer                                # tldr replacement
       yadm                                    # dotfile management
-      zellij                                  # maybe keep: tmux replacement
-
-      # shells
-      nushell                                 # maybe keep: modern shell written in Rust
-      zsh                                     # main shell
-      zsh-autosuggestions
-      zsh-syntax-highlighting
+      # zsh                                     # main shell
+      # zsh-autosuggestions
+      # zsh-syntax-highlighting
 
       # fonts
       jetbrains-mono                          # main font
@@ -66,6 +60,21 @@
       cups-brother-hll2350dw                  # home and office printer (2023)
       fwupd                                   # firmware update service
       tlp                                     # laptop power mgmt service
+
+      # experimental use : maybe keep
+      #lazygit                                 # tui git client
+      sd                                      # sed replacement
+      fd                                      # find replacement
+      freshfetch                              # neofetch replacement
+      helix                                   # editor (kakoune like)
+      xh                                      # curl replacement
+      xplr                                    # tui file explorer
+      zellij                                  # tmux replacement
+      nushell                                 # modern shell written in Rust
+      qutebrowser                             # browser (vim like)
+      #nytx                                    # browser (keyboard only)
+      #librewolf                               # browser (stripped down firefox)
+
     ];
 
   };
@@ -78,7 +87,7 @@
     networkmanager.enable = true;             # Wifi Manager
   };
 
-  # remove unfree check
+  # PACKAGES: remove unfree check
   nixpkgs.config.allowUnfree = true;
 
   nix = {
@@ -147,6 +156,12 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;                     # use nixos system packages
+    useUserPackages = true;                   # use nixos user packages
+    users.mid = import ./home.nix;
   };
 
 }
