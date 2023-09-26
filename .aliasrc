@@ -68,13 +68,13 @@ if command -v rg &>/dev/null; then
 fi
 
 # list
-if command -v exa &>/dev/null; then
-  alias l='exa -F --group-directories-first'
-  alias la='exa -F --group-directories-first --git --all'
-  alias ll='exa -lF --group-directories-first'
-  alias lla='exa -lF --group-directories-first --git --all'
-  alias tree='exa --tree --git'
-  alias treea='exa -lF --tree --git --all'
+if command -v eza &>/dev/null; then
+  alias l='eza -F --group-directories-first'
+  alias la='eza -F --group-directories-first --git --all'
+  alias ll='eza -lF --group-directories-first'
+  alias lla='eza -lF --group-directories-first --git --all'
+  alias tree='eza --tree --git'
+  alias treea='eza -lF --tree --git --all'
 else
   alias l='ls'
   alias la='ls -a'
