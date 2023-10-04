@@ -19,6 +19,8 @@ vim.opt.rtp:prepend(lazypath)
 -- ----------------------------------------------------------------------------
 require('lazy').setup({
 
+  {'norcalli/nvim-colorizer.lua'},
+
   -- auto save on focus change
   { 'pocco81/auto-save.nvim' },
 
@@ -99,7 +101,7 @@ require('plugins.nvim-lsp')
 require('plugins.nvim-treesitter')
 require('plugins.telescope')
 require('plugins.which-key')
-
+require('colorizer').setup()
 
 --require("lspconfig").lua_ls.setup {}
 require('lspconfig').rust_analyzer.setup {}
