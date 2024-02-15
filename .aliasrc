@@ -44,9 +44,9 @@ then
 
   # `d` for dotifles
   alias d="yadm"
-  alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
-  alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
-  alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
+  #alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
+  #alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
+  #alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
 
   alias da="yadm add"
   alias daa="yadm add -u"       #stage modified and deletions
@@ -68,13 +68,13 @@ if command -v rg &>/dev/null; then
 fi
 
 # list
-if command -v eza &>/dev/null; then
-  alias l='eza -F --group-directories-first'
-  alias la='eza -F --group-directories-first --git --all'
-  alias ll='eza -lF --group-directories-first'
-  alias lla='eza -lF --group-directories-first --git --all'
-  alias tree='eza --tree --git'
-  alias treea='eza -lF --tree --git --all'
+if command -v exa &>/dev/null; then
+  alias l='exa -F --group-directories-first'
+  alias la='exa -F --group-directories-first --git --all'
+  alias ll='exa -lF --group-directories-first'
+  alias lla='exa -lF --group-directories-first --git --all'
+  alias tree='exa --tree --git'
+  alias treea='exa -lF --tree --git --all'
 else
   alias l='ls'
   alias la='ls -a'
@@ -218,51 +218,6 @@ if [[ $(uname) == "Darwin" ]]; then
   # sdkman
   [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# FEDORA (all flavors)
-elif command dnf &>/dev/null; then
-  # dnf package manager
-  alias da="sudo dnf autoremove"
-  alias df="sudo dnf info"
-  alias di="sudo dnf install"
-  alias dit="sudo dnf --enablerepo=updates-testing,updates-testing-modular --best install"
-  alias dls="dnf history --userinstalled"
-  alias up="sudo dnf upgrade"
-  # alias change="$EDITOR $HOME/.config/installs/fedora"
-
-# NIXOS
-elif [ -d "/etc/nixos" ]; then
-  # generate a hardware config : sudo nixos-generate-config
-  alias clean="nix-env --delete-generations +7 && nix-collect-garbage"
-  alias list="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
-  alias optimize="nix store optimise"
-  alias rebuild="sudo cp -r \$HOME/.config/installs/nixos/*.nix /etc/nixos/ && sudo nixos-rebuild switch"
-  alias shell="nix-shell --command zsh"
-  alias up="sudo nixos-rebuild switch --upgrade"
-
-  # function to create a new default file for nix-shell command
-  function nix-init-shell(){
-    cat > shell.nix << EOL
-{ pkgs ? import <nixpkgs> {} }:
-pkgs.mkShell {
-  # shell packages
-  nativeBuildInputs = with pkgs; [
-
-  ];
-
-  # hook executed on shell start
-  # shellHook = ''
-  #   echo "Welcome to your new Nix Shell"
-  # '';
-
-  # environment variables can be set directly
-  # COLOR = "green";
-
-  # as well as importing other nix files
-  # import ./password.nix;
-}
-EOL
-  }
-  # NOTE: zsh plugins are set up in configuration.nix
 fi
 
 
