@@ -12,6 +12,7 @@ alias in="cd \$INSTALLS"
 alias jeff="cd \$SRC/github.com/jeffwindsor/"
 alias md="cd \$HOME/portable/exocortex/markdown"
 alias src="cd \$SRC"
+alias icloud="cd \$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents"
 
 alias hubs="exec-on-git-repos cd \$SRC/github.com/"
 alias srcs="exec-on-git-repos cd \$SRC"
@@ -165,6 +166,7 @@ if command -v nvim &>/dev/null; then
   # yadm list -a | sd '^' "$HOME/"
 
   alias v='nvim'
+  alias vv="nvim -c \":Telescope find_files cwd=\$HOME/.config/nvim/lua/custom\""
   alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
   alias configs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
   # alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""

@@ -1,40 +1,35 @@
 #!/usr/bin/env zsh
 
-source $HOME/.aliasrc
-source $XDG_DATA_HOME/zoxide/zoxide.zsh
+# shell independent aliases
+if test -f $HOME/.aliasrc; then 
+  source $HOME/.aliasrc
+fi 
+
+# z-oxide: cd replacement 
+if test -f $XDG_DATA_HOME/zoxide/zoxide.zsh; then
+  source $XDG_DATA_HOME/zoxide/zoxide.zsh
+fi
 
 # starship prompt
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
-# ZSH Options
-#   https://zsh.sourceforge.io/Doc/Release/Options.html
-# scripts and functions
-#setopt LOCAL_OPTIONS MULTIOS
-## expansion and globbing
-#setopt EXTENDED_GLOB
-## completions
-#setopt AUTO_MENU ALWAYS_TO_END AUTO_LIST NO_MENU_COMPLETE COMPLETE_IN_WORD NOMATCH
-## changing directories
-#setopt AUTO_CD AUTO_PUSHD CDABLE_VARS PUSHD_IGNORE_DUPS
-## history
-#setopt EXTENDED_HISTORY HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_SPACE INC_APPEND_HISTORY SHARE_HISTORY
-## job control
-#setopt NOTIFY
-## prompting
-#setopt PROMPT_SUBST
-## input / output
-#unsetopt FLOW_CONTROL CORRECT_ALL
-# zle
+# zellij: terminal multiplexer
+# if command -v zellij &>/dev/null; then
+#   # open zellij automticallyon terminal start
+#   eval "$(zellij setup --generate-auto-start zsh)"
+# fi
+
+########################################################
+# ZSH (https://zsh.sourceforge.io/Doc/Release)
+#   Options
 unsetopt BEEP
 
-# ZSH Parameters
-#   https://zsh.sourceforge.io/Doc/Release/Parameters.html
+#   Parameters
 HISTSIZE=50000
 SAVEHIST=10000
 
-# ZSH Completions
-#   https://zsh.sourceforge.io/Doc/Release/Completion-System.html
+#   Completions
 autoload -Uz compinit
 compinit
