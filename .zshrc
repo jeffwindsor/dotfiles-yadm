@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # shell independent aliases
 if test -f $HOME/.aliasrc; then 
   source $HOME/.aliasrc
@@ -30,6 +37,3 @@ unsetopt BEEP
 HISTSIZE=50000
 SAVEHIST=10000
 
-#   Completions
-autoload -Uz compinit
-compinit

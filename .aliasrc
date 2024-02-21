@@ -19,63 +19,21 @@ alias srcs="exec-on-git-repos cd \$SRC"
 alias theme="\$XDG_CONFIG_HOME/alacritty/change_theme"
 alias zs="\$EDITOR -c \":args \$HOME/.zshrc \$HOME/.zshenv \$HOME/.bashrc\""
 
-if command -v bat &>/dev/null
-then
+if test -f .aliasrc.local; then
+  source .aliasrc.local
+fi
+
+if command -v bat &>/dev/null; then
   alias cat='bat --style=plain'
 fi
 
-# dotfile management
-if command -v yadm &>/dev/null
-then
-  function yadm-list() {
-    yadm list -a | sd '^' "$HOME/"
-  }
-  function yadm-commit(){
-    yadm commit -m "${1:-'Refactor'}"
-  }
-  function yadm-commit-push(){
-    yadm commit -m "${1:-'Refactor'}" && yadm push
-  }
-  function yadm-add-modified-commit-push(){
-    yadm add -u && yadm-commit "$1" && yadm push
-  }
-  function yadm-log-graph(){
-    yadm log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
-  }
-
-  # `d` for dotifles
-  alias d="yadm"
-  #alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
-  #alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
-  #alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
-
-  alias da="yadm add"
-  alias daa="yadm add -u"       #stage modified and deletions
-  alias dcm="yadm-commit"
-  alias dl="yadm-log-graph"
-  alias dll="yadm log"
-  alias dph="yadm push"
-  alias dpl="yadm pull"
-  alias dr="yadm remote -vv"
-  alias ds="yadm status -sb --ignore-submodules"
-  alias dup="yadm-add-modified-commit-push"
-
-fi
-
-# grep
-if command -v rg &>/dev/null; then
-  alias grep='rg'
-  alias ar='alias | rg'
-fi
-
-# list
-if command -v exa &>/dev/null; then
-  alias l='exa -F --group-directories-first'
-  alias la='exa -F --group-directories-first --git --all'
-  alias ll='exa -lF --group-directories-first'
-  alias lla='exa -lF --group-directories-first --git --all'
-  alias tree='exa --tree --git'
-  alias treea='exa -lF --tree --git --all'
+if command -v eza &>/dev/null; then
+  alias l='eza -F --group-directories-first'
+  alias la='eza -F --group-directories-first --git --all'
+  alias ll='eza -lF --group-directories-first'
+  alias lla='eza -lF --group-directories-first --git --all'
+  alias tree='eza --tree --git'
+  alias treea='eza -lF --tree --git --all'
 else
   alias l='ls'
   alias la='ls -a'
@@ -87,7 +45,6 @@ if command -v freshfetch &>/dev/null; then
   alias f='freshfetch'
 fi
 
-# source control
 if command -v git &>/dev/null; then
 
   # git commit with a default comment of 'Refactor'
@@ -144,14 +101,11 @@ if command -v git &>/dev/null; then
   alias gup="git-add-commit-push"
   alias gsync="git checkout master && git pull --rebase && git checkout - && git rebase master"
 fi
+
 if command -v gitui &>/dev/null; then
   alias gu=gitui
 fi
-if command -v lazygit &>/dev/null; then
-  alias lg=lazygit
-fi
 
-# editors
 if command -v hx &>/dev/null; then
   alias h='hx'
   alias hexo='hx ~/portable/exocortex'
@@ -162,6 +116,11 @@ if command -v hx &>/dev/null; then
   alias hins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
   
 fi
+
+if command -v lazygit &>/dev/null; then
+  alias lg=lazygit
+fi
+
 if command -v nvim &>/dev/null; then
   # yadm list -a | sd '^' "$HOME/"
 
@@ -174,52 +133,44 @@ if command -v nvim &>/dev/null; then
   alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
 fi
 
-# version manager
-# if command -v rtx &>/dev/null; then
-#   eval "$(rtx activate zsh)"
-#   alias ri="rtx install"
-#   alias rl="rtx list"
-#   alias ru="rtx use"
-# fi
-if command -v fnm &>/dev/null; then
-  eval "$(fnm env --use-on-cd)"
+if command -v rg &>/dev/null; then
+  alias grep='rg'
+  alias ar='alias | rg'
 fi
 
-#
-# Operating System Specific Settings
-#
+if command -v yadm &>/dev/null; then
+  function yadm-list() {
+    yadm list -a | sd '^' "$HOME/"
+  }
+  function yadm-commit(){
+    yadm commit -m "${1:-'Refactor'}"
+  }
+  function yadm-commit-push(){
+    yadm commit -m "${1:-'Refactor'}" && yadm push
+  }
+  function yadm-add-modified-commit-push(){
+    yadm add -u && yadm-commit "$1" && yadm push
+  }
+  function yadm-log-graph(){
+    yadm log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
+  }
 
-# MACOS / DARWIN
-if [[ $(uname) == "Darwin" ]]; then
-  # macos ls colorized
-  export CLICOLOR=1
+  # `d` for dotifles
+  alias d="yadm"
+  #alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
+  #alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
+  #alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
 
-  # cj
-  alias lab="cd \$SRC/gitlab.cj.dev"
-  alias labs="exec-on-git-repos cd \$SRC/gitlab.cj.dev"
-  alias cj="\$EDITOR \$HOME/portable/exocortex/cj"
-  alias dbstart="nohup VBoxHeadless --startvm \"Oracle11g32\" &> /dev/null &"
-  alias dbstop="VBoxManage controlvm Oracle11g32 poweroff"
-  alias emp="cd \$SRC/gitlab.cj.dev/empire"
-  alias emps="exec-on-git-repos cd \$SRC/gitlab.cj.dev/empire"
-  alias java8="sdk use java 8.302.08.1-amzn"
-  alias qb="java8 && mvn clean install -T 1C -Ddelta.skip=true -Dcleanup.skip=true -Dqunit.numThreads=8 -DskipTests -Dtablespaces.skip=true -Dgulp.task=min && java11"
-  alias qqb="java8 && mvn install -T 1C -Ddelta.skip=true -Dcleanup.skip=true -Dqunit.numThreads=8 -DskipTests -Dtablespaces.skip=true -Dgulp.task=min && java11"
-  alias sdk-start="source \$HOME/.sdkman/bin/sdkman-init.sh"
-  alias shopcart="rlwrap sqlplus jwindsor@shopcart.db.cj.com:1531/shopcart"
-  alias shuttle-init="\$HOME/.local/scripts/cj/shuttle-init"
-  alias t1="rlwrap sqlplus cj@tcjoweb1.db.cj.com:1521/tcjoweb1"
-  alias t5="rlwrap sqlplus cj@tcjoweb5.db.cj.com:1521/tcjoweb5"
-  alias test-schemas="java -jar ./target/schemas-main-SNAPSHOT.one-jar.jar locator=T5 tnsnames=/USers/jwindsor/.local/cjdev/ci/tns-admin/tnsnames.ora"
-  alias tns="v ~/.local/cjdev/ci/tns-admin/tnsnames.ora"
-  alias nvm=fnm
-
-  # fzf
-  [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]] && export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-
-  # sdkman
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+  alias da="yadm add"
+  alias daa="yadm add -u"       #stage modified and deletions
+  alias dcm="yadm-commit"
+  alias dl="yadm-log-graph"
+  alias dll="yadm log"
+  alias dph="yadm push"
+  alias dpl="yadm pull"
+  alias dr="yadm remote -vv"
+  alias ds="yadm status -sb --ignore-submodules"
+  alias dup="yadm-add-modified-commit-push"
 
 fi
-
 
