@@ -2,17 +2,30 @@
     name = Jeff Windsor
     email = jeff.windsor@gmail.com
 
-[core]
-    excludesFile = ~/.config/git/ignore
-
-[pull]
-	ff = only
-
-[init]
-    defaultBranch = main
-
 [credential]
 	helper = cache
+
+[core]
+  excludesFile = ~/.config/git/ignore
+
+[init]
+  defaultBranch = main
+
+[merge]
+  conflictstyle = zdiff3
+
+[pull]
+	rebase = true
+
+[push]
+  default = current
+
+[rebase]
+  autosquash = true
+  autostash = true
+
+[rerere]
+  enabled = true
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/

@@ -13,9 +13,9 @@ local config = wezterm.config_builder()
 -- config.color_scheme = 'Nord (Gogh)'
 -- config.color_scheme = 'OceanicNext (base16)'
 -- config.color_scheme = 'Solarized (dark) (terminal.sexy)'
--- config.color_scheme = 'Tender (Gogh)'
+config.color_scheme = 'Tender (Gogh)'
 -- config.color_scheme = 'Tokyo Night (Gogh)'
-config.color_scheme = 'Tokyo Night Storm (Gogh)'
+-- config.color_scheme = 'Tokyo Night Storm (Gogh)'
 
 -- COLOR SCHEME: LIGHT
 -- config.color_scheme = 'Solarized (light) (terminal.sexy)'
