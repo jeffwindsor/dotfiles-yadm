@@ -5,14 +5,14 @@ alias ....='cd ../../../'
 alias ...='cd ../../'
 alias ..='cd ..'
 alias business="cd \$SRC/github.com/jeffwindsor/financials/gnucash/business/imports"
-alias dot="cd \$DOTFILES"
-alias home="cd \$SRC/github.com/jeffwindsor/financials/gnucash/home/imports"
-alias hub="cd \$SRC/github.com"
-alias in="cd \$INSTALLS"
-alias jeff="cd \$SRC/github.com/jeffwindsor/"
-alias md="cd \$HOME/portable/exocortex/markdown"
-alias src="cd \$SRC"
-alias icloud="cd \$HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
+alias dot="z \$DOTFILES"
+alias home="z \$SRC/github.com/jeffwindsor/financials/gnucash/home/imports"
+alias hub="z \$SRC/github.com"
+alias in="z \$INSTALLS"
+alias jeff="z \$SRC/github.com/jeffwindsor/"
+alias md="z \$HOME/portable/exocortex/markdown"
+alias src="z \$SRC"
+alias icloud="z \$HOME/Library/Mobile\\ Documents/com~apple~CloudDocs/Documents"
 
 alias hubs="exec-on-git-repos cd \$SRC/github.com/"
 alias srcs="exec-on-git-repos cd \$SRC"
@@ -174,3 +174,9 @@ if command -v yadm &>/dev/null; then
 
 fi
 
+# zoxide
+if command -v z &>/dev/null; then
+  alias cd="z"
+else
+  alias z="cd"
+fi
