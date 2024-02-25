@@ -6,7 +6,6 @@ return {
   ft = "norg", -- lazy load on file type
   cmd = "Neorg", -- lazy load on command
   keys = {
-    { "<leader>n", "", desc = "+neorg" },
     { "<leader>ne", "<cmd>Neorg index<cr>", desc = "enter" },
     { "<leader>nl", "<cmd>Neorg return<cr>", desc = "leave" },
   },
