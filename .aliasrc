@@ -131,6 +131,11 @@ if command -v nvim &>/dev/null; then
   # alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""
   alias dots="yadm list --all | fzf | xargs nvim"
   alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
+  function nvim-clean-caches() {
+    rm -rf $HOME/.local/share/nvim
+    rm -rf $HOME/.local/state/nvim
+    rm -rf $HOME/.cache/nvim
+  }
 fi
 
 if command -v rg &>/dev/null; then
@@ -161,16 +166,19 @@ if command -v yadm &>/dev/null; then
   #alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
   #alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
 
-  alias da="yadm add"
-  alias daa="yadm add -u"       #stage modified and deletions
-  alias dcm="yadm-commit"
-  alias dl="yadm-log-graph"
-  alias dll="yadm log"
-  alias dph="yadm push"
-  alias dpl="yadm pull"
-  alias dr="yadm remote -vv"
-  alias ds="yadm status -sb --ignore-submodules"
-  alias dup="yadm-add-modified-commit-push"
+  alias ya="yadm add"
+  alias yaa="yadm add -u"       #stage modified and deletions
+  alias yd="yadm"
+  alias ycm="yadm-commit"
+  alias yco="yadm checkout"
+  alias yl="yadm-log-graph"
+  alias yll="yadm log"
+  alias yls="yadm list"
+  alias yph="yadm push"
+  alias ypl="yadm pull"
+  alias yr="yadm remote -vv"
+  alias ys="yadm status -sb --ignore-submodules"
+  alias yup="yadm-add-modified-commit-push"
 
 fi
 
