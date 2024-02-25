@@ -1,0 +1,80 @@
+#!/bin/bash
+
+BREW_PACKAGES=(
+	bat
+	bpytop
+	eza
+	fd
+	fzf
+	git
+	helix
+	just
+	lazygit
+	marksman
+	neovim
+	ripgrep
+	screenresolution
+	starship
+	tldr
+	yadm
+	yazi
+	zellij
+	zoxide
+	zsh-autocomplete
+	zsh-completions
+	zsh-syntax-highlighting
+)
+
+BREW_CASKS=(
+	amethyst
+	firefox
+	font-jetbrains-mono-nerd-font
+	google-chrome
+	keepingyouawake
+	slack
+	spaceid
+	spotify
+	transmission
+	vlc
+	wezterm
+)
+
+function echo_header() {
+	echo -ne "\e[38;5;39m ${1} \e[0m"
+}
+
+echo -ne "
+ \e[38;5;39m
+██████╗  █████╗ ██████╗ ██╗    ██╗██╗███╗   ██╗
+██╔══██╗██╔══██╗██╔══██╗██║    ██║██║████╗  ██║
+██║  ██║███████║██████╔╝██║ █╗ ██║██║██╔██╗ ██║
+██║  ██║██╔══██║██╔══██╗██║███╗██║██║██║╚██╗██║
+██████╔╝██║  ██║██║  ██║╚███╔███╔╝██║██║ ╚████║
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝
+\e[0m
+"
+
+# Homebrew: https://brew.sh/
+if command -v brew &>/dev/null; then
+	echo_header "brew leaves"
+	brew leaves
+
+	echo "brew casks"
+	brew list
+else
+	echo_header "Installing Brew"
+	$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+
+	echo_header "Installing Brew Packages"
+	for i in "${BREW_PACKAGES[@]}"; do
+		echo_header "  Installing $i"
+		brew install "$i"
+	done
+
+	echo_header "Installing Brew Casks"
+	for i in "${BREW_CASKS[@]}"; do
+		echo_header "  Installing $i"
+		brew install "$i" --cask
+	done
+
+fi
