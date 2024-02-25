@@ -40,9 +40,14 @@ BREW_CASKS=(
 )
 
 function echo_header() {
-	echo -ne "\e[38;5;39m ${1} \e[0m"
+	echo -ne "\e[38;5;39m ===> ${1} \e[0m"
 }
 
+###############################################################################
+# BEGIN INSTALL SCRIPT
+###############################################################################
+cd "$(dirname "${0}")" || exit
+clear
 echo -ne "
  \e[38;5;39m
 ██████╗  █████╗ ██████╗ ██╗    ██╗██╗███╗   ██╗
@@ -54,27 +59,71 @@ echo -ne "
 \e[0m
 "
 
-# Homebrew: https://brew.sh/
+# homebrew: https://brew.sh/
 if command -v brew &>/dev/null; then
+
 	echo_header "brew leaves"
 	brew leaves
 
 	echo "brew casks"
-	brew list
+	brew list --cask
+
 else
-	echo_header "Installing Brew"
+
+	echo_header "installing brew"
 	$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 
-	echo_header "Installing Brew Packages"
+	echo_header "installing brew packages"
 	for i in "${BREW_PACKAGES[@]}"; do
-		echo_header "  Installing $i"
+		echo_header "installing $i"
 		brew install "$i"
 	done
 
-	echo_header "Installing Brew Casks"
+	echo_header "installing brew casks"
 	for i in "${BREW_CASKS[@]}"; do
-		echo_header "  Installing $i"
+		echo_header "installing $i"
 		brew install "$i" --cask
 	done
+
+fi
+
+# ssh keys and repos from github
+if ! test -f $HOME/.ssh/github.com.pub; then
+
+	ssh-keygen -t ed25519 -C "jeff.windsor@gmail.com" -f $HOME/.ssh/github.com
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_ed25519
+
+	echo_header "add ssh public key to github"
+	cat $HOME/.ssh/*.pub
+	echo "hit any key when completed"
+	read -r
+
+	echo_header "cloning personal github repos"
+	git clone git@github.com:jeffwindsor/financials.git "$HOME"/Source/github.com/jeffwindsor/financials
+	git clone git@github.com:jeffwindsor/startpage.git "$HOME"/Source/github.com/jeffwindsor/startpage
+
+fi
+
+# dotfiles - yadm based : https://yadm.io/
+if command -v yadm &>/dev/null; then
+
+	echo_header "configuring dot files (yadm)"
+	yadm clone git@github.com:jeffwindsor/dotfiles.git
+	yadm status
+
+fi
+
+# neovim config - lazyvim based : http://www.lazyvim.org/
+if command -v nvim &>/dev/null; then
+
+	echo_header "clearing any current neo vim configuration and caches"
+	rm -rf $HOME/.config/nvim/
+	rm -rf $HOME/.local/share/nvim
+	rm -rf $HOME/.local/state/nvim
+	rm -rf $HOME/.cache/nvim
+
+	echo_header "configuring neo vim"
+	git clone git@github.com:jeffwindsor/lazyvim-custom-config.git $HOME/.config/nvim
 
 fi
