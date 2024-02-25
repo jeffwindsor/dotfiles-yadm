@@ -20,171 +20,180 @@ alias theme="\$XDG_CONFIG_HOME/alacritty/change_theme"
 alias zs="\$EDITOR -c \":args \$HOME/.zshrc \$HOME/.zshenv \$HOME/.bashrc\""
 
 if test -f .aliasrc.local; then
-  source .aliasrc.local
+	source .aliasrc.local
 fi
 
 if command -v bat &>/dev/null; then
-  alias cat='bat --style=plain'
+	alias cat='bat --style=plain'
 fi
 
 if command -v eza &>/dev/null; then
-  alias l='eza -F --group-directories-first'
-  alias la='eza -F --group-directories-first --git --all'
-  alias ll='eza -lF --group-directories-first'
-  alias lla='eza -lF --group-directories-first --git --all'
-  alias tree='eza --tree --git'
-  alias treea='eza -lF --tree --git --all'
+	alias l='eza -F --group-directories-first'
+	alias la='eza -F --group-directories-first --git --all'
+	alias ll='eza -lF --group-directories-first'
+	alias lla='eza -lF --group-directories-first --git --all'
+	alias tree='eza --tree --git'
+	alias treea='eza -lF --tree --git --all'
 else
-  alias l='ls'
-  alias la='ls -a'
-  alias ll='ls -l'
-  alias lla='ls -la'
+	alias l='ls'
+	alias la='ls -a'
+	alias ll='ls -l'
+	alias lla='ls -la'
 fi
 
 if command -v freshfetch &>/dev/null; then
-  alias f='freshfetch'
+	alias f='freshfetch'
 fi
 
 if command -v git &>/dev/null; then
 
-  # git commit with a default comment of 'Refactor'
-  function git-commit(){
-    git commit -m "${1:-'Refactor'}"
-  }
-  function git-add-commit(){
-    git add --all && git-commit "$1"
-  }
-  function git-add-commit-push(){
-    git-add-commit "$1" && git push
-  }
-  # pretty git log using format set in .zshenv: GIT_LOG_PRETTY_FORMAT. Max count defaults to 10
-  function git-log-graph(){
-    git log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
-  }
-  # find all directories ending in .git (including hidden and ignored listings)
-  function git-find-dirs(){
-    fd '^.git$' "$1" -HItd --max-depth 4 | sed 's/.git\/$//'
-  }
-  # apply git command to current directory contents
-  function git-all(){
-    echo "git $1 on sub-directories"
-    find . -maxdepth 1 -type d -exec git -C {} "$1" \;
-    # ls | xargs -I{} echo git -C {} $1
-  }
-  # prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
-  function exec-on-git-repos() {
-    local result
-    result=$(git-find-dirs "$2" | fzf --reverse)
-    [ -n "$result" ] && "$1" "$result"
-  }
-  # git clone from git hub to my source directory
-  function ghc(){
-    git clone git@github.com:"$1" "$SRC"/github.com/"$1"
-  }
+	# git commit with a default comment of 'Refactor'
+	function git-commit() {
+		git commit -m "${1:-'Refactor'}"
+	}
+	function git-add-commit() {
+		git add --all && git-commit "$1"
+	}
+	function git-add-commit-push() {
+		git-add-commit "$1" && git push
+	}
+	# pretty git log using format set in .zshenv: GIT_LOG_PRETTY_FORMAT. Max count defaults to 10
+	function git-log-graph() {
+		git log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
+	}
+	# find all directories ending in .git (including hidden and ignored listings)
+	function git-find-dirs() {
+		fd '^.git$' "$1" -HItd --max-depth 4 | sed 's/.git\/$//'
+	}
+	# apply git command to current directory contents
+	function git-all() {
+		echo "git $1 on sub-directories"
+		find . -maxdepth 1 -type d -exec git -C {} "$1" \;
+		# ls | xargs -I{} echo git -C {} $1
+	}
+	# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
+	function exec-on-git-repos() {
+		local result
+		result=$(git-find-dirs "$2" | fzf --reverse)
+		[ -n "$result" ] && "$1" "$result"
+	}
+	# git clone from git hub to my source directory
+	function ghc() {
+		git clone git@github.com:"$1" "$SRC"/github.com/"$1"
+	}
 
-  alias git-to-main="git branch -m master main && git push -u origin main"
-  alias ga="git add"
-  alias gaa="git add --all"
-  alias gb="git branch -v"
-  alias gc="git clone"
-  alias gcm="git-commit"
-  alias gcma="git add --all && git-commit"
-  alias gco="git checkout"
-  alias gd="git diff --ignore-space-at-eol -b -w --ignore-blank-lines"
-  alias gl="git-log-graph"
-  alias gll="git log"
-  alias gph="git push"
-  alias gpl="git pull"
-  alias gpls="git-all pull"
-  alias gr="git remote -vv"
-  alias gs="git status -sb --ignore-submodules"
-  alias gup="git-add-commit-push"
-  alias gsync="git checkout master && git pull --rebase && git checkout - && git rebase master"
+	alias git-to-main="git branch -m master main && git push -u origin main"
+	alias ga="git add"
+	alias gaa="git add --all"
+	alias gb="git branch -v"
+	alias gc="git clone"
+	alias gcm="git-commit"
+	alias gcma="git add --all && git-commit"
+	alias gco="git checkout"
+	alias gd="git diff --ignore-space-at-eol -b -w --ignore-blank-lines"
+	alias gl="git-log-graph"
+	alias gll="git log"
+	alias gph="git push"
+	alias gpl="git pull"
+	alias gpls="git-all pull"
+	alias gr="git remote -vv"
+	alias gs="git status -sb --ignore-submodules"
+	alias gup="git-add-commit-push"
+	alias gsync="git checkout master && git pull --rebase && git checkout - && git rebase master"
 fi
 
 if command -v gitui &>/dev/null; then
-  alias gu=gitui
+	alias gu=gitui
 fi
 
 if command -v hx &>/dev/null; then
-  alias h='hx'
-  alias hexo='hx ~/portable/exocortex'
-  alias hfins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-  alias hconfigs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
-  # alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""
-  alias hdots="yadm list --all | fzf | xargs nvim"
-  alias hins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
-  
+	alias h='hx'
+	alias hexo='hx ~/portable/exocortex'
+	alias hfins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
+	alias hconfigs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
+	alias hdots="yadm list --all | fzf | xargs nvim"
+	alias hins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
+
 fi
 
 if command -v lazygit &>/dev/null; then
-  alias lg=lazygit
+	alias lg=lazygit
 fi
 
 if command -v nvim &>/dev/null; then
-  # yadm list -a | sd '^' "$HOME/"
 
-  alias v='nvim'
-  alias vv="nvim -c \":Telescope find_files cwd=\$HOME/.config/nvim/lua/custom\""
-  alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-  alias configs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
-  # alias dots="nvim -c \":Telescope find_files find_command=\$HOME/.config/yadm-list.sh\""
-  alias dots="yadm list --all | fzf | xargs nvim"
-  alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
-  function nvim-clean-caches() {
-    rm -rf $HOME/.local/share/nvim
-    rm -rf $HOME/.local/state/nvim
-    rm -rf $HOME/.cache/nvim
-  }
+	alias v='nvim'
+	alias vv="nvim -c \":Telescope find_files cwd=\$HOME/.config/nvim/lua/custom\""
+	alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
+	alias configs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
+	alias dots="yadm list --all | fzf | xargs nvim"
+	alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
+
+	function nvim-clean-caches() {
+		rm -rf $HOME/.local/share/nvim
+		rm -rf $HOME/.local/state/nvim
+		rm -rf $HOME/.cache/nvim
+	}
+
 fi
 
 if command -v rg &>/dev/null; then
-  alias grep='rg'
-  alias ar='alias | rg'
+	alias grep='rg'
+	alias ar='alias | rg'
 fi
 
 if command -v yadm &>/dev/null; then
-  function yadm-list() {
-    yadm list -a | sd '^' "$HOME/"
-  }
-  function yadm-commit(){
-    yadm commit -m "${1:-'Refactor'}"
-  }
-  function yadm-commit-push(){
-    yadm commit -m "${1:-'Refactor'}" && yadm push
-  }
-  function yadm-add-modified-commit-push(){
-    yadm add -u && yadm-commit "$1" && yadm push
-  }
-  function yadm-log-graph(){
-    yadm log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
-  }
+	function yadm-commit() {
+		yadm commit -m "${1:-'Refactor'}"
+	}
 
-  # `d` for dotifles
-  alias d="yadm"
-  #alias dg="lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git"  #lazygit to yadm bare repo
-  #alias change="\$EDITOR -c \":args \$HOME/.config/installs/nixos/*.nix\""
-  #alias stow="yadm add \$HOME/.config/installs/nixos/**/*.nix"
+	function yadm-commit-push() {
+		yadm commit -m "${1:-'Refactor'}" && yadm push
+	}
 
-  alias ya="yadm add"
-  alias yaa="yadm add -u"       #stage modified and deletions
-  alias yd="yadm"
-  alias ycm="yadm-commit"
-  alias yco="yadm checkout"
-  alias yl="yadm-log-graph"
-  alias yll="yadm log"
-  alias yls="yadm list"
-  alias yph="yadm push"
-  alias ypl="yadm pull"
-  alias yr="yadm remote -vv"
-  alias ys="yadm status -sb --ignore-submodules"
-  alias yup="yadm-add-modified-commit-push"
+	function yadm-add-modified-commit-push() {
+		yadm add -u && yadm-commit "$1" && yadm push
+	}
+
+	function yadm-log-graph() {
+		yadm log --graph --pretty=format:"${GIT_LOG_PRETTY_FORMAT}" --abbrev-commit --max-count="${1:-10}"
+	}
+
+	alias ya="yadm add"
+	alias yaa="yadm add -u" #stage modified and deletions
+	alias yd="yadm diff"
+	alias ycm="yadm-commit"
+	alias yco="yadm checkout"
+	alias yl="yadm-log-graph"
+	alias yll="yadm log"
+	alias yls="yadm list"
+	alias yph="yadm push"
+	alias ypl="yadm pull"
+	alias yr="yadm remote -vv"
+	alias ys="yadm status -sb --ignore-submodules"
+	alias yup="yadm-add-modified-commit-push"
 
 fi
 
+# yazi - tui fm
+if command -v yazi &>/dev/null; then
+
+	alias y="yazi"
+
+	# shell wrapper that will change to the selected directory on exit
+	function ya() {
+		local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+		yazi "$@" --cwd-file="$tmp"
+		if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+			cd -- "$cwd"
+		fi
+		rm -f -- "$tmp"
+	}
+fi
+
 # zoxide
-if command -v z &>/dev/null; then
-  alias cd="z"
+if command -v zoxide &>/dev/null; then
+	alias cd="z"
 else
-  alias z="cd"
+	alias z="cd"
 fi
