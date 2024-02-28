@@ -5,10 +5,8 @@ alias ....='cd ../../../'
 alias ...='cd ../../'
 alias ..='cd ..'
 alias business="cd \$SRC/github.com/jeffwindsor/financials/gnucash/business/imports"
-alias dot="cd \$DOTFILES"
 alias home="cd \$SRC/github.com/jeffwindsor/financials/gnucash/home/imports"
 alias hub="cd \$SRC/github.com"
-alias in="cd \$INSTALLS"
 alias jeff="cd \$SRC/github.com/jeffwindsor/"
 alias md="cd \$HOME/portable/exocortex/markdown"
 alias src="cd \$SRC && lla"
@@ -112,7 +110,6 @@ if command -v hx &>/dev/null; then
 	alias hfins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
 	alias hconfigs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
 	alias hdots="yadm list --all | fzf | xargs nvim"
-	alias hins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
 
 fi
 
@@ -126,7 +123,7 @@ if command -v nvim &>/dev/null; then
 	alias vv="nvim -c \":Telescope find_files cwd=\$HOME/.config/nvim/lua/custom\""
 	alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
 	alias dots="yadm list --all | fzf | xargs nvim"
-	alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
+	alias dotsn="cd $XDG_CONFIG_HOME/nvim && nvim ."
 
 	function nvim-clean-caches() {
 		rm -rf $HOME/.local/share/nvim
