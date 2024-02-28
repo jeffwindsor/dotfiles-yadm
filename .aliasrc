@@ -172,8 +172,6 @@ if command -v yadm &>/dev/null; then
 	alias yr="yadm remote -vv"
 	alias ys="yadm status -sb --ignore-submodules"
 	alias yup="yadm-add-modified-commit-push"
-
-	alias configs="nvim $(yamd list)"
 fi
 
 # yazi - tui fm

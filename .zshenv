@@ -21,7 +21,7 @@ fi
 # fzf
 if command -v fzf &>/dev/null; then
   export FZF_DEFAULT_COMMAND='fd --type f --hidden --ignore-file ~/.config/fdignore'
-  export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --info=inline'
+  export FZF_DEFAULT_OPTS='--height 60% --info=inline'
 fi
 
 # git
