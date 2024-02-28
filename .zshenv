@@ -11,8 +11,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # personal
 export SRC=$HOME/Source
-export DOTFILES=$HOME/.config/
-export INSTALLS=$HOME/.config/installs
 
 if command -v nvim &>/dev/null; then
   export EDITOR="$(which nvim)"
