@@ -11,13 +11,10 @@ alias hub="cd \$SRC/github.com"
 alias in="cd \$INSTALLS"
 alias jeff="cd \$SRC/github.com/jeffwindsor/"
 alias md="cd \$HOME/portable/exocortex/markdown"
-alias src="cd \$SRC"
+alias src="cd \$SRC && lla"
 alias icloud="cd \$HOME/Library/Mobile\\ Documents/com~apple~CloudDocs/Documents"
 
-alias hubs="exec-on-git-repos cd \$SRC/github.com/"
-alias srcs="exec-on-git-repos cd \$SRC"
-alias theme="\$XDG_CONFIG_HOME/alacritty/change_theme"
-alias zs="\$EDITOR -c \":args \$HOME/.zshrc \$HOME/.zshenv \$HOME/.bashrc\""
+# alias zs="\$EDITOR -c \":args \$HOME/.zshrc \$HOME/.zshenv \$HOME/.bashrc\""
 
 if test -f .aliasrc.local; then
 	source .aliasrc.local
@@ -75,12 +72,15 @@ if command -v git &>/dev/null; then
 	function exec-on-git-repos() {
 		local result
 		result=$(git-find-dirs "$2" | fzf --reverse)
-		[ -n "$result" ] && "$1" "$result"
+		[ -n "$result" ] && "$1" "$result" && lla
 	}
 	# git clone from git hub to my source directory
 	function ghc() {
 		git clone git@github.com:"$1" "$SRC"/github.com/"$1"
 	}
+
+	alias hubs="exec-on-git-repos cd \$SRC/github.com/"
+	alias srcs="exec-on-git-repos cd \$SRC"
 
 	alias git-to-main="git branch -m master main && git push -u origin main"
 	alias ga="git add"
@@ -125,7 +125,6 @@ if command -v nvim &>/dev/null; then
 	alias v='nvim'
 	alias vv="nvim -c \":Telescope find_files cwd=\$HOME/.config/nvim/lua/custom\""
 	alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-	alias configs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
 	alias dots="yadm list --all | fzf | xargs nvim"
 	alias ins="nvim -c \":Telescope find_files cwd=\$INSTALLS\""
 
@@ -174,6 +173,7 @@ if command -v yadm &>/dev/null; then
 	alias ys="yadm status -sb --ignore-submodules"
 	alias yup="yadm-add-modified-commit-push"
 
+	alias configs="nvim $(yamd list)"
 fi
 
 # yazi - tui fm
