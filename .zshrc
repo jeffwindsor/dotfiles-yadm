@@ -33,8 +33,8 @@ if test -f $HOME/.aliasrc; then
 fi 
 
 # z-oxide: cd replacement 
-if test -f $XDG_DATA_HOME/zoxide/zoxide.zsh; then
-  source $XDG_DATA_HOME/zoxide/zoxide.zsh
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
 fi
 
 # starship prompt
