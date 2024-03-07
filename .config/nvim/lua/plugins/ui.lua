@@ -16,24 +16,15 @@ return {
     end,
   },
 
-  -- colorschemes
-  { "NLKNguyen/papercolor-theme" },
-  { "catppuccin/nvim" },
-  { "cocopon/iceberg.vim" },
-  { "jacoborus/tender.vim" },
-  { "joshdick/onedark.vim" },
-  { "marko-cerovac/material.nvim" },
-  { "metalelf0/jellybeans-nvim" },
-  { "rebelot/kanagawa.nvim" },
-  { "romainl/Apprentice" },
-  { "shaunsingh/nord.nvim" },
-  { "tomasr/molokai" },
+  { "rafi/awesome-vim-colorschemes" },
+
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "tokyonight",
     },
   },
+
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
@@ -48,7 +39,7 @@ return {
 ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓........................███████▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░
 ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓..............████████████▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░
 ░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓............█████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░
-░░░V0ID░░░░▒▒▒▒▒ONE▒▒▒▒▒▒▓▓▓DUAL▓▓▓▓▓▓....MANY....████DUAL█████▒▒▒▒▒▒ONE▒▒▒▒▒░░░░V0ID░░░
+░░░V0ID░░░░▒▒▒▒▒ON1▒▒▒▒▒▒▓▓▓DU2L▓▓▓▓▓▓....MANY....████DU2L█████▒▒▒▒▒▒ON1▒▒▒▒▒░░░░V0ID░░░
 ░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓............█████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░
 ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓............█████████████▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░
 ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓..................██████████▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░
