@@ -5,21 +5,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- =============================================================
--- COLOR SCHEME: DARK
--- config.color_scheme = "Apprentice (Gogh)"
--- config.color_scheme = "Bitmute (terminal.sexy)"
--- config.color_scheme = 'Batman'
--- config.color_scheme = "Gruvbox Dark (Gogh)"
--- config.color_scheme = "Kanagawa (Gogh)"
--- config.color_scheme = "Nord (Gogh)"
--- config.color_scheme = "OceanicNext (base16)"
--- config.color_scheme = "Solarized (dark) (terminal.sexy)"
--- config.color_scheme = "Tender (Gogh)"
--- config.color_scheme = "Tokyo Night (Gogh)"
+-- COLOR SCHEME:
 config.color_scheme = "Tokyo Night Storm (Gogh)"
-
--- COLOR SCHEME: LIGHT
--- config.color_scheme = 'Solarized (light) (terminal.sexy)'
 
 -- =============================================================
 -- FONT:

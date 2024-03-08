@@ -1,0 +1,11 @@
+Bitmute (terminal.sexy)
+Batman
+Gruvbox Dark (Gogh)
+Kanagawa (Gogh)
+Nord (Gogh)
+OceanicNext (base16)
+Solarized (dark) (terminal.sexy)
+Tender (Gogh)
+Tokyo Night (Gogh)
+Tokyo Night Storm (Gogh)
+Solarized (light) (terminal.sexy)
