@@ -1,4 +1,6 @@
 return {
-	"echasnovski/mini.files",
-	version = "*",
+  {
+    "echasnovski/mini.align",
+    version = "*",
+  },
 }

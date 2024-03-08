@@ -6,8 +6,8 @@ return {
   ft = "norg", -- lazy load on file type
   cmd = "Neorg", -- lazy load on command
   keys = {
-    { "<leader>2d", "<cmd>Neorg index<cr>", desc = "enter default brain" },
-    { "<leader>2r", "<cmd>Neorg return<cr>", desc = "return to normal" },
+    { "<leader>e2d", "<cmd>Neorg index<cr>", desc = "enter default brain" },
+    { "<leader>e2r", "<cmd>Neorg return<cr>", desc = "return to normal" },
   },
   config = function()
     require("neorg").setup({

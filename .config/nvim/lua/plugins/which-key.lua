@@ -7,7 +7,9 @@ return {
   opts = function(_, opts)
     -- Name NEORG top level menu
     if require("lazyvim.util").has("neorg") then
-      opts.defaults["<leader>2"] = { name = "+2nd brain" }
+      opts.defaults["<leader>e"] = { name = "+editor" }
+      opts.defaults["<leader>ea"] = { name = "+align" }
+      opts.defaults["<leader>e2"] = { name = "+2nd brain" }
     end
   end,
 }
