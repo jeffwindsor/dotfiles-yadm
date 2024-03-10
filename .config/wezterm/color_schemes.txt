@@ -1,5 +1,13 @@
-Bitmute (terminal.sexy)
+Ayu Dark (Gogh)
+Ayu Mirage (Gogh)
+Bamboo Multiplex
 Batman
+BlueDolphin
+Bright Lights
+Catppuccin Frappe
+Catppuccin Latte
+Catppuccin Macchiato
+Catppuccin Mocha
 Gruvbox Dark (Gogh)
 Kanagawa (Gogh)
 Nord (Gogh)
@@ -7,5 +15,10 @@ OceanicNext (base16)
 Solarized (dark) (terminal.sexy)
 Tender (Gogh)
 Tokyo Night (Gogh)
+Tokyo Night Moon
 Tokyo Night Storm (Gogh)
+Tomorrow (dark) (terminal.sexy)
+Tomorrow Night (Gogh)
+Tomorrow Night Blue (Gogh)
+Tomorrow Night Bright (Gogh)  
 Solarized (light) (terminal.sexy)

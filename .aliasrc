@@ -42,7 +42,8 @@ if command -v freshfetch &>/dev/null; then
 fi
 
 if command -v fzf &>/dev/null; then
-	function theme() {
+	alias theme='wezterm-theme'
+	function wezterm-theme() {
 		local result
 		result=$(cat $XDG_CONFIG_HOME/wezterm/color_schemes.txt | fzf)
 		[ -n "$result" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${result}'" $XDG_CONFIG_HOME/wezterm/wezterm.lua
