@@ -19,6 +19,7 @@ BREW_PACKAGES=(
 	shellcheck
 	starship
 	tldr
+	xh
 	yadm
 	yazi
 	zoxide
