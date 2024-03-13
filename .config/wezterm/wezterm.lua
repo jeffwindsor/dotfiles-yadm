@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- =============================================================
 -- COLOR SCHEME:
-config.color_scheme = 'Tokyo Night Moon'
+config.color_scheme = 'Tokyo Night Storm (Gogh)'
 
 -- =============================================================
 -- FONT:

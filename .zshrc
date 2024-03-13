@@ -43,17 +43,17 @@ if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
-# zsh add ons
-if type brew &>/dev/null; then
-  BREW_FOLDER=$(brew --prefix)
-
-  #brew installed completions
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  
-  source $BREW_FOLDER/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source $BREW_FOLDER/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-  source $BREW_FOLDER/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-  autoload -Uz compinit
-  compinit
-fi
+# # zsh add ons
+# if type brew &>/dev/null; then
+#   BREW_FOLDER=$(brew --prefix)
+#
+#   #brew installed completions
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+#
+#   source $BREW_FOLDER/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#   source $BREW_FOLDER/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+#   source $BREW_FOLDER/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+#   autoload -Uz compinit
+#   compinit
+# fi
