@@ -12,8 +12,6 @@ alias md="cd \$HOME/portable/exocortex/markdown"
 alias src="cd \$SRC && lla"
 alias icloud="cd \$HOME/Library/Mobile\\ Documents/com~apple~CloudDocs/Documents"
 
-# alias zs="\$EDITOR -c \":args \$HOME/.zshrc \$HOME/.zshenv \$HOME/.bashrc\""
-
 # machine specific aliases only on local machine
 if test -f .aliasrc.local; then
 	source .aliasrc.local
@@ -45,8 +43,8 @@ if command -v fzf &>/dev/null; then
 	alias theme='wezterm-theme'
 	function wezterm-theme() {
 		local result
-		result=$(cat $XDG_CONFIG_HOME/wezterm/color_schemes.txt | fzf)
-		[ -n "$result" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${result}'" $XDG_CONFIG_HOME/wezterm/wezterm.lua
+		result=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
+		[ -n "$result" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${result}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
 	}
 fi
 
@@ -139,9 +137,9 @@ if command -v nvim &>/dev/null; then
 	alias dotsn="cd $XDG_CONFIG_HOME/nvim && nvim ."
 
 	function nvim-clean-caches() {
-		rm -rf $HOME/.local/share/nvim
-		rm -rf $HOME/.local/state/nvim
-		rm -rf $HOME/.cache/nvim
+		rm -rf "$HOME"/.local/share/nvim
+		rm -rf "$HOME"/.local/state/nvim
+		rm -rf "$HOME"/.cache/nvim
 	}
 
 fi
