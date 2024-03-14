@@ -78,7 +78,7 @@ if command -v brew &>/dev/null; then
 else
 
 	echo_header "installing brew"
-	eval $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+	eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	echo_header "installing brew packages"
 	for i in "${BREW_PACKAGES[@]}"; do
@@ -95,18 +95,19 @@ else
 fi
 
 # ssh keys and repos from github
-if ! test -f $HOME/.ssh/github.com.pub; then
+if ! test -f "$HOME"/.ssh/github.com.pub; then
 
-	ssh-keygen -t ed25519 -C "jeff.windsor@gmail.com" -f $HOME/.ssh/github.com
+	ssh-keygen -t ed25519 -C "jeff.windsor@gmail.com" -f "$HOME"/.ssh/github.com
 	eval "$(ssh-agent -s)"
 	ssh-add ~/.ssh/github.com
 
 	echo_header "add ssh public key to github"
-	cat $HOME/.ssh/*.pub
+	cat "$HOME"/.ssh/*.pub
 	echo "hit any key when completed"
 	read -r
 
 	echo_header "cloning personal github repos"
+
 	JEFF="$HOME/Source/github.com/jeffwindsor"
 	git clone git@github.com:jeffwindsor/startpage.git "$JEFF"/startpage
 

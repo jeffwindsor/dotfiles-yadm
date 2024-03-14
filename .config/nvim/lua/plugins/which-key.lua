@@ -11,7 +11,10 @@ return {
       opts.defaults["<leader>ea"] = { name = "+align" }
       opts.defaults["<leader>e2"] = { name = "+2nd brain" }
     end
+
     -- Formatting
-    opts.defaults["<leader>cfx"] = { "<cmd>%!xmllint --format - <cr>", "Format ALL as XML" }
+    opts.defaults["<leader>cf"] = { name = "+format" }
+    opts.defaults["<leader>cfx"] = { "<cmd>%!xmllint --format - <cr>", "Format XML" }
+    opts.defaults["<leader>cfs"] = { "<cmd>%!shfmt - <cr>", "Format Shell" }
   end,
 }
