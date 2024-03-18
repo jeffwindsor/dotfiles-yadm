@@ -69,14 +69,13 @@ if command -v git &>/dev/null; then
 		fd '^.git$' "$1" -HItd --max-depth 4 | sed 's/.git\/$//'
 	}
 	# apply git command to current directory contents
-	function git-all() {
+	function subdir() {
 		for d in */; do
 			cd ./$d
-			echo "=== Executing git $1 on $(pwd)"
-			git "$1"
+			echo "=== Executing $1 on $(pwd)"
+			eval "$1"
 			cd ..
 		done
-		# ls | xargs -I{} echo git -C {} $1
 	}
 	# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
 	function exec-on-git-repos() {
