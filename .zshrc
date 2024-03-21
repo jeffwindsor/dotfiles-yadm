@@ -43,6 +43,14 @@ if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
+
+if command -v nvm &>/dev/null; then
+  mkdir -p $HOME/.nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" 
+  # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+fi 
+
 source $XDG_CONFIG_HOME/zsh/zsh-autosuggestions.zsh
 source $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh
 source $XDG_CONFIG_HOME/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
