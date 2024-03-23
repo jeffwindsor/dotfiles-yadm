@@ -27,6 +27,13 @@ HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=50000
 SAVEHIST=10000
 
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+#Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # shell independent aliases
 if test -f $HOME/.aliasrc; then 
@@ -50,6 +57,7 @@ if command -v nvm &>/dev/null; then
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" 
   # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi 
+
 
 source $XDG_CONFIG_HOME/zsh/zsh-autosuggestions.zsh
 source $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh
