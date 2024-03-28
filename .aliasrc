@@ -207,3 +207,8 @@ if command -v zoxide &>/dev/null; then
 else
 	alias z="cd"
 fi
+
+# machine specific aliases
+if test -f $HOME/.aliasrc.local; then
+	source $HOME/.aliasrc.local
+fi
