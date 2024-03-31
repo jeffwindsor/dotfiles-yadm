@@ -40,9 +40,9 @@ if test -f $HOME/.aliasrc; then
   source $HOME/.aliasrc
 fi 
 
-# z-oxide: cd replacement 
+# z-oxide: init replacing cd with z, and cdi with zi 
 if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init zsh)"
+  eval "$(zoxide init --cmd cd zsh)"
 fi
 
 # starship prompt

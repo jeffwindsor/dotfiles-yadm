@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 
 # Package Managers
-if command -v nix-env &>/dev/null; then
-	ni="nix-env --install"
-	nl="nix-env -q"
-	nlg="nix-env --list-generations"
-	nr="nix-env --uninstall"
-	ns="nix-shell -p"
-	nup="nix-env --upgrade"
+if command -v nix &>/dev/null; then
+	alias ni="nix-env --install"
+	alias nl="nix-env -q"
+	alias nlg="nix-env --list-generations"
+	alias nr="nix-env --uninstall"
+	alias ns="nix-shell -p"
+	alias nup="nix-env --upgrade"
 fi
 
 if command -v brew &>/dev/null; then
-	bf="brew info"
-	bi="brew install"
-	bl="brew list --formula --versions"
-	blc="brew list --casks --versions"
-	blf="brew list --formula --versions"
-	br="brew uninstall"
-	bs="brew search"
-	bup="brew update && brew upgrade"
-	bx="brew autoremove"
+	alias bf="brew info"
+	alias bi="brew install"
+	alias bl="brew list --formula --versions"
+	alias blc="brew list --casks --versions"
+	alias blf="brew list --formula --versions"
+	alias br="brew uninstall"
+	alias bs="brew search"
+	alias bup="brew update && brew upgrade"
+	alias bx="brew autoremove"
 fi
 
 # Jump Directories - coud repace wit zoxide
@@ -135,13 +135,6 @@ if command -v yazi &>/dev/null; then
 		fi
 		rm -f -- "$tmp"
 	}
-fi
-
-##### change directory helper
-if command -v zoxide &>/dev/null; then
-	alias cd="z"
-else
-	alias z="cd"
 fi
 
 function exec-in-subdirs() {
