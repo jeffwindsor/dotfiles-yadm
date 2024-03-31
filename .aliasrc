@@ -1,6 +1,28 @@
 #!/usr/bin/env bash
 
-# Aliases
+# Package Managers
+if command -v nix-env &>/dev/null; then
+	ni="nix-env --install"
+	nl="nix-env -q"
+	nlg="nix-env --list-generations"
+	nr="nix-env --uninstall"
+	ns="nix-shell -p"
+	nup="nix-env --upgrade"
+fi
+
+if command -v brew &>/dev/null; then
+	bf="brew info"
+	bi="brew install"
+	bl="brew list --formula --versions"
+	blc="brew list --casks --versions"
+	blf="brew list --formula --versions"
+	br="brew uninstall"
+	bs="brew search"
+	bup="brew update && brew upgrade"
+	bx="brew autoremove"
+fi
+
+# Jump Directories - coud repace wit zoxide
 alias ....='cd ../../../'
 alias ...='cd ../../'
 alias ..='cd ..'
