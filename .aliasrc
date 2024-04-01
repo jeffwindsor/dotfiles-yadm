@@ -115,10 +115,10 @@ fi
 
 ##### dot file manager
 if command -v yadm &>/dev/null; then
-	alias ya="yadm add"
-	alias yaa="yadm add -u" #stage modified and deletions
-	alias yg="cd && yadm enter lazygit && cd -"
-	alias ys="yadm status -sb --ignore-submodules"
+	alias da="yadm add"
+	alias daa="yadm add -u" #stage modified and deletions
+	alias dg="cd && yadm enter lazygit && cd -"
+	alias ds="yadm status -sb --ignore-submodules"
 fi
 
 ##### tui fm
