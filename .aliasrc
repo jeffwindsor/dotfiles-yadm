@@ -8,6 +8,7 @@ if command -v nix &>/dev/null; then
 	alias nr="nix-env --uninstall"
 	alias ns="nix-shell -p"
 	alias nup="nix-env --upgrade"
+	alias ngc="nix-store --gc"
 fi
 
 if command -v brew &>/dev/null; then
@@ -123,11 +124,11 @@ fi
 
 ##### tui fm
 if command -v yazi &>/dev/null; then
-	alias y="yazi"
-	alias ycd="ya"
+	alias f="yy"
+	alias f.="yazi"
 
 	# shell wrapper that will change to the selected directory on exit
-	function ya() {
+	function yy() {
 		local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 		yazi "$@" --cwd-file="$tmp"
 		if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
