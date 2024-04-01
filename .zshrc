@@ -33,7 +33,7 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 #Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # shell independent aliases
 if test -f $HOME/.aliasrc; then 
