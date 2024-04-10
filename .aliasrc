@@ -73,7 +73,9 @@ if command -v git &>/dev/null; then
 	alias srcs="exec-on-git-repos cd \$SRC"
 
 	# git clone from git hub to my source directory
-	function ghc() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
+	function ghub() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
+	# git clone from git hub to my source directory
+	function glab() { git clone git@gitlab.cj.dev:"$1" "$SRC"/gitlab.cj.dev/"$1"; }
 
 fi
 
