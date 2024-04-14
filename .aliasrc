@@ -65,12 +65,13 @@ fi
 if command -v git &>/dev/null; then
 	# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
 	function exec-on-git-repos() {
-		local result
-		result=$(git-find-dirs "$2" | fzf --reverse)
-		[ -n "$result" ] && "$1" "$result" && lla
+		local git_repos
+		git_repos=$(fd '^.git$' "$2" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
+		[ -n "$git_repos" ] && "$1" "$git_repos" && lla
 	}
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/"
 	alias srcs="exec-on-git-repos cd \$SRC"
+	alias srcv="exec-on-git-repos nvim \$SRC"
 	alias gclean='git clean -xdf'
 
 	# git clone from git hub to my source directory
