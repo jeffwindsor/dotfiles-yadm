@@ -13,6 +13,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 export SRC=$HOME/Source
 export EDITOR="$(which nvim)"
 
+
+# homebrew
+export PATH="/opt/homebrew/bin/:$PATH"
+
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --ignore-file ~/.config/fdignore'
 export FZF_DEFAULT_OPTS='--height 60% --info=inline'
