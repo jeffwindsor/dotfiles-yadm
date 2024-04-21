@@ -16,5 +16,8 @@ return {
     opts.defaults["<leader>cf"] = { name = "+format" }
     opts.defaults["<leader>cfx"] = { "<cmd>%!xmllint --format - <cr>", "Format XML" }
     opts.defaults["<leader>cfs"] = { "<cmd>%!shfmt - <cr>", "Format Shell" }
+
+    -- Open in external program
+    opts.defaults["<leader>o"] = { "<cmd>!open %<cr>", "Open with default application" }
   end,
 }
