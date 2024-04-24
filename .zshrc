@@ -40,6 +40,10 @@ if test -f $HOME/.aliasrc; then
   source $HOME/.aliasrc
 fi 
 
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --zsh)"
+fi
+
 # z-oxide: init replacing cd with z, and cdi with zi 
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
