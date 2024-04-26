@@ -1,6 +1,8 @@
 bat
+direnv
 eza
 fd
+fortune
 fzf
 git
 helix
@@ -15,7 +17,3 @@ tldr
 yadm
 yazi
 zoxide
-zsh
-zsh-autosuggestions
-zsh-history-substring-search
-zsh-syntax-highlighting

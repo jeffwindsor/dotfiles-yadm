@@ -1,9 +1,7 @@
 amethyst
 firefox
 font-jetbrains-mono-nerd-font
-google-chrome
 keepingyouawake
-podman-desktop
 slack
 spaceid
 spotify
