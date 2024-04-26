@@ -55,6 +55,7 @@ select = "SELECT"
 # vim like line movement
 "^" = "goto_line_start"
 "$" = "goto_line_end"
+"%" = "match_brackets"
 
 # vim like append
 # a = ["append_mode" "collapse_selection"]
