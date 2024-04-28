@@ -8,7 +8,6 @@ return {
 
   -- LuaSnip
   { "L3MON4D3/LuaSnip", enabled = false },
-  -- alpha-nvim (optional)
   -- bufferline.nvim
   -- catppuccin
   -- cmp-buffer
@@ -65,14 +64,7 @@ return {
   { "mini.pairs", enabled = false },
   -- mini.surround
   -- neo-tree.nvim
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-
-    opts = function(_, opts)
-      -- bind cwd to neo-tree root
-      opts.filesystem.bind_to_cwd = true
-    end,
-  },
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   -- neoconf.nvim
   -- neodev.nvim
   -- noice.nvim
@@ -86,8 +78,7 @@ return {
   -- nvim-treesitter
   -- nvim-treesitter-context
   -- nvim-treesitter-textobjects
-  -- nvim-ts-context-commentstring
-  { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
+  -- nvim-ts-context-commentstring  { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
   -- nvim-web-devicons
   -- persistence.nvim
   -- plenary.nvim -- nvim-ts-autotag
