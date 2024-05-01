@@ -73,6 +73,7 @@ if command -v git &>/dev/null; then
 	alias srcs="exec-on-git-repos cd \$SRC"
 	alias srcv="exec-on-git-repos nvim \$SRC"
 	alias gclean='git clean -xdf'
+	alias gs='git status'
 
 	# git clone from git hub to my source directory
 	function ghub() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
