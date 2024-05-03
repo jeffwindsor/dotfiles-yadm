@@ -6,16 +6,13 @@ return {
     },
   },
 
-  -- LuaSnip
   { "L3MON4D3/LuaSnip", enabled = false },
   -- bufferline.nvim
-  -- catppuccin
+  { "catppuccin/nvim", enabled = true },
   -- cmp-buffer
   -- cmp-path
-  -- cmp_luasnip
   { "saadparwaiz1/cmp_luasnip", enabled = false },
   -- conform.nvim
-  -- dashboard-nvim
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
@@ -43,13 +40,11 @@ return {
         "░░░          ░░░░          ░░░",
         "",
         "",
-        "",
       }
     end,
   },
-  -- dressing.nvim
-  -- flash.nvim
-  -- friendly-snippets
+  { "stevearc/dressing.nvim", enabled = false },
+  { "folke/flash.nvim", enabled = false },
   { "rafamadriz/friendly-snippets", enabled = false },
   -- gitsigns.nvim
   -- indent-blankline.nvim
@@ -60,21 +55,19 @@ return {
   -- mini.bufremove
   -- mini.comment
   -- mini.indentscope
-  -- mini.pairs
   { "mini.pairs", enabled = false },
   -- mini.surround
-  -- neo-tree.nvim
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   -- neoconf.nvim
   -- neodev.nvim
-  -- noice.nvim
   { "folke/noice.nvim", enabled = false },
   -- nui.nvim
   -- nvim-cmp
   -- nvim-lint
   -- nvim-lspconfig
   -- nvim-notify
-  -- nvim-spectre
+  { "rcarriga/nvim-notify", enabled = false },
+  { "nvim-spectre", enabled = false },
   -- nvim-treesitter
   -- nvim-treesitter-context
   -- nvim-treesitter-textobjects
@@ -84,12 +77,11 @@ return {
   -- plenary.nvim -- nvim-ts-autotag
   -- telescope-fzf-native.nvim
   -- telescope.nvim(optional),
-  -- todo-comments.nvim
+  { "folke/todo-comments.nvim", enabled = false },
   -- tokyonight.nvim
   -- trouble.nvim
   -- vim-illuminate
   -- vim-startuptime
-  -- which-key.nvim
   {
     "folke/which-key.nvim",
 
