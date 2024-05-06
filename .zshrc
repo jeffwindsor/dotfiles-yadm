@@ -27,10 +27,10 @@ HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=50000
 SAVEHIST=10000
 
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
+# # Nix
+# if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+#    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+# fi
 
 #Homebrew
 # eval "$(/opt/homebrew/bin/brew shellenv)"
