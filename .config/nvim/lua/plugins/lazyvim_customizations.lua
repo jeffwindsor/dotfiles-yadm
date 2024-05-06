@@ -1,18 +1,8 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-night",
-    },
+    opts = { colorscheme = "tokyonight-night" },
   },
-
-  { "L3MON4D3/LuaSnip", enabled = false },
-  -- bufferline.nvim
-  { "catppuccin/nvim", enabled = true },
-  -- cmp-buffer
-  -- cmp-path
-  { "saadparwaiz1/cmp_luasnip", enabled = false },
-  -- conform.nvim
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
@@ -35,48 +25,8 @@ return {
       }
     end,
   },
-  { "stevearc/dressing.nvim", enabled = false },
-  { "folke/flash.nvim", enabled = false },
-  { "rafamadriz/friendly-snippets", enabled = false },
-  -- gitsigns.nvim
-  -- indent-blankline.nvim
-  -- lualine.nvim
-  -- mason-lspconfig.nvim
-  -- mason.nvim
-  -- mini.ai
-  -- mini.bufremove
-  -- mini.comment
-  -- mini.indentscope
-  { "mini.pairs", enabled = false },
-  -- mini.surround
-  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
-  -- neoconf.nvim
-  -- neodev.nvim
-  { "folke/noice.nvim", enabled = false },
-  -- nui.nvim
-  -- nvim-cmp
-  -- nvim-lint
-  -- nvim-lspconfig
-  -- nvim-notify
-  --{ "rcarriga/nvim-notify", enabled = false },
-  { "nvim-spectre", enabled = false },
-  -- nvim-treesitter
-  -- nvim-treesitter-context
-  -- nvim-treesitter-textobjects
-  -- nvim-ts-context-commentstring  { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
-  -- nvim-web-devicons
-  -- persistence.nvim
-  -- plenary.nvim -- nvim-ts-autotag
-  -- telescope-fzf-native.nvim
-  -- telescope.nvim(optional),
-  { "folke/todo-comments.nvim", enabled = false },
-  -- tokyonight.nvim
-  -- trouble.nvim
-  -- vim-illuminate
-  -- vim-startuptime
   {
     "folke/which-key.nvim",
-
     -- add or override by setting new value
     -- remove keyumap by setting equal to `nil`
     -- explained here : https://github.com/LazyVim/LazyVim/discussions/2588
@@ -97,4 +47,38 @@ return {
       opts.defaults["<leader>o"] = { "<cmd>!open %<cr>", "Open with default application" }
     end,
   },
+
+  -- CODING
+  -- { "hrsh7th/nvim-cmp", enabled = false },
+  { "L3MON4D3/LuaSnip", enabled = false },
+  -- { "rafamadriz/friendly-snippets", enabled = false },
+  { "saadparwaiz1/cmp_luasnip", enabled = false },
+  { "echasnovski/mini.pairs", enabled = false },
+  -- { "echasnovski/mini.surround", enabled = false },
+  -- { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
+  -- { "echasnovski/mini.ai", enabled = false },
+
+  -- EDITOR
+  { "folke/flash.nvim", enabled = false },
+  { "folke/todo-comments.nvim", enabled = false },
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  { "nvim-pack/nvim-spectre", enabled = false },
+  -- {   "lewis6991/gitsigns.nvim", enabled = false },
+  -- {   "RRethy/vim-illuminate", enabled = false },
+  -- {   "echasnovski/mini.bufremove", enabled = false },
+  -- {   "folke/trouble.nvim", enabled = false },
+
+  -- UI
+  { "folke/noice.nvim", enabled = false },
+  { "stevearc/dressing.nvim", enabled = false },
+  -- "rcarriga/nvim-notify",
+  -- "akinsho/bufferline.nvim",
+  -- "nvim-lualine/lualine.nvim",
+  -- "lukas-reineke/indent-blankline.nvim",
+  -- "echasnovski/mini.indentscope",
+  -- "MunifTanjim/nui.nvim",
+  -- "nvim-tree/nvim-web-devicons",
+  -- "goolord/alpha-nvim",
+
+  -- LSP
 }
