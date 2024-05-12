@@ -55,18 +55,22 @@ fi
 
 if command -v fzf &>/dev/null; then
 	function wezterm-theme() {
-		local result
-		result=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
-		[ -n "$result" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${result}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
+		local color_scheme=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
+
+		# if color_scheme was selected, change the wezterm config file colorscheme value
+		[ -n "$color_scheme" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${color_scheme}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
 	}
 
 	alias theme='wezterm-theme'
 
 	# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
 	function exec-on-git-repos() {
-		local git_repos
-		git_repos=$(fd '^.git$' "$2" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
-		[ -n "$git_repos" ] && "$1" "$git_repos" && lla
+		local root_folder="$2"
+		local exec_command="$1"
+		# find list of directories containing a .git subfolder, presumably a repo
+		local git_repos=$(fd '^.git$' "$root_folder" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
+
+		[ -n "$git_repos" ] && "$exec_command" "$git_repos" && lla
 	}
 
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/"
