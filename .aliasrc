@@ -54,24 +54,27 @@ else
 fi
 
 if command -v fzf &>/dev/null; then
-	alias theme='wezterm-theme'
 	function wezterm-theme() {
 		local result
 		result=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
 		[ -n "$result" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${result}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
 	}
-fi
 
-if command -v git &>/dev/null; then
+	alias theme='wezterm-theme'
+
 	# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
 	function exec-on-git-repos() {
 		local git_repos
 		git_repos=$(fd '^.git$' "$2" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
 		[ -n "$git_repos" ] && "$1" "$git_repos" && lla
 	}
+
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/"
 	alias srcs="exec-on-git-repos cd \$SRC"
 	alias srcv="exec-on-git-repos nvim \$SRC"
+fi
+
+if command -v git &>/dev/null; then
 	alias gclean='git clean -xdf'
 	alias gs='git status'
 
@@ -93,7 +96,7 @@ if command -v hx &>/dev/null; then
 fi
 
 if command -v lazygit &>/dev/null; then
-	alias g="lazygit"
+	alias gg="lazygit"
 	alias lg="lazygit"
 fi
 
