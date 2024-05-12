@@ -41,39 +41,19 @@ select = "SELECT"
 ###################################################################
 
 [keys.normal]
-# windows
+# buffers
 "A-." = ":bn"
 "A-," = ":bp"
 "A-w" = ":bc"
-
-# short hand so I dont have to use shift to get command mode
-";" = "command_mode"
+"A-n" = ":new"
+# lazygit
+"A-g" = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 
 # Switch case of the selected text
 "`" = "switch_case"
 
-# vim like line movement
-"^" = "goto_line_start"
-"$" = "goto_line_end"
-"%" = "match_brackets"
-
-# vim like append
-# a = ["append_mode" "collapse_selection"]
-
-# vim like insert
-# i = ["insert_mode" "collapse_selection"]
-
-
-# vim like line select
-V = ["goto_line_start","select_mode","extend_to_line_bounds"]
-
 # vim like yank + yank to clipboard
 y = ["yank_main_selection_to_clipboard","yank"]
-Y = ["goto_line_start","select_mode","extend_to_line_bounds","yank_main_selection_to_clipboard","yank"]
-
-# vim like delete
-x = "delete_selection"
-X = ["select_mode","extend_to_line_bounds","delete_selection"]
 
 # vim like esc 
 esc = ["collapse_selection","keep_primary_selection",":write"]
@@ -81,8 +61,11 @@ esc = ["collapse_selection","keep_primary_selection",":write"]
 [keys.normal.space]
 c = ":buffer-close"
 q = ":write-quit-all"
+# lazy git
+g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 
-[keys.normal.space.t]        #themes  
+# themes  
+[keys.normal.space.t]
 b = ":theme base16_terminal"
 d = ":theme default"
 g = ":theme github_dark_high_contrast"
@@ -102,12 +85,5 @@ esc = ["collapse_selection","normal_mode",":write"]
 # Switch case of the selected text
  "`" = "switch_case"
         
-# vim like line movement
-"^" = "goto_line_start"
-"$" = "goto_line_end"
-
 # vim like yank + yank to clipboard
 y = ["yank_main_selection_to_clipboard","yank"]
-
-# vim like delete
-x = "delete_selection"
