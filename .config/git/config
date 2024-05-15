@@ -1,6 +1,10 @@
 [user]
-    name = Jeff Windsor
-    email = jeff.windsor@gmail.com
+  name = Jeff Windsor
+  email = jeff.windsor@gmail.com
+
+[includeIf "gitdir:~/Source/gitlab.cj.dev/"]
+  name = Windsor, Jeff
+  email = jeffrey.windsor@cj.com
 
 [credential]
 	helper = cache
