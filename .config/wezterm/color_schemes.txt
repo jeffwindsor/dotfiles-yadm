@@ -9,6 +9,8 @@ Catppuccin Latte
 Catppuccin Macchiato
 Catppuccin Mocha
 Gruvbox Dark (Gogh)
+Hybrid
+Hybrid (Gogh)
 Kanagawa (Gogh)
 Nord (Gogh)
 OceanicNext (base16)
