@@ -3,6 +3,7 @@ return {
   { "rebelot/kanagawa.nvim" },
   { "HoNamDuong/hybrid.nvim" },
   { "marko-cerovac/material.nvim" },
+  { "folke/tokyonight.nvim" },
   -- LAZYVIM
   {
     "LazyVim/LazyVim",
