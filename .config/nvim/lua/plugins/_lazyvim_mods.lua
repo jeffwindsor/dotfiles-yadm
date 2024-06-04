@@ -7,7 +7,7 @@ return {
   -- LAZYVIM
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "hybrid" },
+    opts = { colorscheme = "tokyonight-night" },
   },
   {
     "folke/which-key.nvim",
