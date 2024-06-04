@@ -96,7 +96,7 @@ if command -v hx &>/dev/null; then
 	alias hexo='hx ~/portable/exocortex'
 	alias hfins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
 	alias hconfigs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
-	alias hdots="yadm list --all | fzf | xargs nvim"
+	alias hdots="yadm list --all | fzf | xargs nvim | cd -"
 
 fi
 
@@ -110,8 +110,8 @@ if command -v nvim &>/dev/null; then
 	alias v='nvim'
 	alias v.='nvim .'
 	alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-	alias dots="cd && yadm list --all | fzf | xargs nvim cd -"
-	alias dotsn="cd $XDG_CONFIG_HOME/nvim && nvim ."
+	alias dots="cd && yadm list --all | fzf | xargs nvim cd - | cd -"
+	alias dotsn="cd $XDG_CONFIG_HOME/nvim && nvim . | cd -"
 
 	function nvim-clean-caches() {
 		rm -rf "$HOME"/.local/share/nvim
