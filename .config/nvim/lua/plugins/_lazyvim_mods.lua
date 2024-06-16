@@ -15,13 +15,6 @@ return {
     -- remove keyumap by setting equal to `nil`
     -- explained here : https://github.com/LazyVim/LazyVim/discussions/2588
     opts = function(_, opts)
-      -- Name NEORG top level menu
-      if require("lazyvim.util").has("neorg") then
-        opts.defaults["<leader>e"] = { name = "+editor" }
-        opts.defaults["<leader>ea"] = { name = "+align" }
-        opts.defaults["<leader>e2"] = { name = "+2nd brain" }
-      end
-
       -- Formatting
       opts.defaults["<leader>cf"] = { name = "+format" }
       opts.defaults["<leader>cfx"] = { "<cmd>%!xmllint --format - <cr>", "Format XML" }
@@ -54,6 +47,14 @@ return {
         "",
       }
     end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      level = 3,
+      render = "minimal",
+      stages = "static",
+    },
   },
   -- ---------------------------------------------------
   -- TURN OFF LAZYVIM PLUGINS
