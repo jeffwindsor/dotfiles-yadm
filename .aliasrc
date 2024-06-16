@@ -93,11 +93,12 @@ fi
 #### helix editor
 if command -v hx &>/dev/null; then
 	alias h='hx'
-	alias hexo='hx ~/portable/exocortex'
-	alias hfins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-	alias hconfigs="nvim -c \":Telescope find_files cwd=\$XDG_CONFIG_HOME\""
-	alias hdots="yadm list --all | fzf | xargs nvim"
+	alias h.='hx .'
 
+	alias hd="cd && yadm list --all | fzf | xargs hx && cd -"
+	alias hdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && hx . && cd -"
+	alias he="hx $HOME/portable/exocortex"
+	alias hf="hx $HOME/portable/financials"
 fi
 
 if command -v lazygit &>/dev/null; then
@@ -109,9 +110,14 @@ fi
 if command -v nvim &>/dev/null; then
 	alias v='nvim'
 	alias v.='nvim .'
-	alias fins="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-	alias dots="cd && yadm list --all | fzf | xargs nvim && cd -"
-	alias dotsn="cd $XDG_CONFIG_HOME/nvim && nvim . && cd -"
+
+	alias vd="cd && yadm list --all | fzf | xargs nvim && cd -"
+	alias vdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && nvim . && cd -"
+	alias ve="nvim $HOME/portable/exocortex"
+	alias vf="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
+
+	alias dots=vd
+	alias dotsn=vdn
 
 	function nvim-clean-caches() {
 		rm -rf "$HOME"/.local/share/nvim
