@@ -1,7 +1,9 @@
-amethyst
+aerospace
+felixkratz/formulae/borders
 firefox
 font-jetbrains-mono-nerd-font
 keepingyouawake
+google-chrome
 slack
 spaceid
 spotify
