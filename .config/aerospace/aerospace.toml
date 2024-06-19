@@ -45,9 +45,12 @@ outer.right = 6
 [mode.main.binding]
 
 # APPLICATION RUNNERS
-alt-cmd-b = 'exec-and-forget open -n /Applications/Firefox.app'
-alt-cmd-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
-alt-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Brave Browser.app"'
+alt-ctrl-cmd-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
+alt-ctrl-cmd-g = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
+alt-ctrl-cmd-s = 'exec-and-forget open -n "/Applications/Spotify.app"'
+alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
 
 # LAYOUTS
 alt-slash = 'layout tiles horizontal vertical'
