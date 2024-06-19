@@ -1,12 +1,12 @@
 return {
   {
     "stevearc/oil.nvim",
-    -- cmd = "Oil",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("oil").setup({
         default_file_explorer = true,
-        columns = { "icon" },
+        delete_to_trash = true,
+        skip_confirm_for_simple_edits = true,
         keymaps = {
           ["~"] = "actions.show_help",
           ["p"] = "actions.preview",
@@ -14,6 +14,13 @@ return {
         },
         view_options = {
           show_hidden = true,
+          -- natural_order = true,
+          is_always_hidden = function(name, _)
+            return name == ".." or name == ".git"
+          end,
+        },
+        win_options = {
+          wrap = true,
         },
       })
 
