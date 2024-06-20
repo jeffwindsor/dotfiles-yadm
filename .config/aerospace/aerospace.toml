@@ -44,44 +44,47 @@ outer.right = 6
 # 'main' binding mode must be always presented
 [mode.main.binding]
 
-# APPLICATION RUNNERS
+# LAUNCHER TERMINALS
+alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
+# LAUNCHER FINDERS
+alt-ctrl-cmd-space = 'exec-and-forget open .'
+alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
+# LAUNCHER BROWSERS
 alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Brave Browser.app"'
-alt-ctrl-cmd-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
 alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
 alt-ctrl-cmd-g = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
+# LAUNCHER APPLICATIONS
 alt-ctrl-cmd-s = 'exec-and-forget open -n "/Applications/Spotify.app"'
-alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-ctrl-cmd-k = 'exec-and-forget open -n "/Applications/Slack.app"'
+alt-ctrl-cmd-n = 'exec-and-forget wezterm start -- nvim'
+alt-ctrl-cmd-u = 'exec-and-forget wezterm start -- nu'
 
 # LAYOUTS
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
-# WINDOW
+# WINDOWS
 alt-x = 'close'
 alt-ctrl-x = 'close-all-windows-but-current'
 alt-f = 'fullscreen'
 cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
-
 # WINDOW FOCUS
 alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
-
 # WINDOW MOVE
 alt-ctrl-h = 'move left'
 alt-ctrl-j = 'move down'
 alt-ctrl-k = 'move up'
 alt-ctrl-l = 'move right'
-
 # WINDOW RESIZE
 alt-ctrl-minus = 'resize smart -50'
 alt-ctrl-equal = 'resize smart +50'
 
-# WORKSPACE
+# WORKSPACES
 alt-tab = 'workspace-back-and-forth'
 alt-ctrl-tab = 'move-workspace-to-monitor --wrap-around next'
-
 # WOWRKSPACE FOCUS
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
@@ -92,7 +95,7 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-
+# WORKSPACES MOVE WINDOW
 alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
