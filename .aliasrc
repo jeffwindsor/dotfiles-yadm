@@ -76,6 +76,7 @@ if command -v fzf &>/dev/null; then
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/"
 	alias srcs="exec-on-git-repos cd \$SRC"
 	alias srcv="exec-on-git-repos nvim \$SRC"
+	alias ten="cd $SRC/github.com/steveshogren/10-minute-vim-exercises/ && fzf | xargs nvim && cd -"
 fi
 
 if command -v git &>/dev/null; then
@@ -151,7 +152,7 @@ if command -v yadm &>/dev/null; then
 	alias ypl="yadm pull"
 fi
 
-##### tui fm
+##### tui file manager
 if command -v yazi &>/dev/null; then
 	alias f="yy"
 	alias f.="yazi"
