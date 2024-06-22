@@ -70,13 +70,14 @@ if command -v fzf &>/dev/null; then
 		# find list of directories containing a .git subfolder, presumably a repo
 		local git_repos=$(fd '^.git$' "$root_folder" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
 
-		[ -n "$git_repos" ] && "$exec_command" "$git_repos" && lla
+		[ -n "$git_repos" ] && "$exec_command" "$git_repos"
 	}
 
-	alias hubs="exec-on-git-repos cd \$SRC/github.com/"
-	alias srcs="exec-on-git-repos cd \$SRC"
-	alias srcv="exec-on-git-repos nvim \$SRC"
+	alias hubs="exec-on-git-repos cd \$SRC/github.com/ && lla"
+	alias srcd="exec-on-git-repos cd \$SRC && lla"
+	alias srcs="exec-on-git-repos nvim \$SRC"
 	alias ten="cd $SRC/github.com/steveshogren/10-minute-vim-exercises/ && fzf | xargs nvim && cd -"
+	alias startpage="cd $SRC/github.com/jeffwindsor/startpage/ && nvim index.html && cd -"
 fi
 
 if command -v git &>/dev/null; then
