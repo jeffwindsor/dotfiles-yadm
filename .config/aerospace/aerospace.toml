@@ -52,7 +52,7 @@ alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
 # LAUNCHER BROWSERS
 alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Brave Browser.app"'
 alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
-alt-ctrl-cmd-g = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
+alt-ctrl-cmd-c = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
 # LAUNCHER APPLICATIONS
 alt-ctrl-cmd-s = 'exec-and-forget open -n "/Applications/Spotify.app"'
 alt-ctrl-cmd-k = 'exec-and-forget open -n "/Applications/Slack.app"'
