@@ -2,41 +2,34 @@
 
 ###############################################################################
 # PACKAGES
+#   maybe: 	just, nushell, shellcheck, xh
 ###############################################################################
 BREW_PACKAGES=(
 	bat
 	eza
 	fd
+	fortune
 	fzf
 	git
 	helix
-	just
 	lazygit
 	neovim
-	nushell
-	podman
 	ripgrep
-	shellcheck
 	starship
 	tldr
-	xh
 	yadm
 	yazi
 	zoxide
-	zsh-autocomplete
-	zsh-completions
-	zsh-syntax-highlighting
 )
 
 BREW_CASKS=(
-	amethyst
+	aerospace
 	firefox
 	font-jetbrains-mono-nerd-font
 	google-chrome
+	hiarcs-chess-explorer
 	keepingyouawake
-	podman-desktop
 	slack
-	spaceid
 	spotify
 	transmission
 	vlc
