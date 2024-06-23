@@ -22,6 +22,9 @@ return {
 
       -- Open in external program
       opts.defaults["<leader>o"] = { "<cmd>!open %<cr>", "Open with default application" }
+
+      opts.defaults["<leader>fy"] =
+        { "<cmd>Telescope find_files find_command=yadm,list,--all<cr>", "Open with default application" }
     end,
   },
   {
