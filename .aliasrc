@@ -12,12 +12,13 @@ if command -v nix &>/dev/null; then
 fi
 
 if command -v brew &>/dev/null; then
-	alias bf="brew info"
-	alias bi="brew install"
-	alias bl="brew list --formula --versions"
+	alias bi="brew info"
+	alias bn="brew install"
+	alias bl="brew leaves && brew list --casks"
 	alias blc="brew list --casks --versions"
 	alias blf="brew list --formula --versions"
 	alias br="brew uninstall"
+	alias bu="brew uninstall"
 	alias bs="brew search"
 	alias bup="brew update && brew upgrade"
 	alias bx="brew autoremove"
@@ -75,7 +76,7 @@ if command -v fzf &>/dev/null; then
 
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/ && lla"
 	alias srcd="exec-on-git-repos cd \$SRC && lla"
-	alias srcs="exec-on-git-repos nvim \$SRC"
+	alias srcv="exec-on-git-repos nvim \$SRC"
 	alias ten="cd $SRC/github.com/steveshogren/10-minute-vim-exercises/ && fzf | xargs nvim && cd -"
 	alias startpage="cd $SRC/github.com/jeffwindsor/startpage/ && nvim index.html && cd -"
 fi
