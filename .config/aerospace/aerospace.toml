@@ -43,6 +43,7 @@ outer.right = 4
 
 # 'main' binding mode must be always presented
 [mode.main.binding]
+alt-ctrl-cmd-r = 'reload-config'
 
 # LAUNCHER TERMINALS
 alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
