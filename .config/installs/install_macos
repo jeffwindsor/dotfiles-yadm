@@ -7,10 +7,12 @@
 BREW_PACKAGES=(
 	bat
 	eza
+	fastfetch
 	fd
 	fortune
 	fzf
 	git
+	gum
 	helix
 	lazygit
 	neovim
