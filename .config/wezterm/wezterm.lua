@@ -26,15 +26,15 @@ config.keys = {
 	{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
 	{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
 	--  SPLIT
-	{ key = "h", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Left" }) },
-	{ key = "k", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Up" }) },
-	{ key = "l", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Right" }) },
-	{ key = "j", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Down" }) },
+	{ key = "h", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Left" }) },
+	{ key = "k", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Up" }) },
+	{ key = "l", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Right" }) },
+	{ key = "j", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Down" }) },
 	--  RESIZE
-	{ key = "h", mods = "CTRL|ALT|SUPER", action = act.AdjustPaneSize({ "Left", 1 }) },
-	{ key = "l", mods = "CTRL|ALT|SUPER", action = act.AdjustPaneSize({ "Right", 1 }) },
-	{ key = "k", mods = "CTRL|ALT|SUPER", action = act.AdjustPaneSize({ "Up", 1 }) },
-	{ key = "j", mods = "CTRL|ALT|SUPER", action = act.AdjustPaneSize({ "Down", 1 }) },
+	{ key = "h", mods = "CTRL|ALT|SHIFT", action = act.AdjustPaneSize({ "Left", 1 }) },
+	{ key = "l", mods = "CTRL|ALT|SHIFT", action = act.AdjustPaneSize({ "Right", 1 }) },
+	{ key = "k", mods = "CTRL|ALT|SHIFT", action = act.AdjustPaneSize({ "Up", 1 }) },
+	{ key = "j", mods = "CTRL|ALT|SHIFT", action = act.AdjustPaneSize({ "Down", 1 }) },
 
 	-- {
 	-- 	key = "p",
