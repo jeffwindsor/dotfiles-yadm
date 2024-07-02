@@ -54,6 +54,10 @@ else
 	alias lla='ls -la'
 fi
 
+if command -v eza &>/dev/null; then
+	alias ff='fastfetch'
+fi
+
 if command -v fzf &>/dev/null; then
 	function wezterm-theme() {
 		local color_scheme=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
