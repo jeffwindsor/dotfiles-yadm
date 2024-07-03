@@ -40,6 +40,8 @@ outer.right = 4
 # - Arrows.         left, down, up, right
 # All possible modifiers: cmd, alt, ctrl, shift
 # All possible commands:  https://nikitabobko.github.io/AeroSpace/commands
+[workspace-to-monitor-force-assignment]
+a = 'secondary'
 
 # 'main' binding mode must be always presented
 [mode.main.binding]
@@ -77,6 +79,7 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-a = 'workspace a'
 alt-right = 'workspace --wrap-around next'
 alt-left = 'workspace --wrap-around prev'
 alt-tab = 'focus-monitor --wrap-around next'
@@ -95,6 +98,7 @@ alt-ctrl-6 = ['move-node-to-workspace 6', 'workspace 6']
 alt-ctrl-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-ctrl-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
+alt-ctrl-a = ['move-node-to-workspace a', 'workspace a']
 alt-ctrl-right = 'move-node-to-monitor --wrap-around next'
 alt-ctrl-left = 'move-node-to-monitor --wrap-around prev'
 
