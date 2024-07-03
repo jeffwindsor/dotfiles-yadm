@@ -14,7 +14,7 @@ fi
 if command -v brew &>/dev/null; then
 	alias bi="brew info"
 	alias bn="brew install"
-	alias bl="brew leaves && brew list --casks"
+	alias bl="echo && echo '\e[92m== Formula Leaves ==\e[0m' && brew leaves && echo && echo '\e[92m== Casks ==\e[0m' && brew list -1 --casks"
 	alias blc="brew list --casks --versions"
 	alias blf="brew list --formula --versions"
 	alias br="brew uninstall"
