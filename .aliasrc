@@ -2,13 +2,13 @@
 
 # Package Managers
 if command -v nix &>/dev/null; then
-	alias ni="nix-env --install"
-	alias nl="nix-env -q"
-	alias nlg="nix-env --list-generations"
-	alias nr="nix-env --uninstall"
-	alias ns="nix-shell -p"
-	alias nup="nix-env --upgrade"
-	alias ngc="nix-store --gc"
+  alias ni="nix-env --install"
+  alias nl="nix-env -q"
+  alias nlg="nix-env --list-generations"
+  alias nr="nix-env --uninstall"
+  alias ns="nix-shell -p"
+  alias nup="nix-env --upgrade"
+  alias ngc="nix-store --gc"
 fi
 
 if command -v brew &>/dev/null; then
@@ -36,47 +36,51 @@ alias jeff="cd \$SRC/github.com/jeffwindsor/"
 alias src="cd \$SRC && lla"
 
 if command -v bat &>/dev/null; then
-	alias cat='bat --style=plain'
+  alias cat='bat --style=plain'
 fi
 
 if command -v eza &>/dev/null; then
-	alias l='eza -F --group-directories-first'
-	alias la='eza -F --group-directories-first --git --all'
-	alias ll='eza -lF --group-directories-first'
-	alias lla='eza -lF --group-directories-first --git --all'
-	alias tree='eza --tree --git'
-	alias treea='eza --tree --git --all'
-	alias treed='eza --tree --git --level'
+  alias l='eza -F --group-directories-first'
+  alias la='eza -F --group-directories-first --git --all'
+  alias ll='eza -lF --group-directories-first'
+  alias lla='eza -lF --group-directories-first --git --all'
+  alias tree='eza --tree --git'
+  alias treea='eza --tree --git --all'
+  alias treed='eza --tree --git --level'
 else
-	alias l='ls'
-	alias la='ls -a'
-	alias ll='ls -l'
-	alias lla='ls -la'
+  alias l='ls'
+  alias la='ls -a'
+  alias ll='ls -l'
+  alias lla='ls -la'
 fi
 
 if command -v eza &>/dev/null; then
-	alias ff='fastfetch'
+  alias ff='fastfetch'
+fi
+
+if [ -e $HOME/.config/emacs/bin/doom ]; then
+  alias doom="$HOME/.config/emacs/bin/doom"
 fi
 
 if command -v fzf &>/dev/null; then
-	function wezterm-theme() {
-		local color_scheme=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
+  function wezterm-theme() {
+    local color_scheme=$(fzf <"$XDG_CONFIG_HOME"/wezterm/color_schemes.txt)
 
-		# if color_scheme was selected, change the wezterm config file colorscheme value
-		[ -n "$color_scheme" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${color_scheme}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
-	}
+    # if color_scheme was selected, change the wezterm config file colorscheme value
+    [ -n "$color_scheme" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${color_scheme}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
+  }
 
-	alias theme='wezterm-theme'
+  alias theme='wezterm-theme'
 
-	# prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
-	function exec-on-git-repos() {
-		local root_folder="$2"
-		local exec_command="$1"
-		# find list of directories containing a .git subfolder, presumably a repo
-		local git_repos=$(fd '^.git$' "$root_folder" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
+  # prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
+  function exec-on-git-repos() {
+    local root_folder="$2"
+    local exec_command="$1"
+    # find list of directories containing a .git subfolder, presumably a repo
+    local git_repos=$(fd '^.git$' "$root_folder" -HItd --max-depth 4 | sed 's/.git\/$//' | fzf --reverse)
 
-		[ -n "$git_repos" ] && "$exec_command" "$git_repos"
-	}
+    [ -n "$git_repos" ] && "$exec_command" "$git_repos"
+  }
 
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/ && lla"
 	alias srcd="exec-on-git-repos cd \$SRC && lla"
@@ -87,104 +91,104 @@ if command -v fzf &>/dev/null; then
 fi
 
 if command -v git &>/dev/null; then
-	alias gclean='git clean -xdf'
-	alias gs='git status'
-	alias gpl='git pull'
+  alias gclean='git clean -xdf'
+  alias gs='git status'
+  alias gpl='git pull'
 
-	# git clone from git hub to my source directory
-	function ghub() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
-	# git clone from git hub to my source directory
-	function glab() { git clone git@gitlab.cj.dev:"$1" "$SRC"/gitlab.cj.dev/"$1"; }
+  # git clone from git hub to my source directory
+  function ghub() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
+  # git clone from git hub to my source directory
+  function glab() { git clone git@gitlab.cj.dev:"$1" "$SRC"/gitlab.cj.dev/"$1"; }
 
 fi
 
 #### helix editor
 if command -v hx &>/dev/null; then
-	alias h='hx'
-	alias h.='hx .'
+  alias h='hx'
+  alias h.='hx .'
 
-	alias hd="cd && yadm list --all | fzf | xargs hx && cd -"
-	alias hdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && hx . && cd -"
-	alias he="hx $HOME/portable/exocortex"
-	alias hf="hx $HOME/portable/financials"
+  alias hd="cd && yadm list --all | fzf | xargs hx && cd -"
+  alias hdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && hx . && cd -"
+  alias he="hx $HOME/portable/exocortex"
+  alias hf="hx $HOME/portable/financials"
 fi
 
 if command -v lazygit &>/dev/null; then
-	alias gg="lazygit"
-	alias lg="lazygit"
+  alias gg="lazygit"
+  alias lg="lazygit"
 fi
 
 ##### neovim
 if command -v nvim &>/dev/null; then
-	alias v='nvim'
-	alias v.='nvim .'
+  alias v='nvim'
+  alias v.='nvim .'
 
-	alias vd="cd && yadm list --all | fzf | xargs nvim && cd -"
-	alias vdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && nvim . && cd -"
-	alias ve="nvim $HOME/portable/exocortex"
-	alias vf="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
+  alias vd="cd && yadm list --all | fzf | xargs nvim && cd -"
+  alias vdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && nvim . && cd -"
+  alias ve="nvim $HOME/portable/exocortex"
+  alias vf="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
 
-	alias dots=vd
-	alias dotsn=vdn
+  alias dots=vd
+  alias dotsn=vdn
 
-	function nvim-clean-caches() {
-		rm -rf "$HOME"/.local/share/nvim
-		rm -rf "$HOME"/.local/state/nvim
-		rm -rf "$HOME"/.cache/nvim
-	}
+  function nvim-clean-caches() {
+    rm -rf "$HOME"/.local/share/nvim
+    rm -rf "$HOME"/.local/state/nvim
+    rm -rf "$HOME"/.cache/nvim
+  }
 
 fi
 
 if command -v zoxide &>/dev/null; then
-	eval "$(zoxide init zsh)"
+  eval "$(zoxide init zsh)"
 fi
 
 ##### ripgrep
 if command -v rg &>/dev/null; then
-	alias grep='rg'
-	alias ar='alias | rg'
+  alias grep='rg'
+  alias ar='alias | rg'
 fi
 
 ##### dot file manager
 if command -v yadm &>/dev/null; then
-	alias da="yadm add"
-	alias daa="yadm add -u" #stage modified and deletions
-	alias dg="cd && yadm enter lazygit && cd -"
-	alias ds="yadm status -sb --ignore-submodules"
-	alias dpl="yadm pull"
-	alias ya="yadm add"
-	alias yaa="yadm add -u" #stage modified and deletions
-	alias yg="cd && yadm enter lazygit && cd -"
-	alias ys="yadm status -sb --ignore-submodules"
-	alias ypl="yadm pull"
+  alias da="yadm add"
+  alias daa="yadm add -u" #stage modified and deletions
+  alias dg="cd && yadm enter lazygit && cd -"
+  alias ds="yadm status -sb --ignore-submodules"
+  alias dpl="yadm pull"
+  alias ya="yadm add"
+  alias yaa="yadm add -u" #stage modified and deletions
+  alias yg="cd && yadm enter lazygit && cd -"
+  alias ys="yadm status -sb --ignore-submodules"
+  alias ypl="yadm pull"
 fi
 
 ##### tui file manager
 if command -v yazi &>/dev/null; then
-	alias f="yy"
-	alias f.="yazi"
+  alias f="yy"
+  alias f.="yazi"
 
-	# shell wrapper that will change to the selected directory on exit
-	function yy() {
-		local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-		yazi "$@" --cwd-file="$tmp"
-		if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-			cd -- "$cwd"
-		fi
-		rm -f -- "$tmp"
-	}
+  # shell wrapper that will change to the selected directory on exit
+  function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+  }
 fi
 
 function exec-in-subdirs() {
-	for d in */; do
-		cd ./$d
-		echo "=== Executing $1 on $(pwd)"
-		eval "$1"
-		cd ..
-	done
+  for d in */; do
+    cd ./$d
+    echo "=== Executing $1 on $(pwd)"
+    eval "$1"
+    cd ..
+  done
 }
 
 # source machine specific aliases
 if test -f $HOME/.aliasrc.local; then
-	source $HOME/.aliasrc.local
+  source $HOME/.aliasrc.local
 fi
