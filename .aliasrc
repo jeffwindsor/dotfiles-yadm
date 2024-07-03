@@ -76,7 +76,8 @@ if command -v fzf &>/dev/null; then
 
 	alias hubs="exec-on-git-repos cd \$SRC/github.com/ && lla"
 	alias srcd="exec-on-git-repos cd \$SRC && lla"
-	alias srcv="exec-on-git-repos nvim \$SRC"
+	alias srcs=srcd
+	alias srcv="exec-on-git-repos cd \$SRC && nvim ."
 	alias ten="cd $SRC/github.com/steveshogren/10-minute-vim-exercises/ && fzf | xargs nvim && cd -"
 	alias startpage="cd $SRC/github.com/jeffwindsor/startpage/ && nvim index.html && cd -"
 fi
