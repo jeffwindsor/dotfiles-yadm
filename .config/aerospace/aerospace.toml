@@ -40,8 +40,8 @@ outer.right = 4
 # - Arrows.         left, down, up, right
 # All possible modifiers: cmd, alt, ctrl, shift
 # All possible commands:  https://nikitabobko.github.io/AeroSpace/commands
-[workspace-to-monitor-force-assignment]
-a = 'secondary'
+# [workspace-to-monitor-force-assignment]
+# a = 'secondary'
 
 # 'main' binding mode must be always presented
 [mode.main.binding]
@@ -49,11 +49,12 @@ a = 'secondary'
 # LAUNCHERS
 alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Brave Browser.app"'
 alt-ctrl-cmd-c = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
+alt-ctrl-cmd-e = 'exec-and-forget open -n "/Applications/Emacs.app"'
 alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
 alt-ctrl-cmd-k = 'exec-and-forget open -n "/Applications/Slack.app"'
-alt-ctrl-cmd-n = 'exec-and-forget wezterm start -- nvim'
+alt-ctrl-cmd-v = 'exec-and-forget wezterm start -- nvim'
 alt-ctrl-cmd-s = 'exec-and-forget open -n "/Applications/Spotify.app"'
-alt-ctrl-cmd-space = 'exec-and-forget open .'
+alt-ctrl-cmd-space = 'exec-and-forget open ~'
 alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
 alt-ctrl-cmd-u = 'exec-and-forget wezterm start -- nu'
 alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
@@ -66,10 +67,10 @@ cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
 alt-ctrl-cmd-r = 'reload-config'
 
 # FOCUS
-alt-h = 'focus left'                         # WINDOW
-alt-j = 'focus down'                         # WINDOW
-alt-k = 'focus up'                           # WINDOW
-alt-l = 'focus right'                        # WINDOW
+alt-h = 'focus left'  # WINDOW
+alt-j = 'focus down'  # WINDOW
+alt-k = 'focus up'    # WINDOW
+alt-l = 'focus right' # WINDOW
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -86,10 +87,10 @@ alt-left = 'workspace --wrap-around prev'
 alt-tab = 'focus-monitor --wrap-around next'
 
 # MOVE
-alt-ctrl-h = 'move left'                                   # WINDOW
-alt-ctrl-j = 'move down'                                   # WINDOW
-alt-ctrl-k = 'move up'                                     # WINDOW
-alt-ctrl-l = 'move right'                                  # WINDOW
+alt-ctrl-h = 'move left'                                 # WINDOW
+alt-ctrl-j = 'move down'                                 # WINDOW
+alt-ctrl-k = 'move up'                                   # WINDOW
+alt-ctrl-l = 'move right'                                # WINDOW
 alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
@@ -109,8 +110,8 @@ alt-ctrl-minus = 'resize smart -50'
 alt-ctrl-equal = 'resize smart +50'
 
 # LAYOUTS
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+alt-ctrl-slash = 'layout tiles horizontal vertical'
+alt-ctrl-dot = 'layout accordion horizontal vertical'
 
 
 # CUSTOM MODES
