@@ -1,9 +1,11 @@
 return {
   -- COLOR SCHEMES
   { "rebelot/kanagawa.nvim" },
-  { "HoNamDuong/hybrid.nvim" },
-  { "marko-cerovac/material.nvim" },
+  --{ "HoNamDuong/hybrid.nvim" },
+  --{ "marko-cerovac/material.nvim" },
   { "folke/tokyonight.nvim" },
+  { "jacoborus/tender.vim" },
+
   -- LAZYVIM
   {
     "LazyVim/LazyVim",
