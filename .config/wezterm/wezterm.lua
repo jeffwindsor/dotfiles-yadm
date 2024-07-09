@@ -4,7 +4,7 @@ local act = wezterm.action
 
 -- =============================================================
 
-config.color_scheme = "Tokyo Night (Gogh)"
+config.color_scheme = 'tender (base16)'
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.font_size = 14.0
 config.inactive_pane_hsb = {
