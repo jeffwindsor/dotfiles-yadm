@@ -12,16 +12,16 @@ if command -v nix &>/dev/null; then
 fi
 
 if command -v brew &>/dev/null; then
-	alias bi="brew info"
-	alias bn="brew install"
-	alias bl="echo && echo '\e[92m== Formula Leaves ==\e[0m' && brew leaves && echo && echo '\e[92m== Casks ==\e[0m' && brew list -1 --casks"
-	alias blc="brew list --casks --versions"
-	alias blf="brew list --formula --versions"
-	alias br="brew uninstall"
-	alias bu="brew uninstall"
-	alias bs="brew search"
-	alias bup="brew update && brew upgrade"
-	alias bx="brew autoremove"
+  alias bi="brew info"
+  alias bn="brew install"
+  alias bl="echo && echo '\e[92m== Formula Leaves ==\e[0m' && brew leaves && echo && echo '\e[92m== Casks ==\e[0m' && brew list -1 --casks"
+  alias blc="brew list --casks --versions"
+  alias blf="brew list --formula --versions"
+  alias br="brew uninstall"
+  alias bu="brew uninstall"
+  alias bs="brew search"
+  alias bup="brew update && brew upgrade"
+  alias bx="brew autoremove"
 fi
 
 # Jump Directories - coud repace wit zoxide
@@ -82,12 +82,12 @@ if command -v fzf &>/dev/null; then
     [ -n "$git_repos" ] && "$exec_command" "$git_repos"
   }
 
-	alias hubs="exec-on-git-repos cd \$SRC/github.com/ && lla"
-	alias srcd="exec-on-git-repos cd \$SRC && lla"
-	alias srcs=srcd
-	alias srcv="exec-on-git-repos cd \$SRC && nvim ."
-	alias ten="cd $SRC/github.com/steveshogren/10-minute-vim-exercises/ && fzf | xargs nvim && cd -"
-	alias startpage="cd $SRC/github.com/jeffwindsor/startpage/ && nvim index.html && cd -"
+  alias hubs="exec-on-git-repos cd \$SRC/github.com/ && lla"
+  alias srcd="exec-on-git-repos cd \$SRC && lla"
+  alias srcs=srcd
+  alias srcv="exec-on-git-repos cd \$SRC && nvim ."
+  alias ten="cd $SRC/github.com/steveshogren/10-minute-vim-exercises/ && fzf | xargs nvim && cd -"
+  alias startpage="cd $SRC/github.com/jeffwindsor/startpage/ && nvim index.html && cd -"
 fi
 
 if command -v git &>/dev/null; then
@@ -123,7 +123,7 @@ if command -v nvim &>/dev/null; then
   alias v='nvim'
   alias v.='nvim .'
 
-  alias vd="cd && yadm list --all | fzf | xargs nvim && cd -"
+  alias vd="yadm list --all | fzf | xargs nvim"
   alias vdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && nvim . && cd -"
   alias ve="nvim $HOME/portable/exocortex"
   alias vf="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
