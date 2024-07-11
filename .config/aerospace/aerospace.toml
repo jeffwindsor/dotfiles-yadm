@@ -67,10 +67,10 @@ cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
 alt-ctrl-cmd-r = 'reload-config'
 
 # FOCUS
-alt-h = 'focus left'  # WINDOW
-alt-j = 'focus down'  # WINDOW
-alt-k = 'focus up'    # WINDOW
-alt-l = 'focus right' # WINDOW
+alt-h = 'focus left'                         # WINDOW
+alt-j = 'focus down'                         # WINDOW
+alt-k = 'focus up'                           # WINDOW
+alt-l = 'focus right'                        # WINDOW
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -87,10 +87,10 @@ alt-left = 'workspace --wrap-around prev'
 alt-tab = 'focus-monitor --wrap-around next'
 
 # MOVE
-alt-ctrl-h = 'move left'                                 # WINDOW
-alt-ctrl-j = 'move down'                                 # WINDOW
-alt-ctrl-k = 'move up'                                   # WINDOW
-alt-ctrl-l = 'move right'                                # WINDOW
+alt-ctrl-h = 'move left'                                   # WINDOW
+alt-ctrl-j = 'move down'                                   # WINDOW
+alt-ctrl-k = 'move up'                                     # WINDOW
+alt-ctrl-l = 'move right'                                  # WINDOW
 alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
@@ -111,7 +111,7 @@ alt-ctrl-equal = 'resize smart +50'
 
 # LAYOUTS
 alt-ctrl-slash = 'layout tiles horizontal vertical'
-alt-ctrl-dot = 'layout accordion horizontal vertical'
+alt-ctrl-period = 'layout accordion horizontal vertical'
 
 
 # CUSTOM MODES
