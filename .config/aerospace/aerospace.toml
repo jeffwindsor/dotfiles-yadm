@@ -24,15 +24,31 @@ outer.bottom = 4
 outer.top = 4
 outer.right = 4
 
+# [workspace-to-monitor-force-assignment]
+# 1 = 1                            # Monitor sequence number from left to right. 1-based indexing
+# 2 = 'main'                       # Main monitor
+# 3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
+# 4 = 'built-in'                   # Case insensitive regex substring
+# 5 = '^built-in retina display$'  # Case insensitive regex match
+# 6 = ['secondary', 'dell']        # You can specify multiple patterns. The first matching pattern will be used
 [workspace-to-monitor-force-assignment]
 a = 'secondary'
 b = 'secondary'
 c = 'secondary'
 
+# Emacs
+[[on-window-detected]]
+if.app-id = 'org.gnu.Emacs'
+run = ['move-node-to-workspace 1']
+
+# Terminal
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = ['move-node-to-workspace 2']
 # Spotify
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = ['move-node-to-workspace S']
+run = ['move-node-to-workspace c']
 
 # IntelliJ
 [[on-window-detected]]
