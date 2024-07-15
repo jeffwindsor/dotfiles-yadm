@@ -33,8 +33,10 @@ outer.right = 4
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns. The first matching pattern will be used
 [workspace-to-monitor-force-assignment]
 a = 'secondary'
-b = 'secondary'
-c = 'secondary'
+s = 'secondary'
+t = 'secondary'
+o = 'secondary'
+m = 'secondary'
 
 # Emacs
 [[on-window-detected]]
@@ -45,15 +47,36 @@ run = ['move-node-to-workspace 1']
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 run = ['move-node-to-workspace 2']
+
+# Messages
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = ['move-node-to-workspace m']
+
 # Spotify
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = ['move-node-to-workspace c']
+run = ['move-node-to-workspace s']
 
 # IntelliJ
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
+if.app-id = 'com.'
 run = ['move-node-to-workspace 5']
+
+# Teams
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = ['move-node-to-workspace t']
+
+# Outlook
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = ['move-node-to-workspace o']
+
+# Slack
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ['move-node-to-workspace a']
 
 # =======================================================
 # BINDINGS
@@ -113,8 +136,10 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
 alt-a = 'workspace a'
-alt-b = 'workspace b'
-alt-c = 'workspace c'
+alt-s = 'workspace s'
+alt-t = 'workspace t'
+alt-o = 'workspace o'
+alt-m = 'workspace m'
 alt-right = 'workspace --wrap-around next'
 alt-left = 'workspace --wrap-around prev'
 alt-tab = 'focus-monitor --wrap-around next'
@@ -135,8 +160,10 @@ alt-ctrl-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
 alt-ctrl-0 = ['move-node-to-workspace 10', 'workspace 10']
 alt-ctrl-a = ['move-node-to-workspace a', 'workspace a']
-alt-ctrl-b = ['move-node-to-workspace b', 'workspace b']
-alt-ctrl-c = ['move-node-to-workspace c', 'workspace c']
+alt-ctrl-s = ['move-node-to-workspace s', 'workspace s']
+alt-ctrl-t = ['move-node-to-workspace t', 'workspace t']
+alt-ctrl-o = ['move-node-to-workspace o', 'workspace o']
+alt-ctrl-m = ['move-node-to-workspace m', 'workspace m']
 alt-ctrl-right = 'move-node-to-monitor --wrap-around next'
 alt-ctrl-left = 'move-node-to-monitor --wrap-around prev'
 
