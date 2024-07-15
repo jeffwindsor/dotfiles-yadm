@@ -26,7 +26,7 @@ return {
       opts.defaults["<leader>o"] = { "<cmd>!open %<cr>", "Open with default application" }
 
       -- Search Dotfiles
-      opts.defaults["<leader>d"] = { "<cmd>Telescope find_files find_command=yadm,list,--all<cr>", "Open dotfiles" }
+      opts.defaults["<leader>d"] = { "<cmd>Telescope find_files find_command=yadm,list,-a<cr>", "Open dotfiles" }
     end,
   },
   {
