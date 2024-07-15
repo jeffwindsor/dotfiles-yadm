@@ -19,7 +19,7 @@ export PATH="/opt/homebrew/bin/:$PATH"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --ignore-file ~/.config/fdignore'
-export FZF_DEFAULT_OPTS='--height 40% --info=inline --reverse --border none --preview "bat {}" --preview-window "~3"'
+export FZF_DEFAULT_OPTS='--height 40% --info=inline --reverse --border none --preview "bat {}" --preview-window down'
 
 # git
 export GIT_LOG_PRETTY_FORMAT='%C(green)%h%C(reset) - %s%C(cyan) | %an%C(dim) | %ch%C(auto)%d%C(reset)'
