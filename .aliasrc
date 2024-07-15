@@ -125,13 +125,17 @@ if command -v nvim &>/dev/null; then
   alias vi=v
   alias v.='nvim .'
 
-  alias vd="yadm list --all | fzf | xargs nvim"
+  # dotfiles to vim with default query
+  function edit-dotfiles() {
+    yadm list --all | fzf --query ${1:-""} | xargs nvim
+  }
+  alias vd="edit-dotfiles"
+  alias dots=vd
+  alias dotsn=vdn
+  # nvim config to vim
   alias vdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && nvim . && cd -"
   alias ve="nvim $HOME/portable/exocortex"
   alias vf="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
-
-  alias dots=vd
-  alias dotsn=vdn
 
   function nvim-clean-caches() {
     rm -rf "$HOME"/.local/share/nvim
