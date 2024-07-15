@@ -12,24 +12,6 @@ return {
     opts = { colorscheme = "tokyonight-night" },
   },
   {
-    "folke/which-key.nvim",
-    -- add or override by setting new value
-    -- remove keyumap by setting equal to `nil`
-    -- explained here : https://github.com/LazyVim/LazyVim/discussions/2588
-    opts = function(_, opts)
-      -- Formatting
-      opts.defaults["<leader>cf"] = { name = "+format" }
-      opts.defaults["<leader>cfx"] = { "<cmd>%!xmllint --format - <cr>", "Format XML" }
-      opts.defaults["<leader>cfs"] = { "<cmd>%!shfmt - <cr>", "Format Shell" }
-
-      -- Open in external program
-      opts.defaults["<leader>o"] = { "<cmd>!open %<cr>", "Open with default application" }
-
-      -- Search Dotfiles
-      opts.defaults["<leader>d"] = { "<cmd>Telescope find_files find_command=yadm,list,-a<cr>", "Open dotfiles" }
-    end,
-  },
-  {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
       opts.config.header = {
