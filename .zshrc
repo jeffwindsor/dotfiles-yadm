@@ -97,7 +97,9 @@ if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
+# 
 # only needed at work
+#
 if command -v nvm &>/dev/null; then
   mkdir -p $HOME/.nvm
   export NVM_DIR="$HOME/.nvm"
@@ -105,5 +107,6 @@ if command -v nvm &>/dev/null; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-
-
+if command -v $(brew --prefix asdf)/libexec/asdf.sh &>/dev/null; then
+  source $(brew --prefix asdf)/libexec/asdf.sh
+fi
