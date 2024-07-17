@@ -17,12 +17,12 @@ default-root-container-orientation = 'auto'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 4
-inner.vertical = 4
-outer.left = 4
-outer.bottom = 4
-outer.top = 4
-outer.right = 4
+inner.horizontal = 2
+inner.vertical = 2
+outer.left = 2
+outer.bottom = 2
+outer.top = 2
+outer.right = 2
 
 # [workspace-to-monitor-force-assignment]
 # 1 = 1                            # Monitor sequence number from left to right. 1-based indexing
@@ -33,10 +33,11 @@ outer.right = 4
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns. The first matching pattern will be used
 [workspace-to-monitor-force-assignment]
 a = 'secondary'
+c = 'secondary'
+m = 'secondary'
+o = 'secondary'
 s = 'secondary'
 t = 'secondary'
-o = 'secondary'
-m = 'secondary'
 
 # Emacs
 [[on-window-detected]]
@@ -68,20 +69,20 @@ run = ['move-node-to-workspace c']
 if.app-id = 'com.apple.MobileSMS'
 run = ['move-node-to-workspace m']
 
-# Outlook
+# Outlook - set to accordian horiztontal because many windows may exist for app
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
-run = ['move-node-to-workspace o']
+run = ['move-node-to-workspace o']  #, 'layout accordion horizontal']
 
 # Spotify
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = ['move-node-to-workspace s']
 
-# Teams
+# Teams - set to accordian horiztontal because many windows may exist for app
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
-run = ['move-node-to-workspace t']
+run = ['move-node-to-workspace t'] #, 'layout accordion horizontal']
 
 # =======================================================
 # BINDINGS
@@ -106,16 +107,20 @@ run = ['move-node-to-workspace t']
 [mode.main.binding]
 
 # LAUNCHERS
+alt-ctrl-cmd-a = 'exec-and-forget open -n "/Applications/Slack.app"'
 alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Brave Browser.app"'
-alt-ctrl-cmd-c = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
+alt-ctrl-cmd-c = 'exec-and-forget open -n /Applications/Calendar.app'
 alt-ctrl-cmd-e = 'exec-and-forget open -n "/Applications/Emacs.app"'
+alt-ctrl-cmd-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
 alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
-alt-ctrl-cmd-k = 'exec-and-forget open -n "/Applications/Slack.app"'
-alt-ctrl-cmd-v = 'exec-and-forget wezterm start -- nvim'
+alt-ctrl-cmd-g = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
+alt-ctrl-cmd-m = 'exec-and-forget open -n /Applications/Messages.app'
+alt-ctrl-cmd-o = 'exec-and-forget open -n /Applications/Outlook.app'
 alt-ctrl-cmd-s = 'exec-and-forget open -n "/Applications/Spotify.app"'
 alt-ctrl-cmd-space = 'exec-and-forget open ~'
-alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-ctrl-cmd-t = 'exec-and-forget open -n /Applications/Teams.app'
 alt-ctrl-cmd-u = 'exec-and-forget wezterm start -- nu'
+alt-ctrl-cmd-v = 'exec-and-forget wezterm start -- nvim'
 alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
 
 # GENERAL
@@ -126,10 +131,11 @@ cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
 alt-ctrl-cmd-r = 'reload-config'
 
 # FOCUS
-alt-h = 'focus left'                         # WINDOW
-alt-j = 'focus down'                         # WINDOW
-alt-k = 'focus up'                           # WINDOW
-alt-l = 'focus right'                        # WINDOW
+alt-h = 'focus left'  # WINDOW
+alt-j = 'focus down'  # WINDOW
+alt-k = 'focus up'    # WINDOW
+alt-l = 'focus right' # WINDOW
+
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
