@@ -58,8 +58,8 @@ if command -v eza &>/dev/null; then
   alias ff='fastfetch'
 fi
 
-if [ -e $HOME/.config/emacs/bin/doom ]; then
-  alias doom="$HOME/.config/emacs/bin/doom"
+if [ -e $HOME/.emacs.d/bin/doom ]; then
+  alias doom="$HOME/.emacs.d/bin/doom"
 fi
 
 if command -v fzf &>/dev/null; then
