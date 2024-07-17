@@ -45,6 +45,36 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; Replace Doom Banner with Pacman Ghost
+(defun personal-banner ()
+  (let* ((banner '(""
+                "          ░░░░░░░░          "
+                "      ░░░░░░░░░░░░░░░░      "
+                "    ░░░░░░░░░░░░░░░░░░░░    "
+                "  ░░░░░░    ░░░░░░░░    ░░  "
+                "  ░░░░        ░░░░          "
+                "  ░░░░    ▒▒▒▒░░░░    ▒▒▒▒  "
+                "░░░░░░    ▒▒▒▒░░░░    ▒▒▒▒░░"
+                "░░░░░░░░    ░░░░░░░░    ░░░░"
+                "░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+                "░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+                "░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+                "░░░░  ░░░░░░    ░░░░░░  ░░░░"
+                "░░      ░░░░    ░░░░      ░░"
+                ""
+                "         doom emacs         "))
+
+         (longest-line (apply #'max (mapcar #'length banner))))
+    (put-text-property
+     (point)
+     (dolist (line banner (point))
+       (insert (+doom-dashboard--center
+                +doom-dashboard--width
+                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+               "\n"))
+     'face 'doom-dashboard-banner)))
+
+(setq +doom-dashboard-ascii-banner-fn #'personal-banner)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
