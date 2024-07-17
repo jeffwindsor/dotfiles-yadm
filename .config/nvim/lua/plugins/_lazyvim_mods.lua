@@ -1,6 +1,7 @@
 return {
   -- COLOR SCHEMES
   { "rebelot/kanagawa.nvim" },
+  { "NTBBloodbath/doom-one.nvim" },
   --{ "HoNamDuong/hybrid.nvim" },
   --{ "marko-cerovac/material.nvim" },
   { "folke/tokyonight.nvim" },
@@ -9,7 +10,7 @@ return {
   -- LAZYVIM
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "tokyonight-night" },
+    opts = { colorscheme = "doom-one" },
   },
   {
     "nvimdev/dashboard-nvim",
