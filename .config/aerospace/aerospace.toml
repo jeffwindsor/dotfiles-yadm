@@ -124,8 +124,8 @@ alt-ctrl-cmd-v = 'exec-and-forget wezterm start -- nvim'
 alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
 
 # GENERAL
-alt-x = 'close'
-alt-ctrl-x = 'close-all-windows-but-current'
+alt-q = 'close'
+alt-ctrl-q = 'close-all-windows-but-current'
 alt-f = 'fullscreen'
 cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
 alt-ctrl-cmd-r = 'reload-config'
