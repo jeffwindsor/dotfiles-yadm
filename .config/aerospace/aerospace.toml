@@ -177,6 +177,8 @@ alt-ctrl-m = ['move-node-to-workspace m', 'workspace m']
 alt-ctrl-o = ['move-node-to-workspace o', 'workspace o']
 alt-ctrl-s = ['move-node-to-workspace s', 'workspace s']
 alt-ctrl-t = ['move-node-to-workspace t', 'workspace t']
+alt-ctrl-up = 'macos-native-fullscreen'
+alt-ctrl-down = 'macos-native-minimize'
 alt-ctrl-right = 'move-node-to-monitor --wrap-around next'
 alt-ctrl-left = 'move-node-to-monitor --wrap-around prev'
 
