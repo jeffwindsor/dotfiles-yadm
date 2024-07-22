@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias er="env | rg"
+
 # Package Managers
 if command -v nix &>/dev/null; then
   alias ni="nix-env --install"
@@ -25,9 +27,9 @@ if command -v brew &>/dev/null; then
 fi
 
 # Jump Directories - coud repace wit zoxide
-alias ....='cd ../../../'
-alias ...='cd ../../'
-alias ..='cd ..'
+alias ....="cd ../../../"
+alias ...="cd ../../"
+alias ..="cd .."
 alias finb="cd \$SRC/github.com/jeffwindsor/financials/gnucash/business/imports"
 alias finh="cd \$SRC/github.com/jeffwindsor/financials/gnucash/home/imports"
 alias hub="cd \$SRC/github.com"
@@ -36,26 +38,26 @@ alias jeff="cd \$SRC/github.com/jeffwindsor/"
 alias src="cd \$SRC && lla"
 
 if command -v bat &>/dev/null; then
-  alias cat='bat --style=plain'
+  alias cat="bat --style=plain"
 fi
 
 if command -v eza &>/dev/null; then
-  alias l='eza -F --group-directories-first'
-  alias la='eza -F --group-directories-first --git --all'
-  alias ll='eza -lF --group-directories-first'
-  alias lla='eza -lF --group-directories-first --git --all'
-  alias tree='eza --tree --git'
-  alias treea='eza --tree --git --all'
-  alias treed='eza --tree --git --level'
+  alias l="eza -F --group-directories-first"
+  alias la="eza -F --group-directories-first --git --all"
+  alias ll="eza -lF --group-directories-first"
+  alias lla="eza -lF --group-directories-first --git --all"
+  alias tree="eza --tree --git"
+  alias treea="eza --tree --git --all"
+  alias treed="eza --tree --git --level"
 else
-  alias l='ls'
-  alias la='ls -a'
-  alias ll='ls -l'
-  alias lla='ls -la'
+  alias l="ls"
+  alias la="ls -a"
+  alias ll="ls -l"
+  alias lla="ls -la"
 fi
 
 if command -v eza &>/dev/null; then
-  alias ff='fastfetch'
+  alias ff="fastfetch"
 fi
 
 if [ -e $HOME/.emacs.d/bin/doom ]; then
@@ -70,7 +72,7 @@ if command -v fzf &>/dev/null; then
     [ -n "$color_scheme" ] && sd '^config.color_scheme.*$' "config.color_scheme = '${color_scheme}'" "$XDG_CONFIG_HOME"/wezterm/wezterm.lua
   }
 
-  alias theme='wezterm-theme'
+  alias theme="wezterm-theme"
 
   # prompt user to select from list of git directories under $2 and if user selects one, execute command $1 on it
   function exec-on-git-repos() {
@@ -91,9 +93,9 @@ if command -v fzf &>/dev/null; then
 fi
 
 if command -v git &>/dev/null; then
-  alias gclean='git clean -xdf'
-  alias gs='git status'
-  alias gpl='git pull'
+  alias gclean="git clean -xdf"
+  alias gs="git status"
+  alias gpl="git pull"
 
   # git clone from git hub to my source directory
   function ghub() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
@@ -104,13 +106,7 @@ fi
 
 #### helix editor
 if command -v hx &>/dev/null; then
-  alias h='hx'
-  alias h.='hx .'
-
-  alias hd="cd && yadm list --all | fzf | xargs hx && cd -"
-  alias hdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && hx . && cd -"
-  alias he="hx $HOME/portable/exocortex"
-  alias hf="hx $HOME/portable/financials"
+  alias h="hx"
 fi
 
 if command -v lazygit &>/dev/null; then
@@ -120,14 +116,14 @@ fi
 
 ##### neovim
 if command -v nvim &>/dev/null; then
-  alias v='nvim'
+  alias v="nvim"
   alias vim=v
   alias vi=v
-  alias v.='nvim .'
+  alias v.="nvim ."
 
   # dotfiles to vim with default query
   function edit-dotfiles() {
-    yadm list --all | fzf --query ${1:-""} | xargs nvim
+    yadm-list-path | fzf --query ${1:-""} | xargs nvim
   }
   alias vd="edit-dotfiles"
   alias dots=vd
@@ -151,8 +147,8 @@ fi
 
 ##### ripgrep
 if command -v rg &>/dev/null; then
-  alias grep='rg'
-  alias ar='alias | rg'
+  alias grep="rg"
+  alias ar="alias | rg"
 fi
 
 ##### dot file manager
