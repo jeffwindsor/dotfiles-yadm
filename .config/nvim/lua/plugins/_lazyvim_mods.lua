@@ -1,17 +1,14 @@
 return {
   -- COLOR SCHEMES
   { "rebelot/kanagawa.nvim" },
-  { "NTBBloodbath/doom-one.nvim" },
-  --{ "HoNamDuong/hybrid.nvim" },
-  --{ "marko-cerovac/material.nvim" },
   { "folke/tokyonight.nvim" },
   { "jacoborus/tender.vim" },
 
   -- LAZYVIM
-  {
-    "LazyVim/LazyVim",
-    opts = { colorscheme = "doom-one" },
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = { colorscheme = "doom-one" },
+  -- },
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
