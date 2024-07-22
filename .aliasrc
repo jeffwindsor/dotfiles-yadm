@@ -93,6 +93,15 @@ if command -v fzf &>/dev/null; then
 fi
 
 if command -v git &>/dev/null; then
+  function git-all() {
+    for d in */; do
+      echo "==> $d"
+      sleep 5
+      cd ./$d
+      git pull
+      cd ..
+    done
+  }
   alias gclean="git clean -xdf"
   alias gs="git status"
   alias gpl="git pull"
