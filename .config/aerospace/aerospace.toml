@@ -131,10 +131,10 @@ cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
 alt-ctrl-cmd-r = 'reload-config'
 
 # FOCUS
-alt-h = 'focus left'  # WINDOW
-alt-j = 'focus down'  # WINDOW
-alt-k = 'focus up'    # WINDOW
-alt-l = 'focus right' # WINDOW
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
 
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
@@ -152,15 +152,17 @@ alt-m = 'workspace m'
 alt-o = 'workspace o'
 alt-s = 'workspace s'
 alt-t = 'workspace t'
+
 alt-right = 'workspace --wrap-around next'
 alt-left = 'workspace --wrap-around prev'
 alt-tab = 'focus-monitor --wrap-around next'
 
 # MOVE
-alt-ctrl-h = 'move left'                                   # WINDOW
-alt-ctrl-j = 'move down'                                   # WINDOW
-alt-ctrl-k = 'move up'                                     # WINDOW
-alt-ctrl-l = 'move right'                                  # WINDOW
+alt-ctrl-h = 'move left'
+alt-ctrl-j = 'move down'
+alt-ctrl-k = 'move up'
+alt-ctrl-l = 'move right'
+
 alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
@@ -177,10 +179,17 @@ alt-ctrl-m = ['move-node-to-workspace m', 'workspace m']
 alt-ctrl-o = ['move-node-to-workspace o', 'workspace o']
 alt-ctrl-s = ['move-node-to-workspace s', 'workspace s']
 alt-ctrl-t = ['move-node-to-workspace t', 'workspace t']
+
 alt-ctrl-up = 'macos-native-fullscreen'
 alt-ctrl-down = 'macos-native-minimize'
 alt-ctrl-right = 'move-node-to-monitor --wrap-around next'
 alt-ctrl-left = 'move-node-to-monitor --wrap-around prev'
+
+# JOIN 
+alt-shift-h = 'join-with left'
+alt-shift-j = 'join-with down'
+alt-shift-k = 'join-with up'
+alt-shift-l = 'join-with right'
 
 # RESIZE
 alt-ctrl-minus = 'resize smart -50'
@@ -194,3 +203,4 @@ alt-ctrl-period = 'layout accordion horizontal vertical'
 # CUSTOM MODES
 # alt-shift-semicolon = 'mode service'
 # WORKSPACE MOVE WINDOW TO
+# JOIN
