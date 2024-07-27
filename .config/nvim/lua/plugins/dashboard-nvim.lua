@@ -1,14 +1,4 @@
 return {
-  -- COLOR SCHEMES
-  { "rebelot/kanagawa.nvim" },
-  { "folke/tokyonight.nvim" },
-  { "jacoborus/tender.vim" },
-
-  -- LAZYVIM
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = { colorscheme = "doom-one" },
-  -- },
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
@@ -35,18 +25,6 @@ return {
       }
     end,
   },
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      level = 3,
-      render = "minimal",
-      stages = "static",
-    },
-  },
-  -- ---------------------------------------------------
-  -- TURN OFF LAZYVIM PLUGINS
-  { "echasnovski/mini.pairs", enabled = false },
-  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 }
 
 -- '"=^)',
