@@ -4,7 +4,7 @@ local act = wezterm.action
 
 -- =============================================================
 
-config.color_scheme = "tender (base16)"
+config.color_scheme = 'Nord (Gogh)'
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.font_size = 14.0
 config.inactive_pane_hsb = {
