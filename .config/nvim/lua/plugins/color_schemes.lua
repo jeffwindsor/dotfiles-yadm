@@ -15,6 +15,6 @@ return {
 
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "tender" },
+    opts = { colorscheme = "nord" },
   },
 }
