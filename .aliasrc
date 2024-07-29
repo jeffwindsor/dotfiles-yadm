@@ -130,15 +130,21 @@ if command -v nvim &>/dev/null; then
   alias vi=v
   alias v.="nvim ."
 
-  # dotfiles to vim with default query
-  function edit-dotfiles() {
-    yadm-list-path | fzf --query ${1:-""} | xargs nvim
+  function fuzzy-search-dotfiles() {
+    cd
+    yadm list -a | fzf --query ${1:-""} | xargs nvim
+    cd -
   }
-  alias vd="edit-dotfiles"
-  alias dots=vd
-  alias dotsn=vdn
-  # nvim config to vim
-  alias vdn="cd $XDG_CONFIG_HOME/nvim/lua/plugins && nvim . && cd -"
+  alias vd="fuzzy-search-dotfiles"
+  alias dots="fuzzy-search-dotfiles"
+
+  function fuzzy-search-neovim-config() {
+    cd $XDG_CONFIG_HOME/nvim/lua/plugins
+    fzf --query ${1:-""} | xargs nvim
+    cd -
+  }
+  alias vdn="fuzzy-search-neovim-config"
+  alias dotsn="fuzzy-search-neovim-config"
   alias ve="nvim $HOME/portable/exocortex"
   alias vf="nvim -c \":Telescope find_files cwd=\$HOME/portable/financials\""
 
