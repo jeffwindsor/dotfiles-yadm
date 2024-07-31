@@ -6,15 +6,15 @@ return {
   { "rebelot/kanagawa.nvim" },
 
   -- Trying
-  { "bluz71/vim-nightfly-colors" },
+  -- { "bluz71/vim-nightfly-colors" },
   { "sainnhe/everforest" },
-  { "Daiki48/sakurajima.nvim" },
-  { "loctvl842/monokai-pro.nvim" },
-  { "AlexvZyl/nordic.nvim" },
+  -- { "Daiki48/sakurajima.nvim" },
+  -- { "loctvl842/monokai-pro.nvim" },
+  -- { "AlexvZyl/nordic.nvim" },
   { "shaunsingh/nord.nvim" },
 
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "nord" },
+    opts = { colorscheme = "tokyonight" },
   },
 }
