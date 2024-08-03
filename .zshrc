@@ -98,7 +98,7 @@ if command -v starship &>/dev/null; then
 fi
 
 # 
-# only needed at work
+# only needed at CJ
 #
 if command -v nvm &>/dev/null; then
   mkdir -p $HOME/.nvm
@@ -110,3 +110,10 @@ fi
 if command -v $(brew --prefix asdf)/libexec/asdf.sh &>/dev/null; then
   source $(brew --prefix asdf)/libexec/asdf.sh
 fi
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+# End Nix
+
