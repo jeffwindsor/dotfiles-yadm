@@ -32,15 +32,15 @@
 
   homebrew.enable = true;
   homebrew.casks = [
-    aerospace
-    balenaetcher
-    firefox
-    google-chrome
-    keepingyouawake
-    spotify
-    transmission
-    vlc
-    wezterm
+    "aerospace"
+    "balenaetcher"
+    "firefox"
+    "google-chrome"
+    "keepingyouawake"
+    "spotify"
+    "transmission"
+    "vlc"
+    "wezterm"
   ];
 
   # Use a custom configuration.nix location.
