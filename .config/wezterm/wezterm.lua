@@ -4,8 +4,9 @@ local act = wezterm.action
 
 -- =============================================================
 
-config.color_scheme = 'Tokyo Night Moon'
+config.color_scheme = "Tokyo Night Moon"
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
+-- config.font = wezterm.font("Monaco")
 config.font_size = 14.0
 config.inactive_pane_hsb = {
 	saturation = 0.9,
