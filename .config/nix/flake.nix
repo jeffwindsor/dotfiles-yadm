@@ -2,7 +2,9 @@
   description = "NixOS, NixDarwin and Home Manager configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,42 +18,52 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
-        ];
+      # List packages installed in system profile: nix-env -qaP | grep wget
+      environment.systemPackages = with pkgs; [ 
+        bat
+        eza
+        fastfetch
+        fd
+        fortune
+        fzf
+        git
+        lazygit
+        neovim
+        ripgrep
+        sd
+        starship
+        tldr
+        yadm
+        yazi
+        zoxide
+        zsh
+      ];
 
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
-      # nix.package = pkgs.nix;
+      fonts.packages = with pkgs; [
+        jetbrains-mono
+        nerdfonts
+      ];
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
-
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 4;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "x86_64-darwin";
     };
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+    # $ darwin-rebuild build --flake .#midnight
+    darwinConfigurations."Midnight-Air" = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [ 
+        ./darwin.nix
+      ];
+
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."simple".pkgs;
+    # darwinPackages = self.darwinConfigurations."Midnight-Air".pkgs;
   };
 }
