@@ -1,5 +1,5 @@
 {
-  description = "NixOS and Darwin flake - Jeff Windsor";
+  description = "Entry Point for NixOS, Nix Darwin and Home Manager";
 
   inputs = { 
 
@@ -19,16 +19,18 @@
 
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ...}@inputs:
+  outputs = { self, ...}@inputs:
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Midnight-Air
-    darwinConfigurations."Midnight-Air" = nix-darwin.lib.darwinSystem {
-      # The platform the configuration will be used on.
-      system = "aarch64-darwin";
-      modules = [ 
-        ./darwin/
-      ];
+    # Build darwin flake using: darwin-rebuild build --flake ~/.config/nix/
+    darwinConfigurations = 
+    let 
+      inherit (inputs.nix-darwin.lib) darwinSystem;
+      # inherit (inputs.home-manager.darwinModules) home-manager;
+    in {
+      "Midnight-Air" = darwinSystem {
+        system = "aarch64-darwin";
+        modules = [ ./darwin.nix ];
+      };
     };
 
     # Expose the package set, including overlays, for convenience.

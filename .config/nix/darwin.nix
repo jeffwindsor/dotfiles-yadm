@@ -25,30 +25,28 @@
   };
 
   fonts.packages = with pkgs; [
-    jetbrains-mono
-    lexend
-    nerdfonts
+    # lexend
+    (nerdfonts.override { fonts = [ "DroidSansMono" "FiraCode" "JetBrainsMono" ]; })
   ];
 
-  homebrew.enable = true;
-  homebrew.casks = [
-    "aerospace"
-    "balenaetcher"
-    "firefox"
-    "google-chrome"
-    "keepingyouawake"
-    "spotify"
-    "transmission"
-    "vlc"
-    "wezterm"
-  ];
+  homebrew = {
+    enable = true;
+    brews = [];
+    casks = [
+      "aerospace"
+      "balenaetcher"
+      "firefox"
+      "google-chrome"
+      "keepingyouawake"
+      "spotify"
+      "transmission"
+      "vlc"
+      "wezterm"
+    ];
+    taps = [];
+  };
 
   #home-manager = {};
-
-  programs = {
-    # Create /etc/zshrc that loads the nix-darwin environment.
-    zsh.enable = true;
-  };
 
   nix = {
     # Garbage Collection
@@ -60,6 +58,16 @@
 
     # Necessary for using flakes on this system.
     settings.experimental-features = "nix-command flakes";
+  };
+
+  programs = {
+    # Create /etc/zshrc that loads the nix-darwin environment.
+    zsh.enable = true;
+  };
+
+  security = {
+    # Enable Touch Id Support for Sudo
+    pam.enableSudoTouchIdAuth = true;
   };
 
   services = {
