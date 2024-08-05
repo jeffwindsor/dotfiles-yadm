@@ -27,7 +27,7 @@
       # The platform the configuration will be used on.
       system = "aarch64-darwin";
       modules = [ 
-        ./darwin.nix 
+        ./darwin/
       ];
     };
 
