@@ -27,6 +27,7 @@
   #   LOC_NIX     = "$XDG_CONFIG_HOME/nix";
   #   LOC_SRC     = "$HOME/Source";
   # };
-    
+  programs.home-manager.enable = true;
+
   home.stateVersion  = "24.05";
 }

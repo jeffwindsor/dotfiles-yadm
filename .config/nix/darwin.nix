@@ -4,7 +4,6 @@
     darwinConfig = "$XDG_CONFIG_HOME/nix";
     systemPackages = with pkgs; [ 
       bat
-      eza
       fastfetch
       fd
       fortune
@@ -83,5 +82,10 @@
     # $ darwin-rebuild changelog
     stateVersion = 4;
   };
+
+  users.users.jeffwindsor = {
+        name = "jeffwindsor";
+        home = "/Users/jeffwindsor";
+    };
 
 }

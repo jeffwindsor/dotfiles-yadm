@@ -1,22 +1,12 @@
 {
-  description = "Entry Point for NixOS, Nix Darwin and Home Manager";
+  description = "Personal Entry Point for NixOS, Nix Darwin and Home Manager";
 
   inputs = { 
-
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    };
-
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, ...}@inputs:
@@ -25,15 +15,25 @@
     darwinConfigurations = 
     let 
       inherit (inputs.nix-darwin.lib) darwinSystem;
-      # inherit (inputs.home-manager.darwinModules) home-manager;
+      inherit (inputs.home-manager.darwinModules) home-manager;
     in {
       "Midnight-Air" = darwinSystem {
         system = "aarch64-darwin";
-        modules = [ ./darwin.nix ];
+        modules = [ 
+          ./darwin.nix 
+          home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              verbose = true;
+              users.jeffwindsor = import ./home.nix; 
+            };
+          }
+        ];
       };
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."Midnight-Air".pkgs;
+    # darwinPackages = self.darwinConfigurations."Midnight-Air".pkgs;
   };
 }
