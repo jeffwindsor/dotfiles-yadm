@@ -1,0 +1,29 @@
+#!/bin/bash
+
+###############################################################################
+# Functions
+###############################################################################
+function echo_header() {
+  echo -ne "\e[38;5;39m ===> ${1} \e[0m"
+}
+
+###############################################################################
+# INSTALL SCRIPT
+###############################################################################
+cd "$(dirname "${0}")" || exit
+clear
+
+if command -v brew &>/dev/null; then
+
+  echo_header "brew leaves"
+  brew leaves
+
+  echo_header "brew casks"
+  brew list --cask
+
+else
+
+  echo_header "installing brew"
+  eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+fi
