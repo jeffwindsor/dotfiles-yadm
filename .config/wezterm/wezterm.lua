@@ -42,10 +42,10 @@ config.keys = {
 	{ key = "\\", mods = "CTRL", action = act.PaneSelect({ mode = "SwapWithActive" }) },
 
 	--  SPLIT PANE
-	{ key = "H", mods = "CTRL", action = act.SplitPane({ direction = "Left" }) },
-	{ key = "K", mods = "CTRL", action = act.SplitPane({ direction = "Up" }) },
-	{ key = "L", mods = "CTRL", action = act.SplitPane({ direction = "Right" }) },
-	{ key = "J", mods = "CTRL", action = act.SplitPane({ direction = "Down" }) },
+	{ key = "H", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Left" }) },
+	{ key = "K", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Up" }) },
+	{ key = "L", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Right" }) },
+	{ key = "J", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Down" }) },
 
 	--  RESIZE PANE
 	{ key = "LeftArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Left", 1 }) },
