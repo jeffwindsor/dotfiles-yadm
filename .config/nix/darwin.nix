@@ -4,6 +4,7 @@
     darwinConfig = "$XDG_CONFIG_HOME/nix";
     systemPackages = with pkgs; [ 
       bat
+      eza
       fastfetch
       fd
       fortune

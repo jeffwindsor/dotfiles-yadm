@@ -21,14 +21,15 @@
         system = "aarch64-darwin";
         modules = [ 
           ./darwin.nix 
-          home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              verbose = true;
-              users.jeffwindsor = import ./home.nix; 
-            };
-          }
+          # home-manager {
+          #   home-manager = {
+          #     useGlobalPkgs = true;
+          #     useUserPackages = true;
+          #     verbose = true;
+          #     backupFileExtension = "backup";
+          #     users.jeffwindsor = import ./home.nix; 
+          #   };
+          # }
         ];
       };
     };

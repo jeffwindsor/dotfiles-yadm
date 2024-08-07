@@ -24,6 +24,7 @@ if command -v nix &>/dev/null; then
   # nix-darwin
   if command -v darwin-rebuild &>/dev/null; then
     alias ndr="darwin-rebuild build --flake $XDG_CONFIG_HOME/nix"
+    alias nds="nix run nix-darwin -- switch --flake ~/.config/nix"
   fi
 
   # nix-home-manager
