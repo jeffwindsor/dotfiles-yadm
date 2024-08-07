@@ -13,6 +13,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export SRC=$HOME/Source
 export EDITOR="$(which nvim)"
 
+# brew
+HOMEBREW_AUTO_UPDATE_SECS=43200
 
 # homebrew
 export PATH="/opt/homebrew/bin/:$PATH"
