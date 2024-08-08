@@ -21,6 +21,8 @@ BREW_PACKAGES=(
   tldr
   yadm
   yazi
+  imagemagick
+  ffmpegthumbnailer
   zoxide
   zsh
 )
