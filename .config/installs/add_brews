@@ -1,7 +1,7 @@
 #!/bin/bash
 ###############################################################################
 # PACKAGES
-#   maybe: just, nushell, shellcheck, xh
+#   maybe: just, nushell, shellcheck, xh, sshs, age,
 #   maybe: balenaetcher
 ###############################################################################
 BREW_PACKAGES=(
@@ -28,19 +28,29 @@ BREW_PACKAGES=(
 )
 
 BREW_CASKS=(
-  aerospace
-  balenaetcher
   firefox
   font-jetbrains-mono-nerd-font
   font-droid-sans-mono-nerd-font
   font-fira-code-nerd-font
   google-chrome
-  keepingyouawake
   spotify
   transmission
   vlc
   wezterm
 )
+
+# add mac specific
+if [ "$(uname)" == "Darwin" ]; then
+  BREW_CASKS+=(
+    aerospace
+    balenaetcher
+    keepingyouawake
+  )
+
+# add linux specific
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+
+fi
 
 ###############################################################################
 # Functions
