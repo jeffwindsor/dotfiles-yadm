@@ -1,0 +1,84 @@
+# List options
+default:
+  just --list
+
+# Install Universal packages
+install-packages:
+    brew install bat
+    brew install bash
+    brew install eza
+    brew install fastfetch
+    brew install fd
+    brew install fzf
+    brew install git
+    brew install just
+    brew install lazygit
+    brew install neovim
+    brew install ripgrep
+    brew install sd
+    brew install starship
+    brew install tldr
+    brew install yadm
+    brew install yazi
+    brew install imagemagick
+    brew install ffmpegthumbnailer
+    brew install zoxide
+    brew install zsh
+
+    brew install firefox --cask
+    brew install font-jetbrains-mono-nerd-font --cask
+    brew install font-droid-sans-mono-nerd-font --cask
+    brew install font-fira-code-nerd-font --cask
+    brew install google-chrome --cask
+    brew install spotify --cask
+    brew install transmission --cask
+    brew install vlc --cask
+    brew install wezterm --cask
+
+# Install MacOS specific packages
+install-packages-macos:
+    brew install aerospace --cask
+    brew install balenaetcher --cask
+    brew install keepingyouawake --cask
+
+# Add Homebrew in MacOS
+add-homebrew-macos:
+    eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Extra Homebrew Tools in RedHat
+add-homebrew-redhat:
+    eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    sudo yum groupinstall 'Development Tools'
+    sudo yum install procps-ng curl file git
+    sudo yum install libxcrypt-compat # needed by Fedora 30 and up
+
+# Add Extra Homebrew Tools in Debian
+add-homebrew-debian:
+    eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    sudo apt-get install build-essential procps curl file git
+
+# Add dotfiles (using yadm)
+add-dotfiles:
+    yadm clone git@github.com:jeffwindsor/dotfiles.git
+    yadm status
+
+# Add presonal GitHub repos
+add-github-repos:
+    mkdir -p $HOME/Source/github.com/
+    git clone git@github.com:jeffwindsor/startpage.git $HOME/Source/github.com/jeffwindsor/startpage
+    git clone git@github.com:jeffwindsor/financials-home.git $HOME/Source/github.com/jeffwindsor/financials-home
+    git clone git@github.com:jeffwindsor/financials-wfp.git $HOME/Source/github.com/jeffwindsor/financials-wfp
+
+# Add SSH keys for GitHub
+add-ssh-keys:
+    sh-keygen -t ed25519 -f $HOME/.ssh/github.com -C "jeff.windsor@gmail.com"
+
+# Add SSH keys to ssh-agent in MacOS
+add-ssh-keys-to-agent-macos:
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/github.com
+
+# Add Flathub remote
+add-flathub-remote:
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  
