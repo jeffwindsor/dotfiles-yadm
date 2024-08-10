@@ -1,6 +1,15 @@
 return {
 
-  { "folke/tokyonight.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   { "jacoborus/tender.vim" },
   { "navarasu/onedark.nvim" },
   { "rebelot/kanagawa.nvim" },
