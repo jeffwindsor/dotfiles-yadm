@@ -8,6 +8,7 @@ config.color_scheme = "Tokyo Night Moon"
 -- Flair
 config.window_background_opacity = 0.9 -- 0 to 1
 config.macos_window_background_blur = 10 -- 0 to 100
+config.default_cursor_style = "SteadyUnderline"
 
 -- Font
 config.font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font Mono", "Monaco" })
