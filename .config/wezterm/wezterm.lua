@@ -1,55 +1,80 @@
-local wezterm = require("wezterm")
-local config = wezterm.config_builder()
-local act = wezterm.action
+local wezterm = require("wezterm") -- imports wezterm api
+local config = wezterm.config_builder() -- used to build a config to return to wezterm
+local act = wezterm.action -- used by key bindings "action" values
 
--- =============================================================
-
+-- Color Scheme
 config.color_scheme = "Tokyo Night Moon"
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
--- config.font = wezterm.font("Monaco")
+
+-- Flair
+config.window_background_opacity = 0.9 -- 0 to 1
+config.macos_window_background_blur = 10 -- 0 to 100
+
+-- Font
+config.font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font Mono", "Monaco" })
 config.font_size = 14.0
+
+-- Remove title bar, but allows for resizing window (helps with tiling window "managers")
+config.window_decorations = "RESIZE"
+
+-- Shade Inactive Panes
 config.inactive_pane_hsb = {
 	saturation = 0.9,
 	brightness = 0.5,
 }
-config.window_background_opacity = 0.98
+
+-- Trust me, I know what Im doing (most of the time)
 config.window_close_confirmation = "NeverPrompt"
--- setting to none causes issues with Aerospace
-config.window_decorations = "RESIZE"
 
 -- =============================================================
--- Copy, Paste, Insert, Tab, Space, Enter
--- PageUp, PageDown, LeftArrow, RightArrow, UpArrow, DownArrow
-
+-- KEY BINDINGS
+-- =============================================================
+-- https://wezfurlong.org/wezterm/config/keys.html#configuring-key-assignments
+-- Hyper, Super, Meta, Cancel, Backspace, Tab, Clear, Enter, Shift, Escape,
+-- LeftShift, RightShift, Control, LeftControl, RightControl, Alt, LeftAlt,
+-- RightAlt, Menu, LeftMenu, RightMenu, Pause, CapsLock, VoidSymbol, PageUp,
+-- PageDown, End, Home, LeftArrow, RightArrow, UpArrow, DownArrow, Select,
+-- Print, Execute, PrintScreen, Insert, Delete, Help, LeftWindows, RightWindows,
+-- Applications, Sleep, Numpad0, Numpad1, Numpad2, Numpad3, Numpad4, Numpad5, Numpad6,
+-- Numpad7, Numpad8, Numpad9, Multiply, Add, Separator, Subtract, Decimal,
+-- Divide, NumLock, ScrollLock, BrowserBack, BrowserForward, BrowserRefresh,
+-- BrowserStop, BrowserSearch, BrowserFavorites, BrowserHome, VolumeMute,
+-- VolumeDown, VolumeUp, MediaNextTrack, MediaPrevTrack, MediaStop, MediaPlayPause,
+-- ApplicationLeftArrow, ApplicationRightArrow, ApplicationUpArrow, ApplicationDownArrow,
+-- F1 through F24
+-- =============================================================
 config.keys = {
-	-- NEW TAB
+	-- create new tab (default: super t)
 	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
 
-	-- CLOSE PANE
-	{ key = "x", mods = "CTRL", action = act.CloseCurrentPane({ confirm = false }) },
+	-- close current pane (default: super w)
+	{ key = "w", mods = "CTRL", action = act.CloseCurrentPane({ confirm = false }) },
 
-	-- ZOOM PANE
+	-- zoom current pane (default: ctrl|shift z)
 	{ key = "a", mods = "CTRL", action = act.TogglePaneZoomState },
 
-	-- FOCUS PANE
+	-- move focus to pane
 	{ key = "h", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
 	{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
 	{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+	-- this command brings up characters per pane for selection, like nvim leap
+	-- colon is character after: h,j,k,l
 	{ key = ";", mods = "CTRL", action = act.PaneSelect({ mode = "Activate" }) },
 
-	-- ROTATE PANES
+	-- rotate panes
 	{ key = "[", mods = "CTRL", action = act.RotatePanes("CounterClockwise") },
 	{ key = "]", mods = "CTRL", action = act.RotatePanes("Clockwise") },
+	-- this command brings up characters per pane for selection, like nvim leap
+	-- backslash is character after: [, ]
 	{ key = "\\", mods = "CTRL", action = act.PaneSelect({ mode = "SwapWithActive" }) },
 
-	--  SPLIT PANE
-	{ key = "H", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Left" }) },
-	{ key = "K", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Up" }) },
-	{ key = "L", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Right" }) },
-	{ key = "J", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Down" }) },
+	-- split pane
+	{ key = "H", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Left" }) },
+	{ key = "K", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Up" }) },
+	{ key = "L", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Right" }) },
+	{ key = "J", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Down" }) },
 
-	--  RESIZE PANE
+	-- resize pane
 	{ key = "LeftArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Left", 1 }) },
 	{ key = "UpArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Up", 1 }) },
 	{ key = "RightArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Right", 1 }) },
