@@ -1,37 +1,56 @@
 list:
   @just --list
 
-_packages:
-    brew install bat
-    brew install bash
-    brew install eza
-    brew install fastfetch
-    brew install fd
-    brew install fzf
-    brew install git
-    brew install just
-    brew install lazygit
-    brew install neovim
-    brew install ripgrep
-    brew install sd
-    brew install starship
-    brew install tldr
-    brew install yadm
-    brew install yazi
-    brew install imagemagick
-    brew install ffmpegthumbnailer
-    brew install zoxide
-    brew install zsh
+test-me:
+    #!/bin/bash
+    formulae=(
+      bat
+      bash
+      eza
+      fastfetch
+    )
+    for f in "${formulae[@]}"; do echo "$f"; done
 
-    brew install firefox --cask
-    brew install font-jetbrains-mono-nerd-font --cask
-    brew install font-droid-sans-mono-nerd-font --cask
-    brew install font-fira-code-nerd-font --cask
-    brew install google-chrome --cask
-    brew install spotify --cask
-    brew install transmission --cask
-    brew install vlc --cask
-    brew install wezterm --cask
+
+
+_packages:
+    #!/bin/bash
+    formulae=(
+        bat
+        bash
+        eza
+        fastfetch
+        fd
+        fzf
+        git
+        just
+        lazygit
+        neovim
+        ripgrep
+        sd
+        starship
+        tldr
+        yadm
+        yazi
+        imagemagick
+        ffmpegthumbnailer
+        zoxide
+        zsh
+    )
+    for f in "${formulae[@]}"; do brew install "$f"; done
+
+    casks=(
+      firefox --cask
+      font-jetbrains-mono-nerd-font --cask
+      font-droid-sans-mono-nerd-font --cask
+      font-fira-code-nerd-font --cask
+      google-chrome --cask
+      spotify --cask
+      transmission --cask
+      vlc --cask
+      wezterm --cask
+    )
+    for c in "${casks[@]}"; do brew install "$c" --cask; done
 
 [macos]
 packages: _packages
