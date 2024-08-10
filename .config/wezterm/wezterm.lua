@@ -14,6 +14,8 @@ config.inactive_pane_hsb = {
 }
 config.window_background_opacity = 0.98
 config.window_close_confirmation = "NeverPrompt"
+-- setting to none causes issues with Aerospace
+config.window_decorations = "RESIZE"
 
 -- =============================================================
 -- Copy, Paste, Insert, Tab, Space, Enter
