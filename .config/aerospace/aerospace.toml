@@ -120,10 +120,10 @@ alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
 
 # GENERAL
 alt-q = 'close'
-alt-ctrl-q = 'close-all-windows-but-current'
+alt-cmd-q = 'close-all-windows-but-current'
 alt-f = 'fullscreen'
-cmd-h = []                                   # DISABLE NATIVE WINDOW HIDE
-alt-ctrl-cmd-r = 'reload-config'
+cmd-h = []                                  # DISABLE NATIVE WINDOW HIDE
+alt-cmd-r = 'reload-config'
 
 # FOCUS
 alt-h = 'focus left'
@@ -153,32 +153,32 @@ alt-left = 'workspace --wrap-around prev'
 alt-tab = 'focus-monitor --wrap-around next'
 
 # MOVE
-alt-ctrl-h = 'move left'
-alt-ctrl-j = 'move down'
-alt-ctrl-k = 'move up'
-alt-ctrl-l = 'move right'
+alt-cmd-h = 'move left'
+alt-cmd-j = 'move down'
+alt-cmd-k = 'move up'
+alt-cmd-l = 'move right'
 
-alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
-alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
-alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
-alt-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
-alt-ctrl-5 = ['move-node-to-workspace 5', 'workspace 5']
-alt-ctrl-6 = ['move-node-to-workspace 6', 'workspace 6']
-alt-ctrl-7 = ['move-node-to-workspace 7', 'workspace 7']
-alt-ctrl-8 = ['move-node-to-workspace 8', 'workspace 8']
-alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
-alt-ctrl-0 = ['move-node-to-workspace 10', 'workspace 10']
-alt-ctrl-a = ['move-node-to-workspace a', 'workspace a']
-alt-ctrl-c = ['move-node-to-workspace c', 'workspace c']
-alt-ctrl-m = ['move-node-to-workspace m', 'workspace m']
-alt-ctrl-o = ['move-node-to-workspace o', 'workspace o']
-alt-ctrl-s = ['move-node-to-workspace s', 'workspace s']
-alt-ctrl-t = ['move-node-to-workspace t', 'workspace t']
+alt-cmd-1 = ['move-node-to-workspace 1', 'workspace 1']
+alt-cmd-2 = ['move-node-to-workspace 2', 'workspace 2']
+alt-cmd-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-cmd-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-cmd-5 = ['move-node-to-workspace 5', 'workspace 5']
+alt-cmd-6 = ['move-node-to-workspace 6', 'workspace 6']
+alt-cmd-7 = ['move-node-to-workspace 7', 'workspace 7']
+alt-cmd-8 = ['move-node-to-workspace 8', 'workspace 8']
+alt-cmd-9 = ['move-node-to-workspace 9', 'workspace 9']
+alt-cmd-0 = ['move-node-to-workspace 10', 'workspace 10']
+alt-cmd-a = ['move-node-to-workspace a', 'workspace a']
+alt-cmd-c = ['move-node-to-workspace c', 'workspace c']
+alt-cmd-m = ['move-node-to-workspace m', 'workspace m']
+alt-cmd-o = ['move-node-to-workspace o', 'workspace o']
+alt-cmd-s = ['move-node-to-workspace s', 'workspace s']
+alt-cmd-t = ['move-node-to-workspace t', 'workspace t']
 
-alt-ctrl-up = 'macos-native-fullscreen'
-alt-ctrl-down = 'macos-native-minimize'
-alt-ctrl-right = 'move-node-to-monitor --wrap-around next'
-alt-ctrl-left = 'move-node-to-monitor --wrap-around prev'
+alt-cmd-up = 'macos-native-fullscreen'
+alt-cmd-down = 'macos-native-minimize'
+alt-cmd-right = 'move-node-to-monitor --wrap-around next'
+alt-cmd-left = 'move-node-to-monitor --wrap-around prev'
 
 # JOIN 
 alt-shift-h = 'join-with left'
@@ -187,12 +187,12 @@ alt-shift-k = 'join-with up'
 alt-shift-l = 'join-with right'
 
 # RESIZE
-alt-ctrl-minus = 'resize smart -50'
-alt-ctrl-equal = 'resize smart +50'
+alt-cmd-minus = 'resize smart -50'
+alt-cmd-equal = 'resize smart +50'
 
 # LAYOUTS
-alt-ctrl-slash = 'layout tiles horizontal vertical'
-alt-ctrl-period = 'layout accordion horizontal vertical'
+alt-cmd-slash = 'layout tiles horizontal vertical'
+alt-cmd-period = 'layout accordion horizontal vertical'
 
 
 # CUSTOM MODES
