@@ -1,5 +1,13 @@
 return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- colorscheme = "tokyonight-moon",
+      colorscheme = "ayu-mirage",
+    },
+  },
 
+  -- FAVORITE THEMES
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -22,22 +30,25 @@ return {
       end,
     },
   },
-  -- { "AlexvZyl/nordic.nvim" },
-  -- { "Daiki48/sakurajima.nvim" },
-  -- { "bluz71/vim-nightfly-colors" },
-  -- { "loctvl842/monokai-pro.nvim" },
-  -- { "sainnhe/everforest" },
-  -- { "NTBBloodbath/doom-one.nvim" },
   { "jacoborus/tender.vim" },
-  { "navarasu/onedark.nvim" },
   { "rebelot/kanagawa.nvim" },
-  -- { "rmehri01/onenord.nvim" },
   { "shaunsingh/nord.nvim" },
+  { "Shatur/neovim-ayu" },
 
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-moon",
-    },
-  },
+  -- ON DECK
+  { "AlexvZyl/nordic.nvim" },
+  { "Daiki48/sakurajima.nvim" },
+  { "NTBBloodbath/doom-one.nvim" },
+  { "bluz71/vim-nightfly-colors" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "kepano/flexoki-neovim" },
+  { "loctvl842/monokai-pro.nvim" },
+  { "navarasu/onedark.nvim" },
+  { "0xstepit/flow.nvim" },
+  { "rmehri01/onenord.nvim" },
+  { "sainnhe/everforest" },
+  { "savq/melange-nvim" },
+  { "LunarVim/synthwave84.nvim" },
+  { "maxmx03/fluoromachine.nvim" },
+  { "samharju/synthweave.nvim" },
 }
