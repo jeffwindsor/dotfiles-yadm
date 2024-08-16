@@ -188,6 +188,11 @@ t = 'secondary'     # ms teams (work)
 if.app-id = 'com.github.wez.wezterm'
 run = ['move-node-to-workspace 1']
 
+# Xcode
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = ['move-node-to-workspace 5']
+
 # IntelliJ
 [[on-window-detected]]
 if.app-id = 'com.jetbrains.intellij'
