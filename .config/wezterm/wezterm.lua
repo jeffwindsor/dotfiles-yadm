@@ -70,10 +70,10 @@ config.keys = {
 	{ key = "\\", mods = "CTRL", action = act.PaneSelect({ mode = "SwapWithActive" }) },
 
 	-- split pane
-	{ key = "h", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Left" }) },
-	{ key = "k", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Up" }) },
-	{ key = "l", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Right" }) },
-	{ key = "j", mods = "CTRL|ALT", action = act.SplitPane({ direction = "Down" }) },
+	{ key = "h", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Left" }) },
+	{ key = "k", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Up" }) },
+	{ key = "l", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Right" }) },
+	{ key = "j", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Down" }) },
 
 	-- resize pane
 	{ key = "LeftArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Left", 1 }) },
