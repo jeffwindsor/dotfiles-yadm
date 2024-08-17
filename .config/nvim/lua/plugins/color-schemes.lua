@@ -2,8 +2,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "tokyonight-moon",
-      colorscheme = "ayu-mirage",
+      colorscheme = "tokyonight-moon",
+      -- colorscheme = "ayu-mirage",
     },
   },
 
@@ -24,7 +24,7 @@ return {
         hl.WinSeparator = { bold = true, fg = c.cyan }
         -- increase visibility of line numbers
         hl.CursorLineNr = { bold = true, fg = c.orange }
-        hl.LineNr = { fg = c.orange }
+        hl.LineNr = { fg = c.comment }
         hl.LineNrAbove = { fg = c.comment }
         hl.LineNrBelow = { fg = c.comment }
       end,
