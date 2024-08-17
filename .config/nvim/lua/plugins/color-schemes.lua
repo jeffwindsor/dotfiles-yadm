@@ -4,6 +4,9 @@ return {
     opts = {
       colorscheme = "tokyonight-moon",
       -- colorscheme = "ayu-mirage",
+      -- colorscheme = "monokai-pro-octagon",
+      -- colorscheme = "flexoki",
+      -- colorscheme = "synthwave-transparent",
     },
   },
 
@@ -34,6 +37,9 @@ return {
   { "rebelot/kanagawa.nvim" },
   { "shaunsingh/nord.nvim" },
   { "Shatur/neovim-ayu" },
+  { "loctvl842/monokai-pro.nvim" },
+  { "kepano/flexoki-neovim" },
+  { "samharju/synthweave.nvim" },
 
   -- ON DECK
   { "AlexvZyl/nordic.nvim" },
@@ -41,14 +47,10 @@ return {
   { "NTBBloodbath/doom-one.nvim" },
   { "bluz71/vim-nightfly-colors" },
   { "ellisonleao/gruvbox.nvim" },
-  { "kepano/flexoki-neovim" },
-  { "loctvl842/monokai-pro.nvim" },
   { "navarasu/onedark.nvim" },
   { "0xstepit/flow.nvim" },
   { "rmehri01/onenord.nvim" },
   { "sainnhe/everforest" },
   { "savq/melange-nvim" },
-  { "LunarVim/synthwave84.nvim" },
   { "maxmx03/fluoromachine.nvim" },
-  { "samharju/synthweave.nvim" },
 }
