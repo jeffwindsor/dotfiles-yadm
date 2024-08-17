@@ -10,9 +10,11 @@ Catppuccin Macchiato
 Catppuccin Mocha
 DoomOne
 Gruvbox Dark (Gogh)
-ybrid
+hybrid
 Hybrid (Gogh)
+Floraverse
 Kanagawa (Gogh)
+Medallion
 Nord (Gogh)
 OceanicNext (base16)
 Solarized (dark) (terminal.sexy)
