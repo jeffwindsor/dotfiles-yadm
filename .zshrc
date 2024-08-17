@@ -110,3 +110,6 @@ fi
 if command -v $(brew --prefix asdf)/libexec/asdf.sh &>/dev/null; then
   source $(brew --prefix asdf)/libexec/asdf.sh
 fi
+
+# Created by `pipx` on 2024-08-17 00:40:56
+export PATH="$PATH:/Users/jeffwindsor/.local/bin"

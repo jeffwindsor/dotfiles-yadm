@@ -15,6 +15,7 @@ BREW_PACKAGES=(
   just
   lazygit
   neovim
+  pipx
   ripgrep
   sd
   starship
