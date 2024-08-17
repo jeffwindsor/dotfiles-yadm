@@ -1,5 +1,34 @@
 #!/usr/bin/env zsh
 
+# avoids insecure directories issues
+export ZSH_DISABLE_COMPFIX="true"
+
+# xdg-ify
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+
+# personal
+export SRC=$HOME/Source
+
+# brew
+export HOMEBREW_AUTO_UPDATE_SECS=43200
+
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --ignore-file ~/.config/fdignore'
+export FZF_DEFAULT_OPTS='--info=inline --reverse --border none --preview "bat {}" --preview-window down'
+
+# git
+export GIT_LOG_PRETTY_FORMAT='%C(green)%h%C(reset) - %s%C(cyan) | %an%C(dim) | %ch%C(auto)%d%C(reset)'
+
+# node
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmconfig
+export NPM_PACKAGES=$HOME/.npm-packages
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+
+# ripgrep
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 
 # ZSH Package Manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -110,6 +139,3 @@ fi
 if command -v $(brew --prefix asdf)/libexec/asdf.sh &>/dev/null; then
   source $(brew --prefix asdf)/libexec/asdf.sh
 fi
-
-# Created by `pipx` on 2024-08-17 00:40:56
-export PATH="$PATH:/Users/jeffwindsor/.local/bin"
