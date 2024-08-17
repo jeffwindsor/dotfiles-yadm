@@ -142,9 +142,7 @@ if command -v nvim &>/dev/null; then
   alias v.="nvim ."
 
   function fuzzy-search-dotfiles() {
-    cd
-    yadm list -a | fzf --query ${1:-""} | xargs nvim
-    cd -
+    yadm list -a | sd "^" "$HOME/" | rg -v -e "$HOME/$" | fzf --query ${1:-""} | xargs nvim
   }
   alias vd="fuzzy-search-dotfiles"
   alias dots="fuzzy-search-dotfiles"
