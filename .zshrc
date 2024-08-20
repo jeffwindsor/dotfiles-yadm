@@ -30,6 +30,7 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 # ripgrep
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 
+#==============================================================================
 # ZSH Package Manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -49,29 +50,18 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 autoload -Uz compinit && compinit
+zinit cdreplay -q
+#==============================================================================
 
-# ZSH Options
-#   scripts and functions
-#setopt LOCAL_OPTIONS MULTIOS
-#   expansion and globbing
-#setopt EXTENDED_GLOB
-#   completions
-#setopt AUTO_MENU
-#setopt ALWAYS_TO_END
-#setopt AUTO_LIST
-#setopt NO_MENU_COMPLETE
-#setopt COMPLETE_IN_WORD
-#setopt NOMATCH
-#   job control
-#setopt NOTIFY
-#   prompting
-#setopt PROMPT_SUBST
-#   input / output
-#unsetopt FLOW_CONTROL
-#unsetopt CORRECT_ALL
-#   zle
 unsetopt BEEP
-#   HISTORY
+
+# Keybindings
+bindkey -v
+# bindkey '^p' history-search-backward
+# bindkey '^n' history-search-forward
+# bindkey '^[w' kill-region
+
+# History 
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
@@ -94,12 +84,6 @@ zstyle ':completion:*' menu no
 # add previews to tab completes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# Keybindings
-bindkey -v
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-bindkey '^[w' kill-region
 
 # homebrew
 if [[ -f "/opt/homebrew/bin/brew" ]] then
