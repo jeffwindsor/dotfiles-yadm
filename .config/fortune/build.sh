@@ -4,7 +4,7 @@
 cd "$(dirname "$0")" || exit
 shopt -s extglob
 
-cat quotes.txt | sort -t'\~' -f -k2 | sd '$' '\n%' >quotes
+# cat quotes.txt | sort -t'\~' -f -k2 | sd '$' '\n%' >quotes
 
 # compile fortune files
 files=(!(*.*))
