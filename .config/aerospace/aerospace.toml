@@ -87,34 +87,34 @@ alt-period = 'layout accordion horizontal vertical'
 
 # workspaces 
 alt-1 = 'workspace 1'
-cmd-1 = 'workspace 1' # for others who use my machine and expect macos default
+cmd-1 = 'workspace 1'                                       # for others who use my machine and expect macos default
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-2 = 'workspace 2'
-cmd-2 = 'workspace 2' # for others who use my machine and expect macos default
+cmd-2 = 'workspace 2'                                       # for others who use my machine and expect macos default
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-3 = 'workspace 3'
-cmd-3 = 'workspace 3' # for others who use my machine and expect macos default
+cmd-3 = 'workspace 3'                                       # for others who use my machine and expect macos default
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 alt-4 = 'workspace 4'
-cmd-4 = 'workspace 4' # for others who use my machine and expect macos default
+cmd-4 = 'workspace 4'                                       # for others who use my machine and expect macos default
 alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
 alt-5 = 'workspace 5'
-cmd-5 = 'workspace 5' # for others who use my machine and expect macos default
+cmd-5 = 'workspace 5'                                       # for others who use my machine and expect macos default
 alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
 alt-6 = 'workspace 6'
-cmd-6 = 'workspace 6' # for others who use my machine and expect macos default
+cmd-6 = 'workspace 6'                                       # for others who use my machine and expect macos default
 alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 alt-7 = 'workspace 7'
-cmd-7 = 'workspace 7' # for others who use my machine and expect macos default
+cmd-7 = 'workspace 7'                                       # for others who use my machine and expect macos default
 alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-8 = 'workspace 8'
-cmd-8 = 'workspace 8' # for others who use my machine and expect macos default
+cmd-8 = 'workspace 8'                                       # for others who use my machine and expect macos default
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-9 = 'workspace 9'
-cmd-9 = 'workspace 9' # for others who use my machine and expect macos default
+cmd-9 = 'workspace 9'                                       # for others who use my machine and expect macos default
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 alt-0 = 'workspace 10'
-cmd-0 = 'workspace 10' # for others who use my machine and expect macos default
+cmd-0 = 'workspace 10'                                      # for others who use my machine and expect macos default
 alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
 alt-a = 'workspace a'
 alt-shift-a = ['move-node-to-workspace a', 'workspace a']
@@ -128,6 +128,8 @@ alt-s = 'workspace s'
 alt-shift-s = ['move-node-to-workspace s', 'workspace s']
 alt-t = 'workspace t'
 alt-shift-t = ['move-node-to-workspace t', 'workspace t']
+alt-u = 'workspace u'
+alt-shift-u = ['move-node-to-workspace u', 'workspace u']
 
 alt-shift-right = 'workspace --wrap-around next'
 alt-shift-left = 'workspace --wrap-around prev'
@@ -172,8 +174,8 @@ alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
 
 
 # OVERRIDE / DISABLE
-cmd-h = []                                  # DISABLE NATIVE WINDOW HIDE
-cmd-m = []                                  # DISABLE NATIVE WINDOW MINIMIZE
+cmd-h = [] # DISABLE NATIVE WINDOW HIDE
+cmd-m = [] # DISABLE NATIVE WINDOW MINIMIZE
 
 # =======================================================
 # WORKSPACE AND WINDOW DEFAULTS
@@ -186,12 +188,13 @@ cmd-m = []                                  # DISABLE NATIVE WINDOW MINIMIZE
 # 5 = '^built-in retina display$'  # Case insensitive regex match
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns. The first matching pattern will be used
 [workspace-to-monitor-force-assignment]
-a = 'secondary'     # slack
-c = 'secondary'     # mac Calendar
-m = 'secondary'     # mac Messages
-o = 'secondary'     # ms office (work)
-s = 'secondary'     # spotify
-t = 'secondary'     # ms teams (work)
+a = 'secondary' # slack
+c = 'secondary' # mac Calendar
+m = 'secondary' # mac Messages
+o = 'secondary' # ms office (work)
+s = 'secondary' # spotify
+t = 'secondary' # ms teams (work)
+u = 'secondary' # ms teams - meeting (work)
 
 # Terminal
 [[on-window-detected]]
