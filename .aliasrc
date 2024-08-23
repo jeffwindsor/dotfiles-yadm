@@ -36,7 +36,7 @@ fi
 if command -v brew &>/dev/null; then
   alias bi="brew info"
   alias bn="brew install"
-  alias bl="echo && echo '\e[92m== Formula Leaves ==\e[0m' && brew leaves && echo && echo '\e[92m== Casks ==\e[0m' && brew list -1 --casks"
+  alias bl="echo && echo '== Formula Leaves ==' && brew leaves && echo && echo '== Casks ==' && brew list -1 --casks"
   alias blc="brew list --casks --versions"
   alias blf="brew list --formula --versions"
   alias bu="brew uninstall"
@@ -104,7 +104,8 @@ if command -v fzf &>/dev/null; then
 fi
 
 if command -v git &>/dev/null; then
-  function git-all() {
+  # used at work because there is a limit on how many pulls per sec
+  function git-rec() {
     for d in */; do
       echo "==> $d"
       sleep 5
@@ -113,9 +114,18 @@ if command -v git &>/dev/null; then
       cd ..
     done
   }
+
   alias gclean="git clean -xdf"
   alias gs="git status"
   alias gpl="git pull"
+  # git blame (more precise)
+  alias gb="git blame -w -C -C -C"
+  # git blame line range
+  alias gbl="git blame -w -C -C -C -L"
+  # git diff by words changed
+  alias gdw="git diff --word-diff"
+
+  alias gm="git maintenance start"
 
   # git clone from git hub to my source directory
   function ghub() { git clone git@github.com:"$1" "$SRC"/github.com/"$1"; }
