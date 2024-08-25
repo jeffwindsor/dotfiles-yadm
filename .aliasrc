@@ -34,14 +34,22 @@ if command -v nix &>/dev/null; then
 fi
 
 if command -v brew &>/dev/null; then
+  function brew-list-all() {
+    echo '== Formula Leaves =='
+    brew leaves
+    echo
+    echo '== Casks =='
+    # -1 is to 'Force output to be one entry per line'
+    brew list -1 --casks
+  }
   alias bi="brew info"
-  alias bn="brew install"
-  alias bl="echo && echo '== Formula Leaves ==' && brew leaves && echo && echo '== Casks ==' && brew list -1 --casks"
+  alias bl="brew-list-all"
   alias blc="brew list --casks --versions"
   alias blf="brew list --formula --versions"
-  alias bu="brew uninstall"
-  alias br=bu
+  alias bn="brew install"
+  alias brm="brew remove" # same as uninstall or rm
   alias bs="brew search"
+  alias bsd="brew search --desc"
   alias bup="brew update && brew upgrade"
   alias bx="brew autoremove"
 fi
