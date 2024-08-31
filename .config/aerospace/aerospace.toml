@@ -122,6 +122,8 @@ alt-c = 'workspace c'
 alt-shift-c = ['move-node-to-workspace c', 'workspace c']
 alt-m = 'workspace m'
 alt-shift-m = ['move-node-to-workspace m', 'workspace m']
+alt-n = 'workspace n'
+alt-shift-n = ['move-node-to-workspace n', 'workspace n']
 alt-o = 'workspace o'
 alt-shift-o = ['move-node-to-workspace o', 'workspace o']
 alt-s = 'workspace s'
@@ -153,6 +155,7 @@ alt-ctrl-cmd-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
 alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
 alt-ctrl-cmd-g = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
 alt-ctrl-cmd-m = 'exec-and-forget open /System/Applications/Messages.app'
+alt-ctrl-cmd-m = 'exec-and-forget open /System/Applications/Notes.app'
 alt-ctrl-cmd-o = 'exec-and-forget open /Applications/Outlook.app'
 alt-ctrl-cmd-s = 'exec-and-forget open "/Applications/Spotify.app"'
 alt-ctrl-cmd-comma = 'exec-and-forget open "/System/Applications/System Settings.app"'
@@ -196,6 +199,8 @@ s = 'secondary' # spotify
 t = 'secondary' # ms teams (work)
 u = 'secondary' # ms teams - meeting (work)
 
+# osascript -e 'id of app "Application Name"'
+#
 # Terminal
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
@@ -225,6 +230,11 @@ run = ['move-node-to-workspace c']
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
 run = ['move-node-to-workspace m']
+
+# Notes
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = ['move-node-to-workspace n']
 
 # Outlook - set to accordian horiztontal because many windows may exist for app
 [[on-window-detected]]
