@@ -20,7 +20,7 @@
   conflictstyle = zdiff3
 
 [pull]
-	rebase = true
+	ff = only
 
 [push]
   default = current
