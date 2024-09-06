@@ -149,19 +149,17 @@ alt-cmd-left = 'focus-monitor --wrap-around prev'
 
 # LAUNCHERS : ALT-CTRL-CMD
 alt-ctrl-cmd-a = 'exec-and-forget open "/Applications/Slack.app"'
-alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Brave Browser.app"'
+alt-ctrl-cmd-b = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
 alt-ctrl-cmd-c = 'exec-and-forget open /System/Applications/Calendar.app'
+alt-ctrl-cmd-comma = 'exec-and-forget open "/System/Applications/System Settings.app"'
 alt-ctrl-cmd-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
 alt-ctrl-cmd-f = 'exec-and-forget open -n "/Applications/Firefox.app"'
-alt-ctrl-cmd-g = 'exec-and-forget open -n "/Applications/Google Chrome.app"'
 alt-ctrl-cmd-m = 'exec-and-forget open /System/Applications/Messages.app'
 alt-ctrl-cmd-n = 'exec-and-forget open /System/Applications/Notes.app'
 alt-ctrl-cmd-o = 'exec-and-forget open /Applications/Outlook.app'
 alt-ctrl-cmd-s = 'exec-and-forget open "/Applications/Spotify.app"'
-alt-ctrl-cmd-comma = 'exec-and-forget open "/System/Applications/System Settings.app"'
 alt-ctrl-cmd-space = 'exec-and-forget open ~'
 alt-ctrl-cmd-t = 'exec-and-forget open /Applications/Teams.app'
-# alt-ctrl-cmd-u = 'exec-and-forget wezterm start -- nu'
 alt-ctrl-cmd-v = 'exec-and-forget wezterm start -- nvim'
 alt-ctrl-cmd-y = 'exec-and-forget wezterm start -- yazi'
 
@@ -206,6 +204,15 @@ u = 'secondary' # ms teams - meeting (work)
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 run = ['move-node-to-workspace 1']
+
+# Browsers
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = ['move-node-to-workspace 2']
 
 # Xcode
 [[on-window-detected]]
