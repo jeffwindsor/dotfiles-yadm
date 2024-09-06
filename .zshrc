@@ -37,6 +37,7 @@ zinit load wfxr/forgit
 # plugin - replace zsh's default completion selection menu with fzf!
 # Add this as the last plugin just in case of conflicts
 zinit light Aloxaf/fzf-tab
+zinit snippet OMZP::asdf
 
 # initialize ZSH
 autoload -Uz compinit && compinit
